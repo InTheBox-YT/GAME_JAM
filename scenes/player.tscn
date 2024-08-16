@@ -38,6 +38,9 @@ offset_right = 1153.0
 offset_bottom = 649.0
 texture = SubResource("CameraTexture_6l2hq")
 
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 0.926049, 0.377404, 0, -0.377404, 0.926049, 0, 3.14443, 4.17785)
-fov = 86.7919
+[node name="CamOrigin" type="Node3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.499133, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/CamOrigin"]
+transform = Transform3D(1, 0, 0, 0, 0.926049, 0.377404, 0, -0.377404, 0.926049, 0, 0.862054, 3.14181)
+fov = 70.0
