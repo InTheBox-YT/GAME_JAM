@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvg2o6pb6ba56"]
+
+[ext_resource type="Material" uid="uid://d1deego7mdsfe" path="res://Materials/GridFloor.tres" id="1_hnknw"]
+[ext_resource type="Material" uid="uid://cw1na8ls13hx8" path="res://Materials/WallGrid.tres" id="2_f7cnu"]
+
+[node name="Map" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.33677, -0.223633, 9.05175)
+use_collision = true
+size = Vector3(29.7484, 0.552734, 30.047)
+material = ExtResource("1_hnknw")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.33677, 6.39272, 9.05175)
+material_override = ExtResource("2_f7cnu")
+use_collision = true
+size = Vector3(29.7484, 0.552734, 30.047)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.26074, 3.33231, 9.1308)
+material_override = ExtResource("2_f7cnu")
+use_collision = true
+size = Vector3(0.583984, 6.58625, 30.0448)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.47211, 3.34254, -5.6001)
+material_override = ExtResource("2_f7cnu")
+use_collision = true
+size = Vector3(30.0497, 6.6067, 0.583008)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -23.8778, 3.33204, 9.12417)
+use_collision = true
+size = Vector3(0.583984, 6.58571, 30.0244)
+material = ExtResource("2_f7cnu")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -9.34731, 3.33326, 23.8541)
+material_override = ExtResource("2_f7cnu")
+use_collision = true
+size = Vector3(29.7363, 6.58815, 0.583008)
+
+[node name="Lighs" type="Node" parent="."]
+
+[node name="Light" type="OmniLight3D" parent="Lighs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5383, 0)
+shadow_enabled = true
+omni_range = 8.86186
+
+[node name="Light3" type="OmniLight3D" parent="Lighs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.46397, 2.5383, 18.8741)
+light_color = Color(0.419608, 1, 1, 1)
+shadow_enabled = true
+omni_range = 8.86186
+
+[node name="Light2" type="OmniLight3D" parent="Lighs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4925, 2.5383, 0)
+shadow_enabled = true
+omni_range = 8.86186

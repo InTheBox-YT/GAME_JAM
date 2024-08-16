@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bgtp3h647cv2h"]
+
+[ext_resource type="Texture2D" uid="uid://di6m7fharxujv" path="res://Materials/hand_painted_wood_dark_2.png" id="1_x6yfr"]
+
+[resource]
+diffuse_mode = 3
+albedo_texture = ExtResource("1_x6yfr")
+roughness = 0.96
+roughness_texture = ExtResource("1_x6yfr")
+heightmap_scale = 13.629
+uv1_scale = Vector3(20, 20, 20)
+uv1_triplanar = true

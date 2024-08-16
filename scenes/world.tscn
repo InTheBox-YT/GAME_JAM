@@ -1,48 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://2v3mk05sk4kq"]
+[gd_scene load_steps=3 format=3 uid="uid://2v3mk05sk4kq"]
 
 [ext_resource type="PackedScene" uid="uid://c787recj65cw8" path="res://scenes/player.tscn" id="1_5wtfl"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_4jjwx"]
-size = Vector3(2.40234, 1, 1.73779)
-
-[sub_resource type="BoxMesh" id="BoxMesh_agffy"]
+[ext_resource type="PackedScene" uid="uid://dvg2o6pb6ba56" path="res://scenes/Map.tscn" id="2_ina60"]
 
 [node name="World" type="Node3D"]
-
-[node name="Floor" type="StaticBody3D" parent="."]
-transform = Transform3D(7.21672, 0, 0, 0, 0.661296, 0, 0, 0, 10.8548, 0, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-shape = SubResource("BoxShape3D_4jjwx")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/CollisionShape3D"]
-transform = Transform3D(2.39407, 0, 0, 0, 1, 0, 0, 0, 1.72401, 0, 0, 0)
-mesh = SubResource("BoxMesh_agffy")
-
-[node name="Platform" type="StaticBody3D" parent="."]
-transform = Transform3D(2.17574, 0, 0, 0, 2.84051, 0, 0, 0, 4.17115, 4.81432, -0.074892, -0.889984)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.701172, 0, -0.368896)
-shape = SubResource("BoxShape3D_4jjwx")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Platform"]
-transform = Transform3D(2.39407, 0, 0, 0, 1, 0, 0, 0, 1.72401, 0.701172, 0, -0.368896)
-mesh = SubResource("BoxMesh_agffy")
-skeleton = NodePath("../CollisionShape3D")
-
-[node name="Platform2" type="StaticBody3D" parent="."]
-transform = Transform3D(2.17574, 0, 0, 0, 2.84051, 0, 0, 0, 4.17115, 4.81432, 0.619514, 5.77046)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform2"]
-shape = SubResource("BoxShape3D_4jjwx")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Platform2"]
-transform = Transform3D(2.39407, 0, 0, 0, 1, 0, 0, 0, 1.72401, 0, 0, 0)
-mesh = SubResource("BoxMesh_agffy")
-skeleton = NodePath("../CollisionShape3D")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("1_5wtfl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85276, 0)
@@ -50,17 +11,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85276, 0)
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.969812, -0.243852, 0, 0.239284, 0.951644, 0.192659, -0.0469803, -0.186843, 0.981266, 0, 4.52962, 0)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.46608, -2.57802)
-light_color = Color(1, 1, 0, 1)
-shadow_enabled = true
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.09701, 3.14323, 1.59645)
-light_color = Color(0, 1, 1, 1)
-shadow_enabled = true
-
-[node name="OmniLight3D3" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.30395, 3.14323, 6.87311)
-light_color = Color(1, 0.746816, 0.841047, 1)
-shadow_enabled = true
+[node name="Map" parent="." instance=ExtResource("2_ina60")]
