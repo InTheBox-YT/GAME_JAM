@@ -25,7 +25,7 @@ var target_fov = normal_fov
 
 # Resizing Variables
 @export var resize_max: float = 10.0
-var resize_factor = 0.0
+var resize_factor = 1.0
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -44,20 +44,15 @@ func _input(event):
 			if event.button_index == MOUSE_BUTTON_WHEEL_UP:
 				if resize_factor <= resize_max:
 					resize_factor += 0.1
-				
-				if raycast.is_colliding():
-					var target: Node = raycast.get_collider()
-					if target and target is Node3D:
-						resize_object(target)
 						
 			elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 				if resize_factor >= 1:
 					resize_factor -= 0.1
-				
-				if raycast.is_colliding():
-					var target: Node = raycast.get_collider()
-					if target and target is Node3D:
-						resize_object(target)
+					
+		if raycast.is_colliding():
+			var target: Node = raycast.get_collider()
+			if target is Node3D:
+				resize_object(target)
 
 func _physics_process(delta: float):
 	if not is_on_floor():
@@ -96,7 +91,7 @@ func _physics_process(delta: float):
 	camera.fov = lerp(camera.fov, target_fov, zoom_speed * delta)
 
 func resize_object(target: Node3D):
-	target.scale.x += resize_factor
-	target.scale.y += resize_factor
-	target.scale.z += resize_factor
+	target.scale.x = resize_factor
+	target.scale.y = resize_factor
+	target.scale.z = resize_factor
 	print("Resized object: ", target.name, " New scale: ", target.scale)
