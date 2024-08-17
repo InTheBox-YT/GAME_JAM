@@ -24,10 +24,8 @@ var target_fov = normal_fov
 
 # Resizing Variables
 @export var resize_max: float = 5.0
-@export var resize_speed: float = 2.0  # Speed of resizing transition
+@export var resize_min: float = 1.0
 var resize_factor = 1.0
-var object_original_scales: Dictionary = {}  # Dictionary to keep track of original scales
-var object_target_scales: Dictionary = {}    # Dictionary to keep track of target scales
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -44,19 +42,17 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if Input.is_action_pressed("Zoom"):
 			if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-				if resize_factor < resize_max:
-					resize_factor += 0.1
-						
+				resize_factor = 0.1
 			elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-				if resize_factor > 1:
-					resize_factor -= 0.1
+				resize_factor = -0.1
+				
+			# Handle resizing if the raycast is colliding
+			if raycast.is_colliding():
+				var target: Node = raycast.get_collider()
+				if target is Node3D:
+					# Set the target scale for the object
+					resize_object(target)
 
-		# Handle resizing if the raycast is colliding
-		if raycast.is_colliding():
-			var target: Node = raycast.get_collider()
-			if target is Node3D:
-				# Set the target scale for the object
-				set_target_scale(target)
 
 func _physics_process(delta: float):
 	if not is_on_floor():
@@ -94,32 +90,8 @@ func _physics_process(delta: float):
 
 	camera.fov = lerp(camera.fov, target_fov, zoom_speed * delta)
 
-	# Smoothly update the scale of all objects
-	update_scales(delta)
-
-func set_target_scale(target: Node3D):
-	# Check if the object is already tracked
-	if not object_original_scales.has(target):
-		# Store the original scale
-		object_original_scales[target] = target.scale
-	
-	# Calculate the target scale
-	var original_scale = object_original_scales[target]
-	var new_target_scale = original_scale * resize_factor
-	
-	# Store the target scale
-	object_target_scales[target] = new_target_scale
-
-func update_scales(delta: float):
-	for target in object_target_scales.keys():
-		var target_scale = object_target_scales[target]
-		var current_scale = target.scale
-		
-		# Smoothly interpolate the scale
-		var new_scale = lerp(current_scale, target_scale, resize_speed * delta)
-		target.scale = new_scale
-		
-		# Optionally, you can remove the object from the dictionary once it reaches the target scale
-		if abs(target_scale.x - new_scale.x) < 0.01 and abs(target_scale.y - new_scale.y) < 0.01 and abs(target_scale.z - new_scale.z) < 0.01:
-			object_target_scales.erase(target)
-			print("Resized object: ", target.name, " Final scale: ", target.scale)
+func resize_object(target: Node3D):
+	target.scale.x += resize_factor
+	target.scale.y += resize_factor
+	target.scale.z += resize_factor
+	print("Resized object: ", target.name, " New scale: ", target.scale)
