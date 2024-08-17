@@ -53,18 +53,19 @@ func _unhandled_input(event):
 		pivot.rotate_x(deg_to_rad(-event.relative.y * 0.1))
 		pivot.rotation.x = clamp(pivot.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 
-func _input(event):
+func _input(event):	
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
 			resize_factor = 0.1
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			resize_factor = -0.1
 
-	if raycast.is_colliding():
-		var target: Node = raycast.get_collider()
-		var target_parent: Node = target.get_parent()
-		if target is Node3D and target_parent != get_node("/root/World/Map/UnsizeableObjects"):
-			set_target_scale(target)
+		if currentCamera == first_person_camera:
+			if raycast.is_colliding():
+				var target: Node = raycast.get_collider()
+				var target_parent: Node = target.get_parent()
+				if target is Node3D and target_parent != get_node("/root/World/Map/UnsizeableObjects"):
+					set_target_scale(target)
 
 func _physics_process(delta: float):
 	if not is_on_floor():

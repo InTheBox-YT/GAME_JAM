@@ -47,7 +47,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13196, -0.172316)
 fov = 90.0
 
 [node name="RayCast3D" type="RayCast3D" parent="CharacterBody3D/CamOrigin/FirstPersonCamera"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 target_position = Vector3(0, 0, -10)
 collide_with_areas = true
 
