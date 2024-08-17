@@ -51,7 +51,7 @@ func _input(event):
 						resize_object(target)
 						
 			elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-				if resize_factor >= 0:
+				if resize_factor >= 1:
 					resize_factor -= 0.1
 				
 				if raycast.is_colliding():
