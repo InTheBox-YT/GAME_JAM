@@ -44,10 +44,13 @@ func _ready():
 	camera.current = true
 	camera.fov = normal_fov
 	update_camera_position()
+	
+	# Lock the mouse cursor
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
-		rotate_y(deg_to_rad(-event.relative.x * 0.5))
+		# Rotate the camera only
 		pivot.rotate_x(deg_to_rad(-event.relative.y * 0.5))
 		pivot.rotation.x = clamp(pivot.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 
