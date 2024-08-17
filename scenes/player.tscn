@@ -1,23 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c787recj65cw8"]
+[gd_scene load_steps=5 format=3 uid="uid://c787recj65cw8"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerMovement.gd" id="1_4yoea"]
-[ext_resource type="Shader" path="res://Shader/LethalCompany.gdshader" id="2_600tp"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ujg0b"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_epvc8"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2c2sp"]
-shader = ExtResource("2_600tp")
-shader_parameter/tint_color = Color(1, 1, 1, 0)
-shader_parameter/grime_intensity = 0.0
-shader_parameter/noise_intensity = 0.0
-shader_parameter/flicker_speed = 0.0
-shader_parameter/cel_shade_levels = 10.0
-shader_parameter/outline_thickness = 0.0
-shader_parameter/outline_color = Color(0, 0, 0, 0)
-
-[sub_resource type="CameraTexture" id="CameraTexture_6l2hq"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ngbtd"]
 
@@ -33,12 +20,6 @@ mesh = SubResource("CapsuleMesh_ujg0b")
 shape = SubResource("CapsuleShape3D_epvc8")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="CharacterBody3D"]
-
-[node name="TextureRect" type="TextureRect" parent="CharacterBody3D/CanvasLayer"]
-material = SubResource("ShaderMaterial_2c2sp")
-offset_right = 1153.0
-offset_bottom = 649.0
-texture = SubResource("CameraTexture_6l2hq")
 
 [node name="CamOrigin" type="Node3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.499133, 0)
