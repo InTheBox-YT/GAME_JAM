@@ -40,7 +40,7 @@ func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		rotate_y(deg_to_rad(-event.relative.x * 0.5))
 		pivot.rotate_x(deg_to_rad(-event.relative.y * 0.5))
-		pivot.rotation.x = clamp(pivot.rotation.x, deg_to_rad(-40), deg_to_rad(40))
+		pivot.rotation.x = clamp(pivot.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -53,10 +53,10 @@ func _input(event):
 			# Handle resizing if the raycast is colliding
 			if raycast.is_colliding():
 				var target: Node = raycast.get_collider()
-				if target is Node3D:
+				var target_parent: Node = target.get_parent()
+				if target is Node3D and target_parent != get_node("/root/World/Map/UnsizeableObjects"):
 					# Set the target scale for the object
 					set_target_scale(target)
-
 
 func _physics_process(delta: float):
 	if not is_on_floor():

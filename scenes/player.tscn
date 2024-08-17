@@ -22,11 +22,11 @@ shape = SubResource("CapsuleShape3D_epvc8")
 [node name="CanvasLayer" type="CanvasLayer" parent="CharacterBody3D"]
 
 [node name="CamOrigin" type="Node3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.499133, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.302595, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/CamOrigin"]
-transform = Transform3D(1, 0, 0, 0, 0.96297, 0.269608, 0, -0.269608, 0.96297, 0, 0.953185, 0.0904765)
-fov = 70.0
+transform = Transform3D(1, 0, 0, 0, 0.96297, 0.269608, 0, -0.269608, 0.96297, 0.932953, 0.821671, 2.21416)
+fov = 90.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D/CamOrigin"]
 transform = Transform3D(1.11515e-16, 1.87738e-07, 0.0500657, 0.0583639, -1.87738e-07, 0, 2.55117e-09, 4.29494, -2.18844e-09, 0.00247496, -0.138478, -4.78173)

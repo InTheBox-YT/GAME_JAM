@@ -111,12 +111,6 @@ material_override = ExtResource("1_hnknw")
 use_collision = true
 size = Vector3(14.0065, 1, 8.06641)
 
-[node name="CSGBox3D8" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.74055, 3.07266, 0.870743)
-material_override = ExtResource("1_hnknw")
-use_collision = true
-size = Vector3(7.0509, 7.14435, 2.85352)
-
 [node name="CSGBox3D9" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2753, 10.0979, 0.870743)
 material_override = ExtResource("1_hnknw")
@@ -128,12 +122,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5825, 10.0979, 2.09169)
 material_override = ExtResource("1_hnknw")
 use_collision = true
 size = Vector3(6.86813, 7.13869, 0.411623)
-
-[node name="CSGBox3D10" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.26655, 2.16315, -3.36214)
-material_override = ExtResource("1_hnknw")
-use_collision = true
-material = ExtResource("3_skmkj")
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.563014, 4.20716, -2.65536)
@@ -151,3 +139,17 @@ material = ExtResource("3_skmkj")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_604yo")
+
+[node name="UnsizeableObjects" type="Node3D" parent="."]
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.26655, 2.16315, -3.36214)
+material_override = ExtResource("1_hnknw")
+use_collision = true
+material = ExtResource("3_skmkj")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.74055, 3.07266, 0.870743)
+material_override = ExtResource("1_hnknw")
+use_collision = true
+size = Vector3(7.0509, 7.14435, 2.85352)
