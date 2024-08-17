@@ -4,7 +4,7 @@ extends CharacterBody3D
 @onready var first_person_camera: Camera3D = $CamOrigin/FirstPersonCamera
 
 @onready var pivot: Node3D = $CamOrigin
-@onready var raycast: RayCast3D = $CamOrigin/ThirdPersonCamera/RayCast3D
+@onready var raycast: RayCast3D = $CamOrigin/FirstPersonCamera/RayCast3D
 
 # Speed Variables
 var curspeed = WALK_SPEED
@@ -34,6 +34,8 @@ var current_target: Node3D = null
 
 var currentCamera
 
+var rotation_speed := 5.0 # Rotation speed in degrees per second
+
 func _ready():
 	# Set the camera's initial position and rotation
 	currentCamera = third_person_camera
@@ -46,8 +48,9 @@ func _ready():
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
-		# Rotate the camera only
-		pivot.rotate_x(deg_to_rad(-event.relative.y * 0.5))
+		# Rotate the pivot (character) based on mouse movement
+		rotate_y(deg_to_rad(-event.relative.x * 0.1))  # Adjust sensitivity as needed
+		pivot.rotate_x(deg_to_rad(-event.relative.y * 0.1))
 		pivot.rotation.x = clamp(pivot.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 
 func _input(event):
@@ -56,15 +59,14 @@ func _input(event):
 			resize_factor = 0.1
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			resize_factor = -0.1
-				
-		if raycast.is_colliding():
-			var target: Node = raycast.get_collider()
-			var target_parent: Node = target.get_parent()
-			if target is Node3D and target_parent != get_node("/root/World/Map/UnsizeableObjects"):
-				set_target_scale(target)
+
+	if raycast.is_colliding():
+		var target: Node = raycast.get_collider()
+		var target_parent: Node = target.get_parent()
+		if target is Node3D and target_parent != get_node("/root/World/Map/UnsizeableObjects"):
+			set_target_scale(target)
 
 func _physics_process(delta: float):
-	
 	if not is_on_floor():
 		velocity.y -= GRAVITY * delta
 
@@ -81,7 +83,7 @@ func _physics_process(delta: float):
 
 	var input_dir = Input.get_vector("Left", "Right", "Up", "Down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	
+
 	if currentCamera == third_person_camera:
 		third_person_camera.current = true
 		first_person_camera.current = false
