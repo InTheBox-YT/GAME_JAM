@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvg2o6pb6ba56"]
+[gd_scene load_steps=6 format=3 uid="uid://dvg2o6pb6ba56"]
 
 [ext_resource type="Material" uid="uid://d1deego7mdsfe" path="res://Materials/GridFloor.tres" id="1_hnknw"]
 [ext_resource type="Material" uid="uid://cw1na8ls13hx8" path="res://Materials/WallGrid.tres" id="2_f7cnu"]
+[ext_resource type="PackedScene" uid="uid://3at00qcw8mv8" path="res://Models/model.dae" id="2_hxynw"]
 [ext_resource type="Material" uid="uid://dycdgi6o1h7jp" path="res://Materials/GridFloor2Move.tres" id="3_skmkj"]
 
 [sub_resource type="Environment" id="Environment_604yo"]
@@ -45,6 +46,24 @@ light_color = Color(0.419608, 1, 1, 1)
 shadow_enabled = true
 omni_range = 8.86186
 
+[node name="Light9" type="OmniLight3D" parent="Lighs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.138854, 11.1255, -7.13101)
+light_color = Color(0.910028, 0.263639, 1.92523e-07, 1)
+shadow_enabled = true
+omni_range = 8.86186
+
+[node name="Light10" type="OmniLight3D" parent="Lighs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.48389, 5.56112, -5.42121)
+light_color = Color(0.910028, 0.263639, 1.92523e-07, 1)
+shadow_enabled = true
+omni_range = 8.86186
+
+[node name="Light11" type="OmniLight3D" parent="Lighs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.42497, 2.54681, 3.11121)
+light_color = Color(0.910028, 0.263639, 1.92523e-07, 1)
+shadow_enabled = true
+omni_range = 8.86186
+
 [node name="Light2" type="OmniLight3D" parent="Lighs"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.13202, 2.5383, 9.70292)
 light_color = Color(1, 1, 0, 1)
@@ -68,6 +87,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0407, 5.0766, 9.81863)
 light_energy = 0.677
 shadow_enabled = true
 omni_range = 17.356
+
+[node name="model" parent="Lighs" instance=ExtResource("2_hxynw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.72388, 1.88053, 5.81307)
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.51985, 0.792858, 16.5035)
@@ -106,10 +128,10 @@ environment = SubResource("Environment_604yo")
 [node name="UnsizeableObjects" type="Node3D" parent="."]
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="UnsizeableObjects"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8.21839, 6.86212, 5.55306)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8.21839, 6.86212, 3.79094)
 material_override = ExtResource("1_hnknw")
 use_collision = true
-size = Vector3(0.583984, 13.6459, 37.1666)
+size = Vector3(0.583984, 13.6459, 40.6908)
 material = ExtResource("2_f7cnu")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="UnsizeableObjects"]
@@ -119,16 +141,16 @@ size = Vector3(29.7484, 0.552734, 30.047)
 material = ExtResource("1_hnknw")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="UnsizeableObjects"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.26074, 6.90401, 5.56778)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.26074, 6.90401, 3.79822)
 material_override = ExtResource("1_hnknw")
 use_collision = true
-size = Vector3(0.583984, 13.7296, 37.1708)
+size = Vector3(0.583984, 13.7296, 40.7099)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="UnsizeableObjects"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.27461, 4.9561, -10.4183)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25937, 4.9561, -12.2016)
 material_override = ExtResource("1_hnknw")
 use_collision = true
-size = Vector3(13.6547, 9.83382, 5.14123)
+size = Vector3(13.6242, 9.83382, 8.70782)
 material = ExtResource("1_hnknw")
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="UnsizeableObjects"]
@@ -138,9 +160,9 @@ use_collision = true
 size = Vector3(7.0509, 7.13869, 2.85352)
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="UnsizeableObjects"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.74006, 13.7959, 5.39089)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.74006, 13.7959, 3.64347)
 use_collision = true
-size = Vector3(14.555, 0.552734, 37.3687)
+size = Vector3(14.555, 0.552734, 40.8635)
 material = ExtResource("1_hnknw")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="UnsizeableObjects"]
