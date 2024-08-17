@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmxfw56dfqaba"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ujfky"]
+
+[node name="NPC" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("CapsuleMesh_ujfky")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]

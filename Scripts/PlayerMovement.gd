@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 @onready var camera: Camera3D = $CamOrigin/Camera3D
+@onready var pivot: Node3D = $CamOrigin
 @onready var raycast: RayCast3D = $CamOrigin/Camera3D/RayCast3D
 
 # Speed Variables
@@ -34,10 +35,21 @@ var bobbing_speed = 6.0
 var bobbing_amount = 0.1
 var bobbing_timer = 0.0
 
+# Camera Offset
+var isometric_camera_offset: Vector3 = Vector3(0, 10, -10)
+var first_person_camera_offset: Vector3 = Vector3(0, 1, 0)
+
 func _ready():
-	# Set the camera's initial field of view
+	# Set the camera's initial position and rotation
 	camera.current = true
 	camera.fov = normal_fov
+	update_camera_position()
+
+func _unhandled_input(event):
+	if event is InputEventMouseMotion:
+		rotate_y(deg_to_rad(-event.relative.x * 0.5))
+		pivot.rotate_x(deg_to_rad(-event.relative.y * 0.5))
+		pivot.rotation.x = clamp(pivot.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -91,13 +103,25 @@ func _physics_process(delta: float):
 	# Smoothly scale the target object
 	if current_target:
 		current_target.scale = current_target.scale.lerp(target_scale, resize_speed * delta)
-
+	
 	# Camera bobbing effect
 	if is_on_floor() and direction:
 		bobbing_timer += bobbing_speed * delta
 		camera.transform.origin.y = sin(bobbing_timer) * bobbing_amount
 	else:
 		camera.transform.origin.y = move_toward(camera.transform.origin.y, 0, 10 * delta)
+
+	# Update camera position
+	update_camera_position()
+
+func update_camera_position():
+	if Input.is_action_pressed("Zoom"):
+		# Switch to first-person view when zoomed
+		camera.global_transform.origin = global_transform.origin + first_person_camera_offset
+	else:
+		# Isometric view when not zoomed
+		camera.global_transform.origin = global_transform.origin + isometric_camera_offset
+		camera.look_at(global_transform.origin + Vector3(0, 0, 1), Vector3.UP)
 
 func set_target_scale(target: Node3D):
 	# Calculate new target scale
