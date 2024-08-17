@@ -91,7 +91,13 @@ func _physics_process(delta: float):
 	camera.fov = lerp(camera.fov, target_fov, zoom_speed * delta)
 
 func resize_object(target: Node3D):
-	target.scale.x += resize_factor
-	target.scale.y += resize_factor
-	target.scale.z += resize_factor
+	# Calculate new scale
+	var new_scale = target.scale + Vector3(resize_factor, resize_factor, resize_factor)
+	
+	# Clamp the new scale within the min and max bounds
+	new_scale.x = clamp(new_scale.x, resize_min, resize_max)
+	new_scale.y = clamp(new_scale.y, resize_min, resize_max)
+	new_scale.z = clamp(new_scale.z, resize_min, resize_max)
+	
+	target.scale = new_scale
 	print("Resized object: ", target.name, " New scale: ", target.scale)
