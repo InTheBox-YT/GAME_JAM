@@ -24,7 +24,7 @@ var zoom_speed = 5.0
 var target_fov = normal_fov
 
 # Resizing Variables
-@export var resize_max: float = 10.0
+@export var resize_max: float = 5.0
 var resize_factor = 1.0
 
 func _ready():
@@ -42,11 +42,11 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if Input.is_action_pressed("Zoom"):
 			if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-				if resize_factor <= resize_max:
+				if resize_factor < resize_max:
 					resize_factor += 0.1
 						
 			elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-				if resize_factor >= 1:
+				if resize_factor > 1:
 					resize_factor -= 0.1
 					
 		if raycast.is_colliding():
