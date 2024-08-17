@@ -8,10 +8,7 @@
 [node name="World" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_5wtfl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85276, 0)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.969812, -0.243852, 0, 0.239284, 0.951644, 0.192659, -0.0469803, -0.186843, 0.981266, 0, 4.52962, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85276, 18.3773)
 
 [node name="Map" parent="." instance=ExtResource("2_ina60")]
 

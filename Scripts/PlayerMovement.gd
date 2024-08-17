@@ -24,8 +24,8 @@ var target_fov = normal_fov
 
 # Resizing Variables
 @export var resize_max: float = 5.0
-@export var resize_min: float = 1.0
-var resize_factor = 1.0
+@export var resize_min: float = 1
+var resize_factor = 0.5
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
