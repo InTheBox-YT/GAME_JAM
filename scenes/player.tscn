@@ -27,24 +27,29 @@ skeleton = NodePath("../..")
 [node name="CamOrigin" type="Node3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.302595, 0)
 
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/CamOrigin"]
+[node name="ThirdPersonCamera" type="Camera3D" parent="CharacterBody3D/CamOrigin"]
 transform = Transform3D(1, 0, 0, 0, 0.80597, 0.591956, 0, -0.591956, 0.80597, 0.932953, 4.79597, 2.86796)
 doppler_tracking = 2
+current = true
 fov = 90.0
 
-[node name="RayCast3D" type="RayCast3D" parent="CharacterBody3D/CamOrigin/Camera3D"]
+[node name="RayCast3D" type="RayCast3D" parent="CharacterBody3D/CamOrigin/ThirdPersonCamera"]
 target_position = Vector3(0, 0, -10)
 collide_with_areas = true
 
-[node name="ColideCast" type="RayCast3D" parent="CharacterBody3D/CamOrigin/Camera3D"]
+[node name="CollideCast" type="RayCast3D" parent="CharacterBody3D/CamOrigin/ThirdPersonCamera"]
 target_position = Vector3(0, 0, 2)
 collide_with_areas = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D/CamOrigin/Camera3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D/CamOrigin/ThirdPersonCamera"]
 transform = Transform3D(0.0583639, 0, 0, 0, 3.57628e-07, -0.0500657, 0, 4.29494, -4.65661e-09, 0.135884, -0.00295377, -4.25628)
 mesh = SubResource("CylinderMesh_ngbtd")
 
-[node name="Area3D" type="Area3D" parent="CharacterBody3D/CamOrigin/Camera3D"]
+[node name="Area3D" type="Area3D" parent="CharacterBody3D/CamOrigin/ThirdPersonCamera"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D/CamOrigin/Camera3D/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D/CamOrigin/ThirdPersonCamera/Area3D"]
 shape = SubResource("SphereShape3D_ohxvq")
+
+[node name="FirstPersonCamera" type="Camera3D" parent="CharacterBody3D/CamOrigin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13196, -0.172316)
+fov = 90.0
