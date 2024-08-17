@@ -3,6 +3,7 @@ extends CharacterBody3D
 @onready var camera: Camera3D = $CamOrigin/Camera3D
 @onready var pivot: Node3D = $CamOrigin
 @onready var raycast: RayCast3D = $CamOrigin/RayCast3D
+@onready var collision_ray: RayCast3D = $CamOrigin/CollisionRaycast # New RayCast for collision detection
 
 # Speed Variables
 const WALK_SPEED := 5.0
@@ -31,10 +32,15 @@ var resize_speed = 15
 var target_scale: Vector3 = Vector3.ONE
 var current_target: Node3D = null
 
+# Camera Collision Variables
+const CAMERA_COLLISION_OFFSET = 1.0
+var camera_target_position: Vector3
+
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	camera.current = true
 	camera.fov = normal_fov
+	camera_target_position = camera.position
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
@@ -86,6 +92,14 @@ func _physics_process(delta: float):
 		velocity.z = move_toward(velocity.z, 0, curspeed)
 
 	move_and_slide()
+
+	# Adjust camera position based on collision detection
+	var camera_offset = camera_target_position - camera.position
+	collision_ray.cast_to = camera_offset.normalized() * CAMERA_COLLISION_OFFSET
+	if collision_ray.is_colliding():
+		camera.position = collision_ray.get_collision_point() - camera_offset.normalized() * CAMERA_COLLISION_OFFSET
+	else:
+		camera.position = camera_target_position
 
 	if Input.is_action_pressed("Zoom"):
 		target_fov = zoomed_fov	

@@ -38,3 +38,8 @@ skeleton = NodePath("../Camera3D")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.139276, 0)
 target_position = Vector3(0, 0, -10)
 collide_with_areas = true
+
+[node name="CollisionRaycast" type="RayCast3D" parent="CharacterBody3D/CamOrigin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.957398, 0.721863, 2.03997)
+target_position = Vector3(0, 0, -10)
+collide_with_areas = true
