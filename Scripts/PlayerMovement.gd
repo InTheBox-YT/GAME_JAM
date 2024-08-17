@@ -6,13 +6,9 @@ extends CharacterBody3D
 @onready var collision_ray: RayCast3D = $CamOrigin/CollisionRaycast # New RayCast for collision detection
 
 # Speed Variables
+var curspeed
 const WALK_SPEED := 5.0
 const RUN_SPEED := 8.0
-const CROUCH_SPEED := 2.0
-var curspeed = WALK_SPEED
-
-const STAMINA_MAX := 10.0
-var STAMINA = STAMINA_MAX
 
 const JUMP_VELOCITY = 6 
 const GRAVITY = 9.8  
@@ -72,14 +68,8 @@ func _physics_process(delta: float):
 		velocity.y = JUMP_VELOCITY
 
 	if Input.is_action_pressed("Run") and is_on_floor():
-		STAMINA -= delta
-		if STAMINA >= 0:
-			curspeed = RUN_SPEED
-		else:
-			curspeed = WALK_SPEED
+		curspeed = RUN_SPEED
 	else:
-		if STAMINA <= STAMINA_MAX:
-			STAMINA += delta
 		curspeed = WALK_SPEED
 	
 	var input_dir = Input.get_vector("Left", "Right", "Up", "Down")
