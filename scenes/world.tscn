@@ -21,6 +21,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85276, 18.3773)
 environment = SubResource("Environment_xjj1u")
 
 [node name="MenuCanvas" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="MainMenu" type="MarginContainer" parent="MenuCanvas"]
 anchors_preset = 15
