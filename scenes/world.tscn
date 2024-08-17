@@ -45,10 +45,16 @@ layout_mode = 2
 texture = ExtResource("5_awtks")
 stretch_mode = 2
 
-[node name="VersionNumber" type="TextureRect" parent="MenuCanvas/MainMenu/HBoxContainer/VBoxContainer"]
+[node name="menuoptions" type="VBoxContainer" parent="MenuCanvas/MainMenu/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuCanvas/MainMenu"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+size_flags_stretch_ratio = 0.0
+
+[node name="VersionNumber" type="TextureRect" parent="MenuCanvas/MainMenu/VBoxContainer"]
 layout_mode = 2
 texture = ExtResource("6_aqem1")
 stretch_mode = 2
-
-[node name="menuoptions" type="VBoxContainer" parent="MenuCanvas/MainMenu/HBoxContainer/VBoxContainer"]
-layout_mode = 2
