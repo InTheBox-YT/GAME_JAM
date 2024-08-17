@@ -59,6 +59,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4925, 2.5383, 0)
 shadow_enabled = true
 omni_range = 8.86186
 
+[node name="Light2" type="OmniLight3D" parent="Lighs/Light2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.45181, 2.5383, 9.81863)
+light_energy = 0.677
+shadow_enabled = true
+omni_range = 17.356
+
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.51985, 0.792858, 16.5035)
 use_collision = true
