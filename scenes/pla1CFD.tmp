@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://c787recj65cw8"]
+
+[ext_resource type="Script" path="res://Scripts/PlayerMovement.gd" id="1_4yoea"]
+[ext_resource type="Shader" path="res://Shader/LethalCompany.gdshader" id="2_600tp"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ujg0b"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_epvc8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2c2sp"]
+shader = ExtResource("2_600tp")
+shader_parameter/tint_color = Color(1, 1, 1, 0)
+shader_parameter/grime_intensity = 0.0
+shader_parameter/noise_intensity = 0.0
+shader_parameter/flicker_speed = 0.0
+shader_parameter/cel_shade_levels = 10.0
+shader_parameter/outline_thickness = 0.0
+shader_parameter/outline_color = Color(0, 0, 0, 0)
+
+[sub_resource type="CameraTexture" id="CameraTexture_6l2hq"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ngbtd"]
+
+[node name="Player" type="Node3D"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+script = ExtResource("1_4yoea")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+mesh = SubResource("CapsuleMesh_ujg0b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_epvc8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CharacterBody3D"]
+
+[node name="TextureRect" type="TextureRect" parent="CharacterBody3D/CanvasLayer"]
+material = SubResource("ShaderMaterial_2c2sp")
+offset_right = 1153.0
+offset_bottom = 649.0
+texture = SubResource("CameraTexture_6l2hq")
+
+[node name="CamOrigin" type="Node3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.499133, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/CamOrigin"]
+transform = Transform3D(1, 0, 0, 0, 0.96297, 0.269608, 0, -0.269608, 0.96297, 0, 0.953185, 0.0904765)
+fov = 70.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D/CamOrigin"]
+transform = Transform3D(1.11515e-16, 1.87738e-07, 0.0500657, 0.0583639, -1.87738e-07, 0, 2.55117e-09, 4.29494, -2.18844e-09, 0.00247496, -0.138478, -4.78173)
+mesh = SubResource("CylinderMesh_ngbtd")
+skeleton = NodePath("../Camera3D")
+
+[node name="RayCast3D" type="RayCast3D" parent="CharacterBody3D/CamOrigin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.139276, 0)
+target_position = Vector3(0, 0, -10)
+collide_with_areas = true
