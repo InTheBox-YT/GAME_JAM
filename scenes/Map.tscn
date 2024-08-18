@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvg2o6pb6ba56"]
+[gd_scene load_steps=9 format=3 uid="uid://dvg2o6pb6ba56"]
 
 [ext_resource type="Material" uid="uid://d1deego7mdsfe" path="res://Materials/GridFloor.tres" id="1_hnknw"]
 [ext_resource type="Material" uid="uid://cw1na8ls13hx8" path="res://Materials/WallGrid.tres" id="2_f7cnu"]
 [ext_resource type="PackedScene" uid="uid://3at00qcw8mv8" path="res://Models/model.dae" id="2_hxynw"]
 [ext_resource type="Material" uid="uid://dycdgi6o1h7jp" path="res://Materials/GridFloor2Move.tres" id="3_skmkj"]
 [ext_resource type="PackedScene" uid="uid://dmxfw56dfqaba" path="res://scenes/npc.tscn" id="5_hu4v8"]
+[ext_resource type="Texture2D" uid="uid://ccyt2gl215cpj" path="res://scenes/Evedence1.png" id="6_ano2s"]
 
 [sub_resource type="Environment" id="Environment_604yo"]
 background_mode = 5
@@ -12,6 +13,9 @@ ambient_light_source = 2
 glow_enabled = true
 glow_bloom = 0.02
 fog_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v3n8e"]
+size = Vector3(4.56958, 4.80328, 0.0454102)
 
 [node name="Map" type="Node3D"]
 
@@ -175,3 +179,15 @@ material = ExtResource("2_f7cnu")
 
 [node name="NPC" parent="." instance=ExtResource("5_hu4v8")]
 transform = Transform3D(0.790187, 0, -0.612866, 0, 1, 0, 0.612866, 0, 0.790187, 2.44489, 1.04722, 7.12769)
+
+[node name="2dSprites" type="Node3D" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="2dSprites"]
+transform = Transform3D(0.0450185, 0, 0, 0, -1.84156e-09, 1, 0, -0.04213, -4.37114e-08, 0, 9.91089, -9.60223)
+texture = ExtResource("6_ano2s")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="2dSprites/Sprite3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="2dSprites/Sprite3D/StaticBody3D"]
+transform = Transform3D(0.999978, 0, 0, 0, 1, -1.86446e-11, 0, 2.95319e-14, 0.999984, 0.0235558, -0.177887, 0.00610447)
+shape = SubResource("BoxShape3D_v3n8e")
