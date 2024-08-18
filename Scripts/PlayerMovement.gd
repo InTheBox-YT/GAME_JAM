@@ -5,6 +5,9 @@ extends CharacterBody3D
 
 @onready var pivot: Node3D = $CamOrigin
 @onready var raycast: RayCast3D = $CamOrigin/FirstPersonCamera/RayCast3D
+@onready var magnifying_glass: Node3D = $CamOrigin/FirstPersonCamera/Magnifying_Glass
+@onready var arm: MeshInstance3D = $CamOrigin/FirstPersonCamera/Arm
+
 
 # Speed Variables
 var curspeed = WALK_SPEED
@@ -51,7 +54,10 @@ func _unhandled_input(event):
 		# Rotate the pivot (character) based on mouse movement
 		rotate_y(deg_to_rad(-event.relative.x * 0.1))  # Adjust sensitivity as needed
 		pivot.rotate_x(deg_to_rad(-event.relative.y * 0.1))
-		pivot.rotation.x = clamp(pivot.rotation.x, deg_to_rad(-60), deg_to_rad(60))
+		if currentCamera == first_person_camera:
+			pivot.rotation.x = clamp(pivot.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+		if currentCamera == third_person_camera:
+			pivot.rotation.x = clamp(pivot.rotation.x, deg_to_rad(-40), deg_to_rad(40))
 
 func _input(event):	
 	if event is InputEventMouseButton:
@@ -88,9 +94,15 @@ func _physics_process(delta: float):
 	if currentCamera == third_person_camera:
 		third_person_camera.current = true
 		first_person_camera.current = false
+		
+		magnifying_glass.visible = false
+		arm.visible = false
 	elif currentCamera == first_person_camera:
 		third_person_camera.current = false
 		first_person_camera.current = true
+		
+		magnifying_glass.visible = true
+		arm.visible = true
 
 	# Apply some control in the air
 	if direction:
