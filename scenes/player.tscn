@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://c787recj65cw8"]
+[gd_scene load_steps=37 format=4 uid="uid://c787recj65cw8"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerMovement.gd" id="1_4yoea"]
 [ext_resource type="PackedScene" uid="uid://cb42uhuquyjxv" path="res://zoom glass thing.glb" id="2_80ddp"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://c7nuwbujtwgya" path="res://mannetje beveled_Cube_6.png" id="8_urdwr"]
 [ext_resource type="Texture2D" uid="uid://8e62mo1ngu7l" path="res://mannetje beveled_Cube_7.png" id="9_cypb1"]
 [ext_resource type="Texture2D" uid="uid://cw5v11mqt8xcr" path="res://mannetje beveled_Cube_3.png" id="10_b2s58"]
-[ext_resource type="Script" path="res://Scripts/camera_controller.gd" id="11_byj1g"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_epvc8"]
 
@@ -419,7 +418,6 @@ skin = SubResource("Skin_pju0j")
 skeleton = NodePath("../CamOrigin/FirstPersonCamera")
 
 [node name="CamRoot" type="Node3D" parent="CharacterBody3D"]
-script = ExtResource("11_byj1g")
 
 [node name="CamYaw" type="Node3D" parent="CharacterBody3D/CamRoot"]
 

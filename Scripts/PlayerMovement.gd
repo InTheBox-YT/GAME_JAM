@@ -8,7 +8,6 @@ extends CharacterBody3D
 @onready var magnifying_glass: Node3D = $CamOrigin/FirstPersonCamera/Magnifying_Glass
 @onready var arm: MeshInstance3D = $CamOrigin/FirstPersonCamera/Arm
 
-
 # Speed Variables
 var curspeed = WALK_SPEED
 var target_speed = WALK_SPEED
@@ -38,13 +37,19 @@ var current_target: Node3D = null
 var currentCamera
 
 var rotation_speed := 5.0 # Rotation speed in degrees per second
+var smooth_rotation_speed := 20.0 # Faster rotation speed for aligning with camera
+var current_yaw_rotation: float = 0.0
+var target_yaw_rotation: float = 0.0
+
+# Camera friction variables
+var camera_friction := 5.0 # Higher value means more friction
 
 func _ready():
 	# Set the camera's initial position and rotation
 	currentCamera = third_person_camera
 	currentCamera.current = true
 	currentCamera.fov = normal_fov
-	update_camera_position()
+	update_camera_position(0)
 	
 	# Lock the mouse cursor
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -58,6 +63,10 @@ func _unhandled_input(event):
 			pivot.rotation.x = clamp(pivot.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 		if currentCamera == third_person_camera:
 			pivot.rotation.x = clamp(pivot.rotation.x, deg_to_rad(-40), deg_to_rad(40))
+			
+			# Update the target yaw rotation based on mouse movement
+			target_yaw_rotation += -event.relative.x * 0.1
+
 	if Input.is_action_pressed("Interact"):
 		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "Test")
 		return
@@ -100,6 +109,9 @@ func _physics_process(delta: float):
 		
 		magnifying_glass.visible = false
 		arm.visible = false
+		# Align the player's facing direction with the camera's facing direction
+		align_player_with_camera()
+
 	elif currentCamera == first_person_camera:
 		third_person_camera.current = false
 		first_person_camera.current = true
@@ -121,14 +133,30 @@ func _physics_process(delta: float):
 	if current_target:
 		current_target.scale = current_target.scale.lerp(target_scale, resize_speed * delta)
 
-	# Update camera position
-	update_camera_position()
+	# Update camera position and rotation
+	update_camera_position(delta)
 
-func update_camera_position():
+func update_camera_position(delta: float):
 	if Input.is_action_pressed("Zoom"):
 		currentCamera = first_person_camera
 	else:
 		currentCamera = third_person_camera
+
+	# Smoothly interpolate the camera's yaw rotation towards the target
+	current_yaw_rotation = lerp(current_yaw_rotation, target_yaw_rotation, smooth_rotation_speed * delta)
+	$CamRoot/CamYaw.rotation.y = deg_to_rad(current_yaw_rotation)
+
+	# Apply friction to slow down the rotation over time
+	target_yaw_rotation = lerp_angle(target_yaw_rotation, $CamRoot/CamYaw.rotation.y, camera_friction * delta)
+
+func align_player_with_camera():
+	# Get the camera's forward direction in world space
+	var camera_forward = third_person_camera.global_transform.basis.z.normalized()
+	camera_forward.y = 0 # Remove any vertical component to keep player on the ground
+
+	# Calculate the new rotation for the player based on the camera's forward direction
+	var player_rotation = Vector3(0, atan2(camera_forward.x, camera_forward.z), 0)
+	rotation.y = lerp_angle(rotation.y, player_rotation.y, smooth_rotation_speed * get_process_delta_time())
 
 func set_target_scale(target: Node3D):
 	# Calculate new target scale
