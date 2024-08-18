@@ -370,10 +370,10 @@ target_position = Vector3(0, 0, -10)
 collide_with_areas = true
 
 [node name="Magnifying_Glass" parent="CharacterBody3D/CamOrigin/FirstPersonCamera" instance=ExtResource("2_80ddp")]
-transform = Transform3D(0.0564609, 0.0733022, 0, -0.0737784, 0.0560965, 0, 0, 0, 0.175337, -0.602964, -0.534366, -0.530152)
+transform = Transform3D(0.0730039, -0.0570879, 0, 0.0574587, 0.0725327, 0, 0, 0, 0.175337, 0.484478, -0.597455, -0.530152)
 
 [node name="Arm" type="MeshInstance3D" parent="CharacterBody3D/CamOrigin/FirstPersonCamera"]
-transform = Transform3D(0.270704, -0.069791, -0.00551619, -0.00163551, -0.103393, 0.306687, -0.0345308, -0.542228, -0.0577699, -0.373513, -0.383105, -0.110848)
+transform = Transform3D(0.27122, 0.0599036, 0.00824768, -0.00163551, -0.103393, 0.306687, 0.0302097, -0.543409, -0.0574436, 0.331746, -0.383105, -0.110848)
 mesh = SubResource("CapsuleMesh_q7m34")
 surface_material_override/0 = SubResource("StandardMaterial3D_7wxux")
 
