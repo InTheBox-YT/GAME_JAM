@@ -1,14 +1,15 @@
 extends CharacterBody3D
 
 @onready var third_person_camera: Camera3D = $CamRoot/CamYaw/CamPitch/SpringArm3D/ThirdPersonCamera
-@onready var first_person_camera: Camera3D = $CamOrigin/FirstPersonCamera
+@onready var first_person_camera: Camera3D = $CamRoot/CamYaw/CamPitch/FirstPersonCamera
 
 @onready var pivot: Node3D = $CamOrigin
-@onready var raycast: RayCast3D = $CamOrigin/FirstPersonCamera/RayCast3D
-@onready var magnifying_glass: Node3D = $CamOrigin/FirstPersonCamera/Magnifying_Glass
-@onready var arm: MeshInstance3D = $CamOrigin/FirstPersonCamera/Arm
+@onready var raycast: RayCast3D = $CamRoot/CamYaw/CamPitch/FirstPersonCamera/RayCast3D
+@onready var magnifying_glass: Node3D = $CamRoot/CamYaw/CamPitch/FirstPersonCamera/Magnifying_Glass
+@onready var arm: MeshInstance3D = $CamRoot/CamYaw/CamPitch/FirstPersonCamera/Arm
 
 # Speed Variables
+var direction
 var curspeed = WALK_SPEED
 var target_speed = WALK_SPEED
 var acceleration = 10.0
@@ -49,19 +50,6 @@ func _ready():
 	# Lock the mouse cursor
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
-func _unhandled_input(event):
-	if event is InputEventMouseMotion:
-		# Rotate the pivot (character) based on mouse movement
-		if currentCamera == first_person_camera:
-			pivot.rotation.x = clamp(pivot.rotation.x, deg_to_rad(-90), deg_to_rad(90))
-			rotate_y(deg_to_rad(-event.relative.x * 0.1))  # Adjust sensitivity as needed
-			pivot.rotate_x(deg_to_rad(-event.relative.y * 0.1))
-		if currentCamera == third_person_camera:
-			pass
-	if Input.is_action_pressed("Interact"):
-		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "Test")
-		return
-
 func _input(event):	
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
@@ -77,6 +65,10 @@ func _input(event):
 					set_target_scale(target)
 
 func _physics_process(delta: float):
+	if Input.is_action_pressed("Interact"):
+		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "Test")
+		return
+		
 	if not is_on_floor():
 		velocity.y -= GRAVITY * delta
 
@@ -92,20 +84,26 @@ func _physics_process(delta: float):
 	curspeed = lerp(curspeed, target_speed, SPRINT_ACCELERATION * delta)
 
 	var input_dir = Input.get_vector("Left", "Right", "Up", "Down")
-	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-
+	direction = ($CamRoot/CamYaw.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	
+	if input_dir != Vector2(0,0):
+		$Model.rotation_degrees.y = $CamRoot/CamYaw.rotation_degrees.y - rad_to_deg(input_dir.angle()) - 90
+	
 	if currentCamera == third_person_camera:
 		third_person_camera.current = true
 		first_person_camera.current = false
 		
 		magnifying_glass.visible = false
 		arm.visible = false
+		$Model.visible = true
+		
 	elif currentCamera == first_person_camera:
 		third_person_camera.current = false
 		first_person_camera.current = true
 		
 		magnifying_glass.visible = true
 		arm.visible = true
+		$Model.visible = false
 
 	# Apply some control in the air
 	if direction:
@@ -137,7 +135,3 @@ func set_target_scale(target: Node3D):
 	
 	current_target = target
 	print("Resizing object: ", target.name, " Target scale: ", target_scale)
-
-# The Cameras Yaw Postiton, DONT KNOW HOW TO IMPLEMENT WITH THE MOVEMENT BECAUSE THE YT TUTORIAL USES DIFFRENT MOVEMENT
-func _on_set_cam_rotation(_cam_rotation: float):
-	cam_rotation = _cam_rotation 

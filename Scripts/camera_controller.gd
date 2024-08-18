@@ -1,12 +1,7 @@
 extends Node
 
-#Sends Out a signal of the cams yaw position so the movement script can take that and use it to move the player with the camera kinda
-signal set_cam_rotation(_cam_rotation : float)
-
 @onready var yaw_node = $CamYaw
 @onready var pitch_node = $CamYaw/CamPitch
-@onready var camera = $CamYaw/CamPitch/SpringArm3D/ThirdPersonCamera
-
 var yaw : float = 0
 var pitch : float = 0
 
@@ -29,6 +24,3 @@ func _physics_process(delta):
 
 	yaw_node.rotation_degrees.y = lerp(yaw_node.rotation_degrees.y, yaw, yaw_acceleration * delta)
 	pitch_node.rotation_degrees.x = lerp(pitch_node.rotation_degrees.x, pitch, pitch_acceleration * delta)
-	
-	# Grabs The yaw node for cam to send out as a signal for the movement 
-	set_cam_rotation.emit(yaw_node.rotation.y)

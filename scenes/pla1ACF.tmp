@@ -16,13 +16,13 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ujg0b"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_j2p38"]
-radius = 0.1
-
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_q7m34"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7wxux"]
 albedo_color = Color(0.184478, 0.143561, 3.60981e-08, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_j2p38"]
+radius = 0.1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_03chs"]
 resource_name = "Material.006"
@@ -352,6 +352,22 @@ skeleton = NodePath("../..")
 [node name="CamOrigin" type="Node3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22476, 0.0355275)
 
+[node name="FirstPersonCamera" type="Camera3D" parent="CharacterBody3D/CamOrigin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13196, -0.241741)
+fov = 90.0
+
+[node name="RayCast3D" type="RayCast3D" parent="CharacterBody3D/CamOrigin/FirstPersonCamera"]
+target_position = Vector3(0, 0, -10)
+collide_with_areas = true
+
+[node name="Magnifying_Glass" parent="CharacterBody3D/CamOrigin/FirstPersonCamera" instance=ExtResource("2_80ddp")]
+transform = Transform3D(0.0730039, -0.0570879, 0, 0.0574587, 0.0725327, 0, 0, 0, 0.175337, 0.484478, -0.597455, -0.530152)
+
+[node name="Arm" type="MeshInstance3D" parent="CharacterBody3D/CamOrigin/FirstPersonCamera"]
+transform = Transform3D(0.27122, 0.0599036, 0.00824768, -0.00163551, -0.103393, 0.306687, 0.0302097, -0.543409, -0.0574436, 0.331746, -0.383105, -0.110848)
+mesh = SubResource("CapsuleMesh_q7m34")
+surface_material_override/0 = SubResource("StandardMaterial3D_7wxux")
+
 [node name="CamRoot" type="Node3D" parent="CharacterBody3D"]
 script = ExtResource("11_oe065")
 
@@ -371,74 +387,60 @@ size = 6.0
 near = 0.001
 far = 342.83
 
-[node name="FirstPersonCamera" type="Camera3D" parent="CharacterBody3D/CamRoot/CamYaw/CamPitch"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35672, -0.206214)
-fov = 90.0
-
-[node name="RayCast3D" type="RayCast3D" parent="CharacterBody3D/CamRoot/CamYaw/CamPitch/FirstPersonCamera"]
-target_position = Vector3(0, 0, -10)
-collide_with_areas = true
-
-[node name="Magnifying_Glass" parent="CharacterBody3D/CamRoot/CamYaw/CamPitch/FirstPersonCamera" instance=ExtResource("2_80ddp")]
-transform = Transform3D(0.0730039, -0.0570879, 0, 0.0574587, 0.0725327, 0, 0, 0, 0.175337, 0.484478, -0.597455, -0.530152)
-
-[node name="Arm" type="MeshInstance3D" parent="CharacterBody3D/CamRoot/CamYaw/CamPitch/FirstPersonCamera"]
-transform = Transform3D(0.27122, 0.0599036, 0.00824768, -0.00163551, -0.103393, 0.306687, 0.0302097, -0.543409, -0.0574436, 0.331746, -0.383105, -0.110848)
-mesh = SubResource("CapsuleMesh_q7m34")
-surface_material_override/0 = SubResource("StandardMaterial3D_7wxux")
-
 [node name="Model" type="Node3D" parent="CharacterBody3D"]
 
 [node name="Cube" type="MeshInstance3D" parent="CharacterBody3D/Model"]
 transform = Transform3D(-0.479076, 0, 4.23418e-08, 0, 0.378926, 0, -4.18821e-08, 0, -0.484333, -0.0166507, 1.02869, 0.19394)
 mesh = SubResource("ArrayMesh_bcp15")
 skin = SubResource("Skin_pju0j")
-skeleton = NodePath("../../CamRoot/CamYaw/CamPitch/FirstPersonCamera")
+skeleton = NodePath("../../CamOrigin/FirstPersonCamera")
 
 [node name="Cube_001" type="MeshInstance3D" parent="CharacterBody3D/Model"]
 transform = Transform3D(-0.479076, 0, 4.23418e-08, 0, 0.378926, 0, -4.18821e-08, 0, -0.484333, -0.0166507, 1.02869, 0.19394)
 mesh = SubResource("ArrayMesh_w2l1w")
 skin = SubResource("Skin_pju0j")
-skeleton = NodePath("../../CamRoot/CamYaw/CamPitch/FirstPersonCamera")
+skeleton = NodePath("../../CamOrigin/FirstPersonCamera")
 
 [node name="Cube_002" type="MeshInstance3D" parent="CharacterBody3D/Model"]
 transform = Transform3D(-0.479076, 0, 4.23418e-08, 0, 0.378926, 0, -4.18821e-08, 0, -0.484333, -0.0166507, 1.02869, 0.19394)
 mesh = SubResource("ArrayMesh_1mklw")
 skin = SubResource("Skin_pju0j")
-skeleton = NodePath("../../CamRoot/CamYaw/CamPitch/FirstPersonCamera")
+skeleton = NodePath("../../CamOrigin/FirstPersonCamera")
 
 [node name="Cube_005" type="MeshInstance3D" parent="CharacterBody3D/Model"]
 transform = Transform3D(-0.479076, 0, 4.23418e-08, 0, 0.378926, 0, -4.18821e-08, 0, -0.484333, -0.0166507, 1.02869, 0.19394)
 mesh = SubResource("ArrayMesh_0558m")
 skin = SubResource("Skin_pju0j")
-skeleton = NodePath("../../CamRoot/CamYaw/CamPitch/FirstPersonCamera")
+skeleton = NodePath("../../CamOrigin/FirstPersonCamera")
 
 [node name="Cube_004" type="MeshInstance3D" parent="CharacterBody3D/Model"]
 transform = Transform3D(-0.479076, 0, 4.23418e-08, 0, 0.378926, 0, -4.18821e-08, 0, -0.484333, -0.0166507, 1.10652, 0.158413)
 mesh = SubResource("ArrayMesh_u55s8")
 skin = SubResource("Skin_pju0j")
-skeleton = NodePath("../../CamRoot/CamYaw/CamPitch/FirstPersonCamera")
+skeleton = NodePath("../../CamOrigin/FirstPersonCamera")
 
 [node name="Cube_006" type="MeshInstance3D" parent="CharacterBody3D/Model"]
 transform = Transform3D(-0.479076, 0, 4.23418e-08, 0, 0.378926, 0, -4.18821e-08, 0, -0.484333, -0.0166507, 1.10652, 0.158413)
 mesh = SubResource("ArrayMesh_2raiy")
 skin = SubResource("Skin_pju0j")
-skeleton = NodePath("../../CamRoot/CamYaw/CamPitch/FirstPersonCamera")
+skeleton = NodePath("../../CamOrigin/FirstPersonCamera")
 
 [node name="Cube_007" type="MeshInstance3D" parent="CharacterBody3D/Model"]
 transform = Transform3D(-0.479076, 0, 4.23418e-08, 0, 0.378926, 0, -4.18821e-08, 0, -0.484333, -0.0166507, 1.10652, 0.158413)
 mesh = SubResource("ArrayMesh_bdhek")
 skin = SubResource("Skin_pju0j")
-skeleton = NodePath("../../CamRoot/CamYaw/CamPitch/FirstPersonCamera")
+skeleton = NodePath("../../CamOrigin/FirstPersonCamera")
 
 [node name="Cube_008" type="MeshInstance3D" parent="CharacterBody3D/Model"]
 transform = Transform3D(-0.479076, 0, 4.23418e-08, 0, 0.378926, 0, -4.18821e-08, 0, -0.484333, -0.0166507, 1.10652, 0.158413)
 mesh = SubResource("ArrayMesh_x0rf2")
 skin = SubResource("Skin_pju0j")
-skeleton = NodePath("../../CamRoot/CamYaw/CamPitch/FirstPersonCamera")
+skeleton = NodePath("../../CamOrigin/FirstPersonCamera")
 
 [node name="Cube_003" type="MeshInstance3D" parent="CharacterBody3D/Model"]
 transform = Transform3D(-0.479076, 0, 4.23418e-08, 0, 0.378926, 0, -4.18821e-08, 0, -0.484333, -0.0166507, 1.10652, 0.158413)
 mesh = SubResource("ArrayMesh_3a3r0")
 skin = SubResource("Skin_pju0j")
-skeleton = NodePath("../../CamRoot/CamYaw/CamPitch/FirstPersonCamera")
+skeleton = NodePath("../../CamOrigin/FirstPersonCamera")
+
+[connection signal="set_cam_rotation" from="CharacterBody3D/CamRoot" to="CharacterBody3D" method="_on_set_cam_rotation"]
