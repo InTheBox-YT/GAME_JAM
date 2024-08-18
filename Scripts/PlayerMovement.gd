@@ -144,5 +144,6 @@ func set_target_scale(target: Node3D):
 	current_target = target
 	print("Resizing object: ", target.name, " Target scale: ", target_scale)
 
+# The Cameras Yaw Postiton, DONT KNOW HOW TO IMPLEMENT WITH THE MOVEMENT BECAUSE THE YT TUTORIAL USES DIFFRENT MOVEMENT
 func _on_set_cam_rotation(_cam_rotation: float):
 	cam_rotation = _cam_rotation 
