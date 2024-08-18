@@ -430,3 +430,7 @@ spring_length = 3.0
 
 [node name="ThirdPersonCamera" type="Camera3D" parent="CharacterBody3D/CamRoot/CamYaw/CamPitch/SpringArm3D"]
 transform = Transform3D(0.99998, 0.003775, 0.0050556, -0.00596966, 0.825486, 0.564391, -0.00204275, -0.56441, 0.825492, 0, 0.239245, 2.78664)
+fov = 179.0
+size = 6.0
+near = 0.001
+far = 342.83
