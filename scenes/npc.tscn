@@ -1,22 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmxfw56dfqaba"]
+[gd_scene load_steps=3 format=3 uid="uid://dmxfw56dfqaba"]
 
-[ext_resource type="Script" path="res://NPC.gd" id="1_20d6e"]
 [ext_resource type="AudioStream" uid="uid://qss4r8ok5psi" path="res://Models/OhToALostSoul.mp3" id="2_oxya2"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ujfky"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rvvc7"]
-
 [node name="NPC" type="Node3D"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
-script = ExtResource("1_20d6e")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("CapsuleMesh_ujfky")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("CapsuleShape3D_rvvc7")
-
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="StaticBody3D"]
 stream = ExtResource("2_oxya2")
+autoplay = true
+max_distance = 78.02

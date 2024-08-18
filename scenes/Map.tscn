@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvg2o6pb6ba56"]
+[gd_scene load_steps=7 format=3 uid="uid://dvg2o6pb6ba56"]
 
 [ext_resource type="Material" uid="uid://d1deego7mdsfe" path="res://Materials/GridFloor.tres" id="1_hnknw"]
 [ext_resource type="Material" uid="uid://cw1na8ls13hx8" path="res://Materials/WallGrid.tres" id="2_f7cnu"]
 [ext_resource type="PackedScene" uid="uid://3at00qcw8mv8" path="res://Models/model.dae" id="2_hxynw"]
 [ext_resource type="Material" uid="uid://dycdgi6o1h7jp" path="res://Materials/GridFloor2Move.tres" id="3_skmkj"]
+[ext_resource type="PackedScene" uid="uid://dmxfw56dfqaba" path="res://scenes/npc.tscn" id="5_hu4v8"]
 
 [sub_resource type="Environment" id="Environment_604yo"]
 background_mode = 5
@@ -171,3 +172,6 @@ material_override = ExtResource("1_hnknw")
 use_collision = true
 size = Vector3(0.583984, 13.6459, 40.6908)
 material = ExtResource("2_f7cnu")
+
+[node name="NPC" parent="." instance=ExtResource("5_hu4v8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.44489, 1.19445, 7.12769)
