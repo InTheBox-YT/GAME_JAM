@@ -1,56 +1,32 @@
-extends Node3D
+extends Node
 
-@onready var third_person_camera: Camera3D = $ThirdPersonCamera
-@onready var first_person_camera: Camera3D = $CamOrigin/FirstPersonCamera
+signal set_cam_rotation(_cam_rotation : float)
 
-@onready var pivot: Node3D = $CamOrigin
-@onready var raycast: RayCast3D = $CamOrigin/FirstPersonCamera/RayCast3D
-@onready var magnifying_glass: Node3D = $CamOrigin/FirstPersonCamera/Magnifying_Glass
-@onready var arm: MeshInstance3D = $CamOrigin/FirstPersonCamera/Arm
+@onready var yaw_node = $CamYaw
+@onready var pitch_node = $CamYaw/CamPitch
+@onready var camera = $CamYaw/CamPitch/SpringArm3D/ThirdPersonCamera
 
-# Zoom Variables
-var normal_fov = 70.0
-var zoomed_fov = 30.0
-var zoom_speed = 5.0
-var target_fov = normal_fov
+var yaw : float = 0
+var pitch : float = 0
 
-var currentCamera
+var yaw_sensitivity : float = 0.07
+var pitch_sensitivity : float = 0.07
 
-func _ready():
-	currentCamera = third_person_camera
-	currentCamera.current = true
-	currentCamera.fov = normal_fov
+var yaw_acceleration : float = 8
+var pitch_acceleration : float = 10
 
-func _input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-			emit_signal("resize_request", 0.1)
-		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			emit_signal("resize_request", -0.1)
+var pitch_max : float = 75
+var pitch_min : float = -55
 
-		if currentCamera == first_person_camera:
-			if raycast.is_colliding():
-				var target: Node = raycast.get_collider()
-				var target_parent: Node = target.get_parent()
-				if target is Node3D and target_parent != get_node("/root/World/Map/UnsizeableObjects"):
-					emit_signal("set_target_scale", target)
+func _input(event): 
+	if event is InputEventMouseMotion:
+		yaw += -event.relative.x * yaw_sensitivity
+		pitch += -event.relative.y * pitch_sensitivity
 
-func _process(delta):
-	# Smooth camera follow and update based on the player's orientation
-	if currentCamera == first_person_camera:
-		first_person_camera.current = true
-		third_person_camera.current = false
-		
-		magnifying_glass.visible = true
-		arm.visible = true
-	else:
-		third_person_camera.current = true
-		first_person_camera.current = false
-		
-		magnifying_glass.visible = false
-		arm.visible = false
+func _physics_process(delta):
+	pitch = clamp(pitch, pitch_min, pitch_max)
 
-	if Input.is_action_pressed("Zoom"):
-		currentCamera = first_person_camera
-	else:
-		currentCamera = third_person_camera
+	yaw_node.rotation_degrees.y = lerp(yaw_node.rotation_degrees.y, yaw, yaw_acceleration * delta)
+	pitch_node.rotation_degrees.x = lerp(pitch_node.rotation_degrees.x, pitch, pitch_acceleration * delta)
+	
+	set_cam_rotation.emit(yaw_node.rotation.y)
