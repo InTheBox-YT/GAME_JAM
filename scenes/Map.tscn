@@ -175,4 +175,3 @@ material = ExtResource("2_f7cnu")
 
 [node name="NPC" parent="." instance=ExtResource("5_hu4v8")]
 transform = Transform3D(0.790187, 0, -0.612866, 0, 1, 0, 0.612866, 0, 0.790187, 2.44489, 1.04722, 7.12769)
-script = null

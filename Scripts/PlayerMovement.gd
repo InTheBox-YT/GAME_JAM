@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-@onready var third_person_camera: Camera3D = $CamOrigin/ThirdPersonCamera
+@onready var third_person_camera: Camera3D = $CamRoot/CamYaw/CamPitch/ThirdPersonCamera
 @onready var first_person_camera: Camera3D = $CamOrigin/FirstPersonCamera
 
 @onready var pivot: Node3D = $CamOrigin
