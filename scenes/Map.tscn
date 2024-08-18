@@ -174,4 +174,4 @@ size = Vector3(0.583984, 13.6459, 40.6908)
 material = ExtResource("2_f7cnu")
 
 [node name="NPC" parent="." instance=ExtResource("5_hu4v8")]
-transform = Transform3D(0.790187, 0, -0.612866, 0, 1, 0, 0.612866, 0, 0.790187, 2.44489, 1.04722, 7.12769)
+transform = Transform3D(-0.591732, 0, 0.806135, 0, 1, 0, -0.806135, 0, -0.591732, 2.44489, 0.832, 7.12769)
