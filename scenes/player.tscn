@@ -332,7 +332,7 @@ _surfaces = [{
 blend_shape_mode = 0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_j2p38"]
-radius = 0.07
+radius = 0.1
 
 [node name="Player" type="Node3D"]
 
@@ -426,8 +426,9 @@ script = ExtResource("11_byj1g")
 [node name="CamPitch" type="Node3D" parent="CharacterBody3D/CamRoot/CamYaw"]
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CharacterBody3D/CamRoot/CamYaw/CamPitch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.76987, 0)
 shape = SubResource("SphereShape3D_j2p38")
 spring_length = 3.0
 
-[node name="ThirdPersonCamera" type="Camera3D" parent="CharacterBody3D/CamRoot/CamYaw/CamPitch"]
-transform = Transform3D(0.99998, 0.003775, 0.0050556, -0.00596966, 0.825486, 0.564391, -0.00204275, -0.56441, 0.825492, 0, 2.24451, 2.1148)
+[node name="ThirdPersonCamera" type="Camera3D" parent="CharacterBody3D/CamRoot/CamYaw/CamPitch/SpringArm3D"]
+transform = Transform3D(0.99998, 0.003775, 0.0050556, -0.00596966, 0.825486, 0.564391, -0.00204275, -0.56441, 0.825492, 0, 1.6412, 2.1148)
