@@ -215,9 +215,9 @@ size = Vector3(14.0794, 5.94385, 1.25697)
 material = ExtResource("1_hnknw")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="UnsizeableObjects"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.35184, 19.0728, -9.44029)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.35184, 19.0728, -9.23483)
 use_collision = true
-size = Vector3(25.7876, 0.752075, 20.1871)
+size = Vector3(25.7876, 0.752075, 19.7762)
 material = ExtResource("1_hnknw")
 
 [node name="CSGBox3D16" type="CSGBox3D" parent="UnsizeableObjects"]
@@ -272,11 +272,11 @@ size = Vector3(3.15054, 8.97001, 16.1682)
 material = ExtResource("2_f7cnu")
 
 [node name="Sprite3D" type="Sprite3D" parent="UnsizeableObjects/CSGBox3D8"]
-transform = Transform3D(-0.221345, 0, 8.74228e-08, 0, 0.255878, 0, -1.93506e-08, 0, -1, 0.853629, -1.20192, -2.75006)
+transform = Transform3D(-0.221345, 0, 8.74228e-08, 0, 0.255878, 0, -1.93506e-08, 0, -1, 0.853629, -1.20192, -8.08475)
 texture = ExtResource("5_varse")
 
 [node name="Sprite3D2" type="Sprite3D" parent="UnsizeableObjects/CSGBox3D8"]
-transform = Transform3D(-0.221345, 0, 8.74228e-08, 0, 0.255878, 0, -1.93506e-08, 0, -1, -0.835146, -1.211, -2.75226)
+transform = Transform3D(-0.221345, 0, 8.74228e-08, 0, 0.255878, 0, -1.93506e-08, 0, -1, -0.835146, -1.211, -8.08695)
 texture = ExtResource("6_vu03s")
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="UnsizeableObjects"]
@@ -322,10 +322,10 @@ size = Vector3(9.74302, 5.86334, 1.94832)
 material = ExtResource("2_f7cnu")
 
 [node name="CSGBox3D21" type="CSGBox3D" parent="UnsizeableObjects"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.80104, 21.6805, -22.855)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.80104, 21.6805, -23.821)
 material_override = ExtResource("1_hnknw")
 use_collision = true
-size = Vector3(0.761365, 5.86334, 10.5401)
+size = Vector3(0.761365, 5.86334, 8.60793)
 material = ExtResource("2_f7cnu")
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="UnsizeableObjects"]
@@ -342,13 +342,13 @@ use_collision = true
 size = Vector3(5.24332, 6.66455, 17.8535)
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="UnsizeableObjects"]
-transform = Transform3D(1, 0, 0, 0, 5.46091, 0, 0, 0, 1, 9.95599, 11.8235, -25.2321)
+transform = Transform3D(1, 0, 0, 0, 5.46091, 0, 0, 0, 1, 10.8973, 11.8235, -26.5966)
 use_collision = true
 mesh = SubResource("BoxMesh_y2je7")
 material = ExtResource("1_hnknw")
 
 [node name="CSGMesh3D4" type="CSGMesh3D" parent="UnsizeableObjects"]
-transform = Transform3D(1, 0, 0, 0, 5.46091, 0, 0, 0, 1, 13.1008, 12.4864, -23.3619)
+transform = Transform3D(1, 0, 0, 0, 7.05901, 0, 0, 0, 1, 14.6506, 12.5639, -23.3619)
 use_collision = true
 mesh = SubResource("BoxMesh_y2je7")
 material = ExtResource("1_hnknw")
@@ -360,7 +360,7 @@ mesh = SubResource("BoxMesh_y2je7")
 material = ExtResource("1_hnknw")
 
 [node name="CSGMesh3D3" type="CSGMesh3D" parent="UnsizeableObjects"]
-transform = Transform3D(1, 0, 0, 0, 5.46091, 0, 0, 0, 1, 9.26532, 10.9344, -21.6611)
+transform = Transform3D(1, 0, 0, 0, 5.46091, 0, 0, 0, 1, 9.95705, 10.9344, -20.1821)
 use_collision = true
 mesh = SubResource("BoxMesh_y2je7")
 material = ExtResource("1_hnknw")
@@ -409,7 +409,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00146484, -0.000401706, -0
 shape = SubResource("BoxShape3D_85rdm")
 
 [node name="CSGSphere3D3" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25852, 14.178, -21.7009)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.95025, 14.178, -20.2219)
 use_collision = true
 material = ExtResource("1_hnknw")
 
@@ -419,11 +419,11 @@ use_collision = true
 material = ExtResource("1_hnknw")
 
 [node name="CSGSphere3D5" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.92119, 15.013, -25.24)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.8625, 15.013, -26.6044)
 use_collision = true
 material = ExtResource("1_hnknw")
 
 [node name="CSGSphere3D6" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.066, 15.6759, -23.3698)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6158, 16.5313, -23.3698)
 use_collision = true
 material = ExtResource("1_hnknw")
