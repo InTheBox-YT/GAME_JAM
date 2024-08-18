@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmxfw56dfqaba"]
+[gd_scene load_steps=6 format=3 uid="uid://dmxfw56dfqaba"]
 
+[ext_resource type="Script" path="res://scenes/npc.gd" id="1_8b3f2"]
 [ext_resource type="PackedScene" uid="uid://broekvurtd3a8" path="res://oi bruv.glb" id="2_l56lv"]
 [ext_resource type="AudioStream" uid="uid://qss4r8ok5psi" path="res://Models/OhToALostSoul.mp3" id="2_oxya2"]
 
@@ -8,6 +9,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p2joe"]
 
 [node name="NPC" type="Node3D"]
+script = ExtResource("1_8b3f2")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
