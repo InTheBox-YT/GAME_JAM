@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvg2o6pb6ba56"]
+[gd_scene load_steps=9 format=3 uid="uid://dvg2o6pb6ba56"]
 
 [ext_resource type="Material" uid="uid://d1deego7mdsfe" path="res://Materials/GridFloor.tres" id="1_hnknw"]
 [ext_resource type="Material" uid="uid://cw1na8ls13hx8" path="res://Materials/WallGrid.tres" id="2_f7cnu"]
 [ext_resource type="PackedScene" uid="uid://3at00qcw8mv8" path="res://Models/model.dae" id="2_hxynw"]
 [ext_resource type="Material" uid="uid://dycdgi6o1h7jp" path="res://Materials/GridFloor2Move.tres" id="3_skmkj"]
 [ext_resource type="PackedScene" uid="uid://dmxfw56dfqaba" path="res://scenes/npc.tscn" id="5_hu4v8"]
+[ext_resource type="Texture2D" uid="uid://b0afntmx8g1qk" path="res://Evedence1.png" id="6_5ejsl"]
 
 [sub_resource type="Environment" id="Environment_604yo"]
 background_mode = 5
@@ -12,6 +13,9 @@ ambient_light_source = 2
 glow_enabled = true
 glow_bloom = 0.02
 fog_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_85rdm"]
+size = Vector3(0.126465, 0.00634766, 0.163818)
 
 [node name="Map" type="Node3D"]
 
@@ -174,4 +178,17 @@ size = Vector3(0.583984, 13.6459, 40.6908)
 material = ExtResource("2_f7cnu")
 
 [node name="NPC" parent="." instance=ExtResource("5_hu4v8")]
-transform = Transform3D(-0.591732, 0, 0.806135, 0, 1, 0, -0.806135, 0, -0.591732, 2.44489, 0.832, 7.12769)
+transform = Transform3D(-0.76192, 0, 1.10211, 0, 1.50501, 0, -1.03799, 0, -0.808989, 2.44489, 1.18734, 7.12769)
+
+[node name="_d3d" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.326241, 9.87652, -9.05146)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="_d3d"]
+
+[node name="Sprite3D" type="Sprite3D" parent="_d3d/StaticBody3D"]
+transform = Transform3D(0.0249823, 0, 0, 0, -1.12692e-09, 1, 0, -0.025781, -4.37114e-08, 0, 0, 0)
+texture = ExtResource("6_5ejsl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="_d3d/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00146484, -0.000401706, -0.000560626)
+shape = SubResource("BoxShape3D_85rdm")
