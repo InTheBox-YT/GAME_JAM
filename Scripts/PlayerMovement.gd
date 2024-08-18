@@ -58,6 +58,9 @@ func _unhandled_input(event):
 			pivot.rotation.x = clamp(pivot.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 		if currentCamera == third_person_camera:
 			pivot.rotation.x = clamp(pivot.rotation.x, deg_to_rad(-40), deg_to_rad(40))
+	if Input.is_action_pressed("Interact"):
+		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "Test")
+		return
 
 func _input(event):	
 	if event is InputEventMouseButton:
