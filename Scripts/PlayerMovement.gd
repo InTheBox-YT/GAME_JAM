@@ -8,7 +8,6 @@ extends CharacterBody3D
 @onready var magnifying_glass: Node3D = $CamOrigin/FirstPersonCamera/Magnifying_Glass
 @onready var arm: MeshInstance3D = $CamOrigin/FirstPersonCamera/Arm
 
-
 # Speed Variables
 var curspeed = WALK_SPEED
 var target_speed = WALK_SPEED
@@ -46,7 +45,6 @@ func _ready():
 	currentCamera = third_person_camera
 	currentCamera.current = true
 	currentCamera.fov = normal_fov
-	update_camera_position()
 	
 	# Lock the mouse cursor
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -123,10 +121,6 @@ func _physics_process(delta: float):
 	if current_target:
 		current_target.scale = current_target.scale.lerp(target_scale, resize_speed * delta)
 
-	# Update camera position
-	update_camera_position()
-
-func update_camera_position():
 	if Input.is_action_pressed("Zoom"):
 		currentCamera = first_person_camera
 	else:
