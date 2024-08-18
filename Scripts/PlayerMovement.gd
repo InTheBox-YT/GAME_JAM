@@ -71,10 +71,10 @@ func _input(event):
 					set_target_scale(target)
 					
 	if Input.is_action_just_pressed("Interact") && dialogueAvaliable == true:
-		dialogueAvaliable = false
 		var actionables = actionable_finder.get_overlapping_areas()
 		if actionables.size() > 0:
 			actionables[0].action()
+			dialogueAvaliable = false
 			return
 				
 func _physics_process(delta: float):
