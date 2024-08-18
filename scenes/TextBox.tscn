@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://bprks213f2iha"]
+
+[ext_resource type="Script" path="res://text_box.gd" id="1_vinjo"]
+[ext_resource type="Texture2D" uid="uid://cyu5gt1belpaq" path="res://Speechb uble.png" id="2_lq6xc"]
+
+[sub_resource type="FontFile" id="FontFile_mgqit"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextBox" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_vinjo")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="TextBox"]
+layout_mode = 2
+texture = ExtResource("2_lq6xc")
+region_rect = Rect2(176, 64, 208, 208)
+
+[node name="MarginContainer" type="MarginContainer" parent="TextBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="TextBox/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontFile_mgqit")
+vertical_alignment = 1
+
+[node name="LetterDisplayTimer" type="Timer" parent="TextBox"]
+one_shot = true
+
+[connection signal="timeout" from="TextBox/LetterDisplayTimer" to="TextBox" method="_on_letter_display_timer_timeout"]

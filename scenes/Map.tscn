@@ -16,10 +16,10 @@ fog_enabled = true
 [node name="Map" type="Node3D"]
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -9.34731, 3.33326, 23.8541)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.26504, 6.741, 23.8541)
 material_override = ExtResource("1_hnknw")
 use_collision = true
-size = Vector3(29.7363, 6.58815, 0.583008)
+size = Vector3(13.5718, 13.4036, 0.583008)
 
 [node name="Lighs" type="Node" parent="."]
 
@@ -174,4 +174,4 @@ size = Vector3(0.583984, 13.6459, 40.6908)
 material = ExtResource("2_f7cnu")
 
 [node name="NPC" parent="." instance=ExtResource("5_hu4v8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.44489, 1.19445, 7.12769)
+transform = Transform3D(0.790187, 0, -0.612866, 0, 1, 0, 0.612866, 0, 0.790187, 2.44489, 1.04722, 7.12769)
