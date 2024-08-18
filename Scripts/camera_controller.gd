@@ -10,8 +10,8 @@ var pitch : float = 0
 var yaw_sensitivity : float = 0.07
 var pitch_sensitivity : float = 0.07
 
-var yaw_acceleration : float = 15
-var pitch_acceleration : float = 15
+var yaw_acceleration : float = 8
+var pitch_acceleration : float = 10
 
 var pitch_max : float = 75
 var pitch_min : float = -55
