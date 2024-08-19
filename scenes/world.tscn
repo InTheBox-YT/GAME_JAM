@@ -44,13 +44,6 @@ layout_mode = 2
 size_flags_vertical = 8
 size_flags_stretch_ratio = 0.0
 
-[node name="Button" type="Button" parent="MenuCanvas/MainMenu/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-theme_override_font_sizes/font_size = 46
-text = "    Play     "
-
 [node name="Version" type="TextureRect" parent="MenuCanvas/MainMenu/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
@@ -86,5 +79,12 @@ size_flags_vertical = 0
 texture_normal = ExtResource("5_l70ym")
 texture_hover = ExtResource("6_retam")
 
-[connection signal="pressed" from="MenuCanvas/MainMenu/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[node name="Button" type="Button" parent="MenuCanvas/MainMenu"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 46
+text = "    Play     "
+
 [connection signal="pressed" from="MenuCanvas/MainMenu/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MenuCanvas/MainMenu/Button" to="." method="_on_button_pressed"]
