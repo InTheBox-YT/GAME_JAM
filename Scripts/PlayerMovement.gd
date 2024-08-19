@@ -96,7 +96,7 @@ func _physics_process(delta: float):
 		direction = ($CamRoot/CamYaw.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		
 		if input_dir != Vector2(0,0):
-			$Model.rotation_degrees.y = $CamRoot/CamYaw.rotation_degrees.y - rad_to_deg(input_dir.angle()) - 90
+			$Model.rotation.y = lerp_angle($Model.rotation.y, atan2(-direction.x, -direction.z), delta * 7)
 			
 		if Input.is_action_pressed("Zoom"):
 			currentCamera = first_person_camera
