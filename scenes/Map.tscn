@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dvg2o6pb6ba56"]
+[gd_scene load_steps=21 format=3 uid="uid://dvg2o6pb6ba56"]
 
 [ext_resource type="Material" uid="uid://d1deego7mdsfe" path="res://Materials/GridFloor.tres" id="1_hnknw"]
 [ext_resource type="Material" uid="uid://cw1na8ls13hx8" path="res://Materials/WallGrid.tres" id="2_f7cnu"]
@@ -7,11 +7,14 @@
 [ext_resource type="Material" uid="uid://cg3tadj2vlmw5" path="res://Materials/GridFloo222r.tres" id="3_t5cdo"]
 [ext_resource type="Material" uid="uid://cud00c2qusf04" path="res://dirt.tres" id="4_tyaf0"]
 [ext_resource type="PackedScene" uid="uid://dmxfw56dfqaba" path="res://scenes/npc.tscn" id="5_hu4v8"]
+[ext_resource type="Texture2D" uid="uid://c6minqip2tsrl" path="res://Materials/Wood/dumdum.png" id="5_svpfs"]
 [ext_resource type="Texture2D" uid="uid://dfonm82bj6ty6" path="res://Ofice1.png" id="5_varse"]
 [ext_resource type="Texture2D" uid="uid://b0afntmx8g1qk" path="res://Evedence1.png" id="6_5ejsl"]
+[ext_resource type="AudioStream" uid="uid://8hm01xp45s4k" path="res://Materials/Wood/You are an idiot HAHAHAHAHA!.mp3" id="6_72nqt"]
 [ext_resource type="Texture2D" uid="uid://oaygsp78aho5" path="res://Ofice2.png" id="6_vu03s"]
 [ext_resource type="PackedScene" uid="uid://cxwo2wtalco3l" path="res://Materials/pipe (1).glb" id="8_8kkhn"]
 [ext_resource type="PackedScene" uid="uid://rxjh84rb2mrv" path="res://Materials/table an char.glb" id="10_yfl8h"]
+[ext_resource type="Texture2D" uid="uid://c3ah7wihatp7u" path="res://Materials/eafsd.png" id="13_coyfd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dpqij"]
 
@@ -279,18 +282,51 @@ size = Vector3(13.6242, 9.83382, 9.76895)
 material = ExtResource("1_hnknw")
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="UnsizeableObjects"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.48693, 5.59648, -66.5497)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.48693, 5.59648, -140.655)
 material_override = ExtResource("1_hnknw")
 use_collision = true
-size = Vector3(25.1168, 1.39347, 74.831)
+size = Vector3(25.1168, 1.39347, 223.042)
 material = ExtResource("4_tyaf0")
 
 [node name="CSGBox3D25" type="CSGBox3D" parent="UnsizeableObjects"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.54325, 14.5942, -66.5497)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.54325, 14.5942, -140.654)
 material_override = ExtResource("1_hnknw")
 use_collision = true
-size = Vector3(7.05645, 1.39347, 74.831)
+size = Vector3(7.05645, 1.39347, 223.039)
 material = ExtResource("4_tyaf0")
+
+[node name="CSGBox3D26" type="CSGBox3D" parent="UnsizeableObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.54325, 7.54716, -251.6)
+material_override = ExtResource("1_hnknw")
+use_collision = true
+size = Vector3(7.05645, 1.39347, 1.14758)
+material = ExtResource("4_tyaf0")
+
+[node name="CSGBox3D27" type="CSGBox3D" parent="UnsizeableObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.54325, 12.8025, -251.6)
+material_override = ExtResource("1_hnknw")
+use_collision = true
+size = Vector3(7.05645, 1.39347, 1.14758)
+material = ExtResource("4_tyaf0")
+
+[node name="CSGBox3D28" type="CSGBox3D" parent="UnsizeableObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.54325, 10.0748, -251.6)
+material_override = ExtResource("1_hnknw")
+use_collision = true
+size = Vector3(7.05645, 1.39347, 1.14758)
+material = ExtResource("4_tyaf0")
+
+[node name="Sprite3D" type="Sprite3D" parent="UnsizeableObjects/CSGBox3D28"]
+transform = Transform3D(0.201589, 0, 0, 0, 0.224562, 0, 0, 0, 1, -0.8939, -2.52182, 0.578873)
+texture = ExtResource("5_svpfs")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="UnsizeableObjects/CSGBox3D28/Sprite3D"]
+stream = ExtResource("6_72nqt")
+volume_db = 6.095
+unit_size = 1.49
+pitch_scale = 0.43
+autoplay = true
+max_distance = 2.0
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="UnsizeableObjects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2753, 6.51811, -10.6685)
@@ -305,10 +341,10 @@ use_collision = true
 size = Vector3(14.0065, 1, 10.417)
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="UnsizeableObjects"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.28888, 10.7479, -64.1606)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.28889, 10.7479, -137.93)
 material_override = ExtResource("1_hnknw")
 use_collision = true
-size = Vector3(3.15054, 8.97001, 80.9437)
+size = Vector3(3.15054, 8.97001, 228.482)
 material = ExtResource("2_f7cnu")
 
 [node name="Sprite3D" type="Sprite3D" parent="UnsizeableObjects/CSGBox3D8"]
@@ -320,10 +356,10 @@ transform = Transform3D(-0.221345, 0, 8.74228e-08, 0, 0.255878, 0, -1.93506e-08,
 texture = ExtResource("6_vu03s")
 
 [node name="CSGBox3D24" type="CSGBox3D" parent="UnsizeableObjects"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -9.52989, 10.8265, -64.1823)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -9.5299, 10.0214, -137.926)
 material_override = ExtResource("1_hnknw")
 use_collision = true
-size = Vector3(3.15054, 8.97001, 80.9437)
+size = Vector3(3.15054, 10.5802, 228.43)
 material = ExtResource("2_f7cnu")
 
 [node name="Sprite3D" type="Sprite3D" parent="UnsizeableObjects/CSGBox3D24"]
@@ -448,11 +484,17 @@ size = Vector3(7.0509, 7.14435, 2.85352)
 [node name="pipe (1)" parent="UnsizeableObjects" instance=ExtResource("8_8kkhn")]
 transform = Transform3D(-0.000802799, 0, -1, 0, 1, 0, 1, 0, -0.000802799, 0.983389, 11.9609, -16.2936)
 
+[node name="pipe (1)2" parent="UnsizeableObjects" instance=ExtResource("8_8kkhn")]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -4.87798, 11.1021, -16.2936)
+
+[node name="pipe (1)3" parent="UnsizeableObjects" instance=ExtResource("8_8kkhn")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, -1.23119e-07, 1.74846e-07, -7.64274e-15, 0.704158, -1.63974, 11.1148, -20.7838)
+
 [node name="CSGBox3D10" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.38911, -0.777138, -17.2793)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7075, -0.61044, -17.8488)
 material_override = ExtResource("1_hnknw")
 use_collision = true
-size = Vector3(2.75574, 0.814453, 1.8877)
+size = Vector3(2.11896, 0.764191, 1.8877)
 material = ExtResource("3_skmkj")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="."]
@@ -515,3 +557,7 @@ use_collision = true
 [node name="CSGBox3D4" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0832, 13.0073, -34.3914)
 use_collision = true
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.118249, 0, 0, 0, 0.0036138, 1.02687, 0, -0.167494, 0.0221554, 2.87751, -3.50576, -6.18498)
+texture = ExtResource("13_coyfd")
