@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://dvg2o6pb6ba56"]
+[gd_scene load_steps=33 format=4 uid="uid://dvg2o6pb6ba56"]
 
 [ext_resource type="Material" uid="uid://d1deego7mdsfe" path="res://Materials/GridFloor.tres" id="1_hnknw"]
 [ext_resource type="Material" uid="uid://cw1na8ls13hx8" path="res://Materials/WallGrid.tres" id="2_f7cnu"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://dmxfw56dfqaba" path="res://scenes/npc.tscn" id="5_hu4v8"]
 [ext_resource type="Texture2D" uid="uid://c6minqip2tsrl" path="res://Materials/Wood/dumdum.png" id="5_svpfs"]
 [ext_resource type="Texture2D" uid="uid://dfonm82bj6ty6" path="res://Ofice1.png" id="5_varse"]
-[ext_resource type="Texture2D" uid="uid://b0afntmx8g1qk" path="res://Evedence1.png" id="6_5ejsl"]
 [ext_resource type="AudioStream" uid="uid://8hm01xp45s4k" path="res://Materials/Wood/You are an idiot HAHAHAHAHA!.mp3" id="6_72nqt"]
 [ext_resource type="Texture2D" uid="uid://oaygsp78aho5" path="res://Ofice2.png" id="6_vu03s"]
 [ext_resource type="PackedScene" uid="uid://cxwo2wtalco3l" path="res://Materials/pipe (1).glb" id="8_8kkhn"]
@@ -18,7 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://c3ah7wihatp7u" path="res://Materials/eafsd.png" id="13_coyfd"]
 [ext_resource type="PackedScene" uid="uid://mggedwxx8cyh" path="res://Models/signs.glb" id="17_4itxt"]
 [ext_resource type="Texture2D" uid="uid://b5bysnxr4tghh" path="res://Models/signs_Cube Base Color.png" id="18_7hue7"]
+[ext_resource type="PackedScene" uid="uid://f65uostf42rc" path="res://scenes/actionable.tscn" id="18_c2baj"]
 [ext_resource type="Texture2D" uid="uid://df6pvei5p0roy" path="res://Shader/gfhfghfg.png" id="19_l68q5"]
+[ext_resource type="Resource" uid="uid://cdidk5jexjl7w" path="res://dialogue/sign.dialogue" id="19_mthdm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dpqij"]
 
@@ -140,6 +141,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_jh2cv")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_muses"]
+size = Vector3(12.895, 5.99799, 2.96826)
 
 [node name="Map" type="Node3D"]
 
@@ -661,6 +665,15 @@ transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -
 [node name="pipe (1)3" parent="UnsizeableObjects" instance=ExtResource("8_8kkhn")]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, -1.23119e-07, 1.74846e-07, -7.64274e-15, 0.704158, -1.63974, 11.1148, -20.7838)
 
+[node name="table an char" parent="UnsizeableObjects" instance=ExtResource("10_yfl8h")]
+transform = Transform3D(0.461309, 0, 0.234261, 0, 0.806054, 0, -0.274341, 0, 0.393915, 1.09392, -2.71738, -5.58187)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="UnsizeableObjects/table an char"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="UnsizeableObjects/table an char/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.091677, -0.234863, -0.0072937)
+shape = SubResource("BoxShape3D_wk51c")
+
 [node name="CSGBox3D10" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7075, -0.61044, -17.8488)
 material_override = ExtResource("1_hnknw")
@@ -690,19 +703,6 @@ transform = Transform3D(-0.76192, 0, 1.10211, 0, 1.50501, 0, -1.03799, 0, -0.808
 
 [node name="_d3d" type="Node3D" parent="."]
 transform = Transform3D(1.89024, 0, 0, 0, 1.2483, 0, 0, 0, 1.93723, -1.4775, 9.87652, -9.05146)
-
-[node name="Sprite3D" type="Sprite3D" parent="_d3d"]
-transform = Transform3D(0.0737391, 0, 0, 0, -3.16469e-09, 1, 0, -0.0724, -4.37114e-08, 0, -2.86773, -5.95657)
-texture = ExtResource("6_5ejsl")
-
-[node name="table an char" parent="." instance=ExtResource("10_yfl8h")]
-transform = Transform3D(0.461309, 0, 0.234261, 0, 0.806054, 0, -0.274341, 0, 0.393915, 1.09392, -2.71738, -5.58187)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="table an char"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="table an char/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.091677, -0.234863, -0.0072937)
-shape = SubResource("BoxShape3D_wk51c")
 
 [node name="Node" type="Node" parent="."]
 
@@ -868,6 +868,14 @@ skeleton = NodePath("")
 transform = Transform3D(-0.634764, 0, 5.96046e-08, 0, 0.25, 0, -5.58794e-09, 0, 0.318243, 0.707336, 0.500004, -0.00295258)
 mesh = SubResource("ArrayMesh_x8lek")
 skeleton = NodePath("")
+
+[node name="Actionable" parent="Cube_002" instance=ExtResource("18_c2baj")]
+transform = Transform3D(3.47036, 0, -9.53674e-07, 0, 1, 0, -1.49012e-08, 0, -8.85499, 0, 0, 0)
+dialogue_resource = ExtResource("19_mthdm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_002/Actionable"]
+transform = Transform3D(1, 0, -9.53674e-07, 0, 1, 0, -8.9407e-08, 0, 1, 3.64832, -0.550896, 0.0343781)
+shape = SubResource("BoxShape3D_muses")
 
 [node name="Sprite3D2" type="Sprite3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.67081, -1.40016, -9.18378)
