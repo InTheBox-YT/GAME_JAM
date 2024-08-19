@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bmvseq35ceycn" path="res://Materials/texture_06.png" id="1_d74ue"]
 
 [resource]
+albedo_color = Color(1, 1, 0, 1)
 albedo_texture = ExtResource("1_d74ue")
 roughness_texture = ExtResource("1_d74ue")
 uv1_triplanar = true

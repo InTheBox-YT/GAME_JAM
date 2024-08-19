@@ -1,11 +1,12 @@
 ~ start
-
 John of Sir Peanutbutter: ah, there you are Detective Mannetje.
-John of Sir Peanutbutter: my wife, Mister Doctor John Doe has gone missing
+John of Sir Peanutbutter: my wife, [wave amp=25 freq=5]Mister Doctor John Doe[/wave] has gone missing
 John of Sir Peanutbutter: you're the only one i know that can help
-John of Sir Peanutbutter: please sire, i want my wife, who for some reason has 2 last names back
+John of Sir Peanutbutter: please sire, i want my wife, who [wait=0.4][wave amp=2 freq=5]for some reason[/wave][wait=0.4] has 2 last names back!
 - I'll take the case.
 	John of Sir Peanutbutter: oh goodie! thank you detective
 - eh, not interested.
 	John of Sir Peanutbutter: ah well, i tried. goodnight Detective.
+	do TransitionScreen.transition()
+	await TransitionScreen.on_transition_finished
 => END
