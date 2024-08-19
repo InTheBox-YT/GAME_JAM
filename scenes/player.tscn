@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://c787recj65cw8"]
+[gd_scene load_steps=42 format=4 uid="uid://c787recj65cw8"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerMovement.gd" id="1_4yoea"]
 [ext_resource type="PackedScene" uid="uid://cb42uhuquyjxv" path="res://zoom glass thing.glb" id="2_80ddp"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://8e62mo1ngu7l" path="res://mannetje beveled_Cube_7.png" id="9_cypb1"]
 [ext_resource type="Texture2D" uid="uid://cw5v11mqt8xcr" path="res://mannetje beveled_Cube_3.png" id="10_b2s58"]
 [ext_resource type="Script" path="res://Scripts/camera_controller.gd" id="11_oe065"]
+[ext_resource type="Shader" path="res://Shader/LethalCompany.gdshader" id="12_vbepp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_epvc8"]
 
@@ -98,7 +99,7 @@ cull_mode = 2
 albedo_color = Color(0, 0, 0, 1)
 metallic = 1.0
 emission_enabled = true
-emission = Color(0.607955, 0.607955, 0.607955, 1)
+emission = Color(1, 1, 1, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_w2l1w"]
 resource_name = "mannetje beveled_Cube_005"
@@ -337,6 +338,18 @@ blend_shape_mode = 0
 [sub_resource type="BoxShape3D" id="BoxShape3D_w1l52"]
 size = Vector3(2, 2, 2)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_raerw"]
+shader = ExtResource("12_vbepp")
+shader_parameter/tint_color = Color(1, 1, 1, 0)
+shader_parameter/grime_intensity = 0.0
+shader_parameter/noise_intensity = 0.033
+shader_parameter/flicker_speed = 0.0
+shader_parameter/cel_shade_levels = 10.0
+shader_parameter/outline_thickness = 0.0
+shader_parameter/outline_color = Color(0, 0, 0, 0)
+
+[sub_resource type="CameraTexture" id="CameraTexture_31pdm"]
+
 [node name="Player" type="Node3D"]
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." groups=["player"]]
@@ -452,3 +465,11 @@ collision_mask = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D/Model/ActionableFinder"]
 shape = SubResource("BoxShape3D_w1l52")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_raerw")
+offset_right = 1153.0
+offset_bottom = 650.0
+texture = SubResource("CameraTexture_31pdm")

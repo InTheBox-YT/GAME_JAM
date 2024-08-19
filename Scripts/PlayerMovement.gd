@@ -9,7 +9,6 @@ extends CharacterBody3D
 @onready var arm: MeshInstance3D = $CamRoot/CamYaw/CamPitch/FirstPersonCamera/Arm
 @onready var actionable_finder: Area3D = $Model/ActionableFinder
 
-
 # Speed Variables
 var direction
 var curspeed = WALK_SPEED
@@ -50,8 +49,6 @@ func _ready():
 	currentCamera.current = true
 	currentCamera.fov = normal_fov
 	
-	# Lock the mouse cursor
-	
 	# Check Dialogue Ended
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 
@@ -69,7 +66,7 @@ func _input(event):
 				if target is Node3D and target_parent != get_node("/root/World/Map/UnsizeableObjects"):
 					set_target_scale(target)
 					
-	if Input.is_action_just_pressed("Interact") && dialogueAvaliable == true:
+	if Input.is_action_just_pressed("Interact") and dialogueAvaliable == true:
 		var actionables = actionable_finder.get_overlapping_areas()
 		if actionables.size() > 0:
 			actionables[0].action()
@@ -95,9 +92,14 @@ func _physics_process(delta: float):
 		var input_dir = Input.get_vector("Left", "Right", "Up", "Down")
 		direction = ($CamRoot/CamYaw.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		
-		if input_dir != Vector2(0,0):
-			$Model.rotation.y = lerp_angle($Model.rotation.y, atan2(-direction.x, -direction.z), delta * 7)
-			
+		# Disable movement if 'Interact' or 'Zoom' is pressed and the player is not in third-person mode
+		if (Input.is_action_pressed("Interact") and currentCamera != third_person_camera) or Input.is_action_pressed("Zoom"):
+			curspeed = 0.0
+		else:
+			# Allow movement in third-person mode
+			if input_dir != Vector2(0, 0):
+				$Model.rotation.y = lerp_angle($Model.rotation.y, atan2(-direction.x, -direction.z), delta * 7)
+		
 		if Input.is_action_pressed("Zoom"):
 			currentCamera = first_person_camera
 		else:
