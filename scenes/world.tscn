@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://2v3mk05sk4kq"]
+[gd_scene load_steps=12 format=3 uid="uid://2v3mk05sk4kq"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_5dfqd"]
 [ext_resource type="PackedScene" uid="uid://dvg2o6pb6ba56" path="res://scenes/Map.tscn" id="2_ina60"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ccwe4j06qel4c" path="res://Sprites/sdwa-removebg-preview.png" id="6_retam"]
 [ext_resource type="AudioStream" uid="uid://qss4r8ok5psi" path="res://Models/OhToALostSoul.mp3" id="8_0icnj"]
 [ext_resource type="Texture2D" uid="uid://dcopfmpgbh6jr" path="res://Shader/ffffffffffffmage.png" id="9_g66em"]
+[ext_resource type="AudioStream" uid="uid://du8hx8ei0vehk" path="res://Models/Empty Room Ambient Noise Sound Effect (1).mp3" id="10_q8nr3"]
 
 [sub_resource type="Environment" id="Environment_xjj1u"]
 
@@ -98,6 +99,11 @@ texture = ExtResource("9_g66em")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_0icnj")
+autoplay = true
+parameters/looping = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_q8nr3")
 autoplay = true
 parameters/looping = true
 

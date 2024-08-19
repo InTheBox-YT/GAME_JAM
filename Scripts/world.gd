@@ -4,6 +4,7 @@ extends Node3D
 @onready var MainMenu = $MenuCanvas/MainMenu
 @onready var music_player = $AudioStreamPlayer  # Reference to AudioStreamPlayer node for music
 var Player = preload("res://scenes/player.tscn")
+@onready var ambience_player = $AudioStreamPlayer2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,6 +14,9 @@ func _ready():
 	# Play the background music
 	if music_player:
 		music_player.play()
+	
+	if ambience_player:
+		ambience_player.stop()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -30,6 +34,9 @@ func _on_play_button_pressed():
 	await TransitionScreen.on_transition_finished
 	var instance = Player.instantiate()
 	add_child(instance)
+	
+	if ambience_player:
+		ambience_player.play()
 
 func _on_button_pressed():
 	pass
