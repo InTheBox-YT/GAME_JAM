@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://unlou2hfwmlj"
+path="res://.godot/imported/BadPath.dialogue-893bd17e6a497b6875c4ecb58d8d3474.tres"
+
+[deps]
+
+source_file="res://BadPath.dialogue"
+dest_files=["res://.godot/imported/BadPath.dialogue-893bd17e6a497b6875c4ecb58d8d3474.tres"]
+
+[params]
+
+defaults=true
