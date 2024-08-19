@@ -1,10 +1,10 @@
 ~ start
-John of Sir Peanutbutter: ah, there you are Detective Mannetje.
-John of Sir Peanutbutter: my wife, [wave amp=25 freq=5]Mister Doctor John Doe[/wave] has gone missing
-John of Sir Peanutbutter: you're the only one i know that can help
-John of Sir Peanutbutter: please sire, i want my wife, who [wait=0.4][wave amp=2 freq=5]for some reason[/wave][wait=0.4] has 2 last names back!
+John of Sir Peanutbutter: Ah, There you are Detective Mannetje.
+John of Sir Peanutbutter: My Wife, [wave amp=25 freq=5]Mister Doctor John Doe[/wave] has gone missing
+John of Sir Peanutbutter: You're the only one I know that can help
+John of Sir Peanutbutter: Please Sire, I want my wife, who [wait=0.4][wave amp=2 freq=5]for some reason[/wave][wait=0.4] has 2 last names back!
 - I'll take the case.
-	John of Sir Peanutbutter: oh goodie! thank you detective
-- eh, not interested.
-	John of Sir Peanutbutter: ah well, i tried. goodnight Detective.
+	John of Sir Peanutbutter: Oh Goodie! Thank you Detective
+- Eh, Not interested.
+	John of Sir Peanutbutter: Ah well, I tried. goodnight Detective.
 => END

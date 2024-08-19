@@ -1,0 +1,11 @@
+~ start
+
+Cool Sign: Wassup Dude, Heard you the detective around here, Well By chance you solving that guys wife case? 
+- Yes
+	Cool Sign: Oh Ok Well I guess I Better Let you go Find that wife!
+	Cool Sign: I'll Catch you on the flip side Dude.
+- No
+	Cool Sign: Totally Radical dude, I also love not following along with the Game Dev's Storyline Intentions.
+	Cool Sign: Anyway, I'll Catch you on the flip side Dude.
+
+=> END
