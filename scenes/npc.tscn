@@ -290,3 +290,12 @@ dialogue_resource = ExtResource("5_r1meh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/Actionable"]
 shape = SubResource("BoxShape3D_m2xsq")
+
+[node name="InteractUI" type="Label3D" parent="."]
+transform = Transform3D(-0.999811, 0, -0.0194417, 0, 1, 0, 0.0194417, 0, -0.999811, 0.000426769, 0.235506, -0.736963)
+visibility_range_begin = 4.0
+visibility_range_begin_margin = 2.0
+visibility_range_end = 10.0
+visibility_range_end_margin = 2.0
+text = "(E) To Interact
+"

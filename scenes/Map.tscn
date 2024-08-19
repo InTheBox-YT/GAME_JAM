@@ -1164,3 +1164,21 @@ shape = SubResource("BoxShape3D_muses")
 [node name="Sprite3D2" type="Sprite3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.67081, -1.40016, -9.18378)
 texture = ExtResource("19_l68q5")
+
+[node name="InteractUI" type="Label3D" parent="."]
+transform = Transform3D(-0.895557, 0, 0.444948, 0, 1, 0, -0.444948, 0, -0.895557, -5.26595, -2.15851, 9.56162)
+visibility_range_begin = 4.0
+visibility_range_begin_margin = 2.0
+visibility_range_end = 10.0
+visibility_range_end_margin = 2.0
+text = "(E) To Interact
+"
+
+[node name="InteractUI2" type="Label3D" parent="."]
+transform = Transform3D(0.282358, 0, -0.959309, 0, 1, 0, 0.959309, 0, 0.282358, 25.0353, 16.0092, -37.8291)
+visibility_range_begin = 4.0
+visibility_range_begin_margin = 2.0
+visibility_range_end = 10.0
+visibility_range_end_margin = 2.0
+text = "(E) To Interact
+"
