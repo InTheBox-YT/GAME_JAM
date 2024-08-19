@@ -252,6 +252,7 @@ mesh = SubResource("CapsuleMesh_ujfky")
 stream = ExtResource("2_87eiv")
 autoplay = true
 max_distance = 4096.0
+parameters/looping = true
 
 [node name="Cube" type="MeshInstance3D" parent="StaticBody3D"]
 transform = Transform3D(0.225501, 0, 0, 0, 0.169769, 0, 0, 0, 0.26797, 0, 0.506107, 0.0923519)
