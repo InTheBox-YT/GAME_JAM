@@ -18,6 +18,8 @@ func _process(delta):
 func _on_play_button_pressed():
 	MainMenu.hide()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	TransitionScreen.transition()
+	await TransitionScreen.on_transition_finished
 	var instance = Player.instantiate()
 	add_child(instance)
 

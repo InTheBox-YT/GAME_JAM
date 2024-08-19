@@ -7,6 +7,4 @@ John of Sir Peanutbutter: please sire, i want my wife, who [wait=0.4][wave amp=2
 	John of Sir Peanutbutter: oh goodie! thank you detective
 - eh, not interested.
 	John of Sir Peanutbutter: ah well, i tried. goodnight Detective.
-	do TransitionScreen.transition()
-	await TransitionScreen.on_transition_finished
 => END
