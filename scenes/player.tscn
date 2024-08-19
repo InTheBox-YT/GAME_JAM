@@ -376,7 +376,7 @@ script = ExtResource("11_oe065")
 [node name="CamPitch" type="Node3D" parent="CharacterBody3D/CamRoot/CamYaw"]
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CharacterBody3D/CamRoot/CamYaw/CamPitch"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.74553, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.35535, 0)
 shape = SubResource("SphereShape3D_j2p38")
 spring_length = 3.0
 

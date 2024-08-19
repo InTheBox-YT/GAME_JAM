@@ -90,6 +90,7 @@ text = "    Play     "
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_0icnj")
 autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="MenuCanvas/MainMenu/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MenuCanvas/MainMenu/Button" to="." method="_on_button_pressed"]
