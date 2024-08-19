@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://2v3mk05sk4kq"]
+[gd_scene load_steps=11 format=3 uid="uid://2v3mk05sk4kq"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_5dfqd"]
 [ext_resource type="PackedScene" uid="uid://dvg2o6pb6ba56" path="res://scenes/Map.tscn" id="2_ina60"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cpqvmr0pbc3so" path="res://Sprites/num1-removebg-preview.png" id="6_aqem1"]
 [ext_resource type="Texture2D" uid="uid://ccwe4j06qel4c" path="res://Sprites/sdwa-removebg-preview.png" id="6_retam"]
 [ext_resource type="AudioStream" uid="uid://qss4r8ok5psi" path="res://Models/OhToALostSoul.mp3" id="8_0icnj"]
+[ext_resource type="Texture2D" uid="uid://dcopfmpgbh6jr" path="res://Shader/ffffffffffffmage.png" id="9_g66em"]
 
 [sub_resource type="Environment" id="Environment_xjj1u"]
 
@@ -25,6 +26,8 @@ environment = SubResource("Environment_xjj1u")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -72,13 +75,6 @@ stretch_mode = 2
 [node name="VBoxContainer3" type="VBoxContainer" parent="MenuCanvas/MainMenu"]
 layout_mode = 2
 
-[node name="PlayButton" type="TextureButton" parent="MenuCanvas/MainMenu"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture_normal = ExtResource("5_l70ym")
-texture_hover = ExtResource("6_retam")
-
 [node name="Button" type="Button" parent="MenuCanvas/MainMenu"]
 visible = false
 layout_mode = 2
@@ -87,10 +83,23 @@ size_flags_vertical = 4
 theme_override_font_sizes/font_size = 46
 text = "    Play     "
 
+[node name="PlayButton" type="TextureButton" parent="MenuCanvas/MainMenu"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("5_l70ym")
+texture_hover = ExtResource("6_retam")
+
+[node name="Ffffffffffffmage" type="Sprite2D" parent="MenuCanvas/MainMenu"]
+z_index = -1
+position = Vector2(577, 325)
+scale = Vector2(1.01406, 1.03155)
+texture = ExtResource("9_g66em")
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_0icnj")
 autoplay = true
 parameters/looping = true
 
-[connection signal="pressed" from="MenuCanvas/MainMenu/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MenuCanvas/MainMenu/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MenuCanvas/MainMenu/PlayButton" to="." method="_on_play_button_pressed"]
