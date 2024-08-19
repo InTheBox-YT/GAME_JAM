@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://2v3mk05sk4kq"]
+[gd_scene load_steps=10 format=3 uid="uid://2v3mk05sk4kq"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_5dfqd"]
 [ext_resource type="PackedScene" uid="uid://dvg2o6pb6ba56" path="res://scenes/Map.tscn" id="2_ina60"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bcgbw5h3kswis" path="res://Sprites/download-removebg-preview.png" id="5_l70ym"]
 [ext_resource type="Texture2D" uid="uid://cpqvmr0pbc3so" path="res://Sprites/num1-removebg-preview.png" id="6_aqem1"]
 [ext_resource type="Texture2D" uid="uid://ccwe4j06qel4c" path="res://Sprites/sdwa-removebg-preview.png" id="6_retam"]
+[ext_resource type="AudioStream" uid="uid://qss4r8ok5psi" path="res://Models/OhToALostSoul.mp3" id="8_0icnj"]
 
 [sub_resource type="Environment" id="Environment_xjj1u"]
 
@@ -85,6 +86,10 @@ size_flags_horizontal = 0
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 46
 text = "    Play     "
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_0icnj")
+autoplay = true
 
 [connection signal="pressed" from="MenuCanvas/MainMenu/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MenuCanvas/MainMenu/Button" to="." method="_on_button_pressed"]

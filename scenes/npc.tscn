@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/npc.gd" id="1_fltja"]
 [ext_resource type="Texture2D" uid="uid://i4r35obq00f3" path="res://oi bruv_Cube.png" id="2_5udpr"]
-[ext_resource type="AudioStream" uid="uid://qss4r8ok5psi" path="res://Models/OhToALostSoul.mp3" id="2_oxya2"]
+[ext_resource type="AudioStream" uid="uid://du8hx8ei0vehk" path="res://Models/Empty Room Ambient Noise Sound Effect (1).mp3" id="2_87eiv"]
 [ext_resource type="Texture2D" uid="uid://csas1xbk16stx" path="res://oi bruv_Material.png" id="3_asaoy"]
 [ext_resource type="PackedScene" uid="uid://f65uostf42rc" path="res://scenes/actionable.tscn" id="4_xodul"]
 [ext_resource type="Resource" uid="uid://byohxdrewvhlb" path="res://dialogue/main.dialogue" id="5_r1meh"]
@@ -249,9 +249,9 @@ visible = false
 mesh = SubResource("CapsuleMesh_ujfky")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="StaticBody3D"]
-stream = ExtResource("2_oxya2")
+stream = ExtResource("2_87eiv")
 autoplay = true
-max_distance = 78.02
+max_distance = 4096.0
 
 [node name="Cube" type="MeshInstance3D" parent="StaticBody3D"]
 transform = Transform3D(0.225501, 0, 0, 0, 0.169769, 0, 0, 0, 0.26797, 0, 0.506107, 0.0923519)
