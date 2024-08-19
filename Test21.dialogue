@@ -1,0 +1,9 @@
+~ this_is_a_node_title
+
+Sign: [[Hi|Hello|Howdy]], this is some dialogue.
+
+- Start again => this_is_a_node_title
+=> END
+Nathan: bye detective!
+
+=> END

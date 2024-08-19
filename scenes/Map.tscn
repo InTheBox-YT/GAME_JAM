@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dvg2o6pb6ba56"]
+[gd_scene load_steps=22 format=3 uid="uid://dvg2o6pb6ba56"]
 
 [ext_resource type="Material" uid="uid://d1deego7mdsfe" path="res://Materials/GridFloor.tres" id="1_hnknw"]
 [ext_resource type="Material" uid="uid://cw1na8ls13hx8" path="res://Materials/WallGrid.tres" id="2_f7cnu"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://oaygsp78aho5" path="res://Ofice2.png" id="6_vu03s"]
 [ext_resource type="PackedScene" uid="uid://cxwo2wtalco3l" path="res://Materials/pipe (1).glb" id="8_8kkhn"]
 [ext_resource type="PackedScene" uid="uid://rxjh84rb2mrv" path="res://Materials/table an char.glb" id="10_yfl8h"]
+[ext_resource type="Texture2D" uid="uid://df8bpnkusn22f" path="res://Materials/Wood/_.png" id="13_0dlf3"]
 [ext_resource type="Texture2D" uid="uid://c3ah7wihatp7u" path="res://Materials/eafsd.png" id="13_coyfd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dpqij"]
@@ -57,18 +58,25 @@ omni_range = 8.86186
 
 [node name="Light6" type="OmniLight3D" parent="Lighs"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.28737, 1.74767, -13.5734)
-light_color = Color(0.419608, 1, 1, 1)
+light_color = Color(0.892793, 0.89903, 0.889734, 1)
+light_energy = 1.646
 shadow_enabled = true
 omni_range = 8.86186
 
 [node name="Light12" type="OmniLight3D" parent="Lighs"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14725, 7.76261, -24.2205)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14725, 8.12856, -24.2205)
 light_color = Color(0.419608, 1, 1, 1)
 shadow_enabled = true
 omni_range = 8.86186
 
 [node name="Light15" type="OmniLight3D" parent="Lighs"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14725, 9.20551, -28.2216)
+light_color = Color(0.419608, 1, 1, 1)
+shadow_enabled = true
+omni_range = 8.86186
+
+[node name="Light28" type="OmniLight3D" parent="Lighs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0439, 16.9295, -34.0449)
 light_color = Color(0.419608, 1, 1, 1)
 shadow_enabled = true
 omni_range = 8.86186
@@ -135,6 +143,12 @@ omni_range = 8.86186
 
 [node name="Light11" type="OmniLight3D" parent="Lighs"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.42497, -1.03298, -8.42804)
+light_color = Color(0.910028, 0.263639, 1.92523e-07, 1)
+shadow_enabled = true
+omni_range = 8.86186
+
+[node name="Light29" type="OmniLight3D" parent="Lighs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4937, 0.453064, -11.3515)
 light_color = Color(0.910028, 0.263639, 1.92523e-07, 1)
 shadow_enabled = true
 omni_range = 8.86186
@@ -213,11 +227,12 @@ use_collision = true
 size = Vector3(6.86813, 7.13869, 0.411623)
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.79422, 3.68467, -16.2222)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.49215, 3.68467, -16.2222)
 material_override = ExtResource("1_hnknw")
 use_collision = true
 size = Vector3(1, 1, 2.65381)
 material = SubResource("StandardMaterial3D_dpqij")
+metadata/_edit_group_ = true
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.642414, 1.62281, -18.067)
@@ -225,9 +240,10 @@ material_override = ExtResource("1_hnknw")
 use_collision = true
 size = Vector3(1, 1, 2.65381)
 material = ExtResource("3_t5cdo")
+metadata/_edit_group_ = true
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.32992, 4.06724, -15.7388)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.32992, 4.71726, -15.7388)
 material_override = ExtResource("1_hnknw")
 use_collision = true
 size = Vector3(1, 1, 7.35498)
@@ -399,7 +415,7 @@ size = Vector3(1.16828, 5.91019, 8.60793)
 material = ExtResource("2_f7cnu")
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="UnsizeableObjects"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8.20758, 6.03199, -8.29131)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7.91973, 6.03199, -8.29131)
 material_override = ExtResource("1_hnknw")
 use_collision = true
 size = Vector3(0.583984, 19.1452, 41.7613)
@@ -468,6 +484,13 @@ use_collision = true
 size = Vector3(11.8208, 8.97001, 10.792)
 material = ExtResource("2_f7cnu")
 
+[node name="CSGBox3D29" type="CSGBox3D" parent="UnsizeableObjects"]
+transform = Transform3D(-1.43277, -0.470487, -8.0757e-08, -0.594029, 1.13479, -3.3482e-08, 1.35595e-07, 0, -1, 28.6838, 10.1844, -34.1238)
+material_override = ExtResource("1_hnknw")
+use_collision = true
+size = Vector3(11.8208, 8.97001, 10.792)
+material = ExtResource("2_f7cnu")
+
 [node name="CSGBox3D20" type="CSGBox3D" parent="UnsizeableObjects"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 10.1628, 18.1007, -30.0983)
 material_override = ExtResource("1_hnknw")
@@ -496,6 +519,7 @@ material_override = ExtResource("1_hnknw")
 use_collision = true
 size = Vector3(2.11896, 0.764191, 1.8877)
 material = ExtResource("3_skmkj")
+metadata/_edit_group_ = true
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.62005, 10.8006, -25.8586)
@@ -503,6 +527,7 @@ material_override = ExtResource("1_hnknw")
 use_collision = true
 size = Vector3(5.38289, 9.0754, 0.268377)
 material = ExtResource("3_t5cdo")
+metadata/_edit_group_ = true
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5.52699, 10.7408, -25.8586)
@@ -510,6 +535,7 @@ material_override = ExtResource("1_hnknw")
 use_collision = true
 size = Vector3(5.38289, 8.95585, 0.268377)
 material = ExtResource("2_f7cnu")
+metadata/_edit_group_ = true
 
 [node name="NPC" parent="." instance=ExtResource("5_hu4v8")]
 transform = Transform3D(-0.76192, 0, 1.10211, 0, 1.50501, 0, -1.03799, 0, -0.808989, 1.79293, -2.38746, -6.07139)
@@ -561,3 +587,129 @@ use_collision = true
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.118249, 0, 0, 0, 0.0036138, 1.02687, 0, -0.167494, 0.0221554, 2.87751, -3.50576, -6.18498)
 texture = ExtResource("13_coyfd")
+
+[node name="Clues" type="Sprite3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, -8.74228e-09, 0.2, 0, -0.2, -8.74228e-09, -5.7075, -0.216101, -17.8488)
+visibility_range_end = 2.55
+visibility_range_fade_mode = 2
+texture = ExtResource("13_0dlf3")
+metadata/_edit_group_ = true
+
+[node name="Clues2" type="Sprite3D" parent="."]
+transform = Transform3D(-8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, -1.1444, 1.74482, -17.8488)
+visibility_range_end = 2.55
+visibility_range_fade_mode = 2
+texture = ExtResource("13_0dlf3")
+metadata/_edit_group_ = true
+
+[node name="Clues3" type="Sprite3D" parent="."]
+transform = Transform3D(-8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, 3.98952, 3.91203, -16.654)
+visibility_range_end = 2.55
+visibility_range_fade_mode = 2
+texture = ExtResource("13_0dlf3")
+metadata/_edit_group_ = true
+
+[node name="Clues11" type="Sprite3D" parent="."]
+transform = Transform3D(-0.0067671, 0, 0.199885, 0, 0.2, 0, -0.199885, 0, -0.0067671, -5.82724, 4.56025, -16.654)
+visibility_range_end = 2.55
+visibility_range_fade_mode = 2
+texture = ExtResource("13_0dlf3")
+metadata/_edit_group_ = true
+
+[node name="Clues12" type="Sprite3D" parent="."]
+transform = Transform3D(-0.0067671, 0, 0.199885, 0, 0.2, 0, -0.199885, 0, -0.0067671, -5.82724, 4.56025, -14.8672)
+visibility_range_end = 2.55
+visibility_range_fade_mode = 2
+texture = ExtResource("13_0dlf3")
+metadata/_edit_group_ = true
+
+[node name="Clues13" type="Sprite3D" parent="."]
+transform = Transform3D(-0.0067671, 0, 0.199885, 0, 0.2, 0, -0.199885, 0, -0.0067671, -5.82724, 4.56025, -18.2439)
+visibility_range_end = 2.55
+visibility_range_fade_mode = 2
+texture = ExtResource("13_0dlf3")
+metadata/_edit_group_ = true
+
+[node name="Clues4" type="Sprite3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 4.32996, 3.78595, -14.8934)
+visibility_range_end = 2.55
+visibility_range_fade_mode = 2
+texture = ExtResource("13_0dlf3")
+metadata/_edit_group_ = true
+
+[node name="Clues5" type="Sprite3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 4.63203, 7.72618, -25.7234)
+visibility_range_end = 2.55
+visibility_range_fade_mode = 2
+texture = ExtResource("13_0dlf3")
+metadata/_edit_group_ = true
+
+[node name="Clues6" type="Sprite3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 2.68224, 7.72618, -25.7234)
+visibility_range_end = 2.55
+visibility_range_fade_mode = 2
+texture = ExtResource("13_0dlf3")
+metadata/_edit_group_ = true
+
+[node name="Clues14" type="Sprite3D" parent="."]
+transform = Transform3D(-8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, 6.43489, 9.6128, -35.9706)
+visibility_range_end = 2.55
+visibility_range_fade_mode = 2
+texture = ExtResource("13_0dlf3")
+metadata/_edit_group_ = true
+
+[node name="Clues15" type="Sprite3D" parent="."]
+transform = Transform3D(-8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, 9.02424, 10.5619, -34.6606)
+visibility_range_end = 2.55
+visibility_range_fade_mode = 2
+texture = ExtResource("13_0dlf3")
+metadata/_edit_group_ = true
+
+[node name="Clues16" type="Sprite3D" parent="."]
+transform = Transform3D(-8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, 10.2014, 10.5619, -32.0658)
+visibility_range_end = 2.55
+visibility_range_fade_mode = 2
+texture = ExtResource("13_0dlf3")
+metadata/_edit_group_ = true
+
+[node name="Clues17" type="Sprite3D" parent="."]
+transform = Transform3D(-8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, 11.5208, 11.4871, -38.148)
+visibility_range_end = 2.55
+visibility_range_fade_mode = 2
+texture = ExtResource("13_0dlf3")
+metadata/_edit_group_ = true
+
+[node name="Clues18" type="Sprite3D" parent="."]
+transform = Transform3D(-8.74228e-09, 0, -0.2, 0, 0.2, 0, 0.2, 0, -8.74228e-09, 14.5765, 12.9111, -34.4826)
+visibility_range_end = 2.55
+visibility_range_fade_mode = 2
+texture = ExtResource("13_0dlf3")
+metadata/_edit_group_ = true
+
+[node name="Clues7" type="Sprite3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.593604, 7.72618, -25.7234)
+visibility_range_end = 2.55
+visibility_range_fade_mode = 2
+texture = ExtResource("13_0dlf3")
+metadata/_edit_group_ = true
+
+[node name="Clues8" type="Sprite3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -7.22066, 7.72618, -25.7234)
+visibility_range_end = 2.55
+visibility_range_fade_mode = 2
+texture = ExtResource("13_0dlf3")
+metadata/_edit_group_ = true
+
+[node name="Clues9" type="Sprite3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -5.08309, 7.72618, -25.7234)
+visibility_range_end = 2.55
+visibility_range_fade_mode = 2
+texture = ExtResource("13_0dlf3")
+metadata/_edit_group_ = true
+
+[node name="Clues10" type="Sprite3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -3.19341, 7.72618, -25.7234)
+visibility_range_end = 2.55
+visibility_range_fade_mode = 2
+texture = ExtResource("13_0dlf3")
+metadata/_edit_group_ = true
