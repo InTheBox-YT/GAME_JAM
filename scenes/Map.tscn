@@ -53,7 +53,7 @@ shadow_enabled = true
 omni_range = 8.86186
 
 [node name="Light6" type="OmniLight3D" parent="Lighs"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.52622, 6.69173, -2.03414)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.28737, 5.32746, -2.03414)
 light_color = Color(0.419608, 1, 1, 1)
 shadow_enabled = true
 omni_range = 8.86186
