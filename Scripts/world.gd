@@ -16,11 +16,12 @@ func _process(delta):
 
 
 func _on_play_button_pressed():
-	pass
-
-
-func _on_button_pressed():
 	MainMenu.hide()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	var instance = Player.instantiate()
 	add_child(instance)
+
+
+
+func _on_button_pressed():
+	pass

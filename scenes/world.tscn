@@ -72,7 +72,6 @@ stretch_mode = 2
 layout_mode = 2
 
 [node name="PlayButton" type="TextureButton" parent="MenuCanvas/MainMenu"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -80,6 +79,7 @@ texture_normal = ExtResource("5_l70ym")
 texture_hover = ExtResource("6_retam")
 
 [node name="Button" type="Button" parent="MenuCanvas/MainMenu"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
