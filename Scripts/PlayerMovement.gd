@@ -19,7 +19,7 @@ const WALK_SPEED := 5.0
 const RUN_SPEED := 7.0
 const SPRINT_ACCELERATION := 15.0
 
-const JUMP_VELOCITY = 6 
+const JUMP_VELOCITY = 4 
 const GRAVITY = 9.8  
 
 # Zoom Variables
@@ -97,7 +97,7 @@ func _physics_process(delta: float):
 		direction = ($CamRoot/CamYaw.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		
 		if input_dir != Vector2(0,0):
-			$Model.rotation_degrees.y = $CamRoot/CamYaw.rotation_degrees.y - rad_to_deg(input_dir.angle()) - 90
+			$Model.rotation_degrees.y = $CamRoot/CamYaw.rotation_degrees.y - rad_to_deg(input_dir.angle()) - 120 #90
 			
 		if Input.is_action_pressed("Zoom"):
 			currentCamera = first_person_camera
