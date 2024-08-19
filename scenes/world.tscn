@@ -1,12 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://2v3mk05sk4kq"]
+[gd_scene load_steps=11 format=3 uid="uid://2v3mk05sk4kq"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_5dfqd"]
 [ext_resource type="PackedScene" uid="uid://dvg2o6pb6ba56" path="res://scenes/Map.tscn" id="2_ina60"]
 [ext_resource type="Texture2D" uid="uid://c7x23nyfn8apb" path="res://Sprites/DEtective mannen.png" id="4_47qo5"]
-[ext_resource type="Texture2D" uid="uid://dswo8me2k8iyw" path="res://Sprites/veison-removebg-preview.png" id="5_awtks"]
-[ext_resource type="Texture2D" uid="uid://bcgbw5h3kswis" path="res://Sprites/download-removebg-preview.png" id="5_l70ym"]
-[ext_resource type="Texture2D" uid="uid://cpqvmr0pbc3so" path="res://Sprites/num1-removebg-preview.png" id="6_aqem1"]
-[ext_resource type="Texture2D" uid="uid://ccwe4j06qel4c" path="res://Sprites/sdwa-removebg-preview.png" id="6_retam"]
+[ext_resource type="Texture2D" uid="uid://b3fo8jowqhycc" path="res://Shader/Version.png" id="4_frqgx"]
+[ext_resource type="Texture2D" uid="uid://d26l5sq40ko58" path="res://Shader/costume3.png" id="5_hs6l6"]
+[ext_resource type="Texture2D" uid="uid://c57sq1mnxgjbf" path="res://Shader/Playbuton.png" id="6_s1nqv"]
 [ext_resource type="AudioStream" uid="uid://qss4r8ok5psi" path="res://Models/OhToALostSoul.mp3" id="8_0icnj"]
 [ext_resource type="Texture2D" uid="uid://dcopfmpgbh6jr" path="res://Shader/ffffffffffffmage.png" id="9_g66em"]
 [ext_resource type="AudioStream" uid="uid://du8hx8ei0vehk" path="res://Models/Empty Room Ambient Noise Sound Effect (1).mp3" id="10_q8nr3"]
@@ -50,10 +49,11 @@ size_flags_vertical = 8
 size_flags_stretch_ratio = 0.0
 
 [node name="Version" type="TextureRect" parent="MenuCanvas/MainMenu/VBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
-texture = ExtResource("5_awtks")
+texture = ExtResource("4_frqgx")
 stretch_mode = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MenuCanvas/MainMenu"]
@@ -62,16 +62,17 @@ layout_mode = 2
 [node name="menuoptions" type="VBoxContainer" parent="MenuCanvas/MainMenu/VBoxContainer2"]
 layout_mode = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MenuCanvas/MainMenu"]
+[node name="VersionNumber_" type="HBoxContainer" parent="MenuCanvas/MainMenu"]
 layout_mode = 2
 
-[node name="VersionNumber" type="TextureRect" parent="MenuCanvas/MainMenu/HBoxContainer2"]
+[node name="VersionNumber" type="TextureRect" parent="MenuCanvas/MainMenu/VersionNumber_"]
+texture_filter = 1
+texture_repeat = 2
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 8
 size_flags_stretch_ratio = 0.0
-texture = ExtResource("6_aqem1")
-stretch_mode = 2
+texture = ExtResource("5_hs6l6")
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="MenuCanvas/MainMenu"]
 layout_mode = 2
@@ -84,18 +85,20 @@ size_flags_vertical = 4
 theme_override_font_sizes/font_size = 46
 text = "    Play     "
 
-[node name="PlayButton" type="TextureButton" parent="MenuCanvas/MainMenu"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture_normal = ExtResource("5_l70ym")
-texture_hover = ExtResource("6_retam")
-
 [node name="Ffffffffffffmage" type="Sprite2D" parent="MenuCanvas/MainMenu"]
 z_index = -1
 position = Vector2(577, 325)
 scale = Vector2(1.01406, 1.03155)
 texture = ExtResource("9_g66em")
+
+[node name="PlayButton" type="TextureButton" parent="MenuCanvas/MainMenu"]
+texture_filter = 1
+texture_repeat = 3
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("6_s1nqv")
+texture_hover = ExtResource("6_s1nqv")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_0icnj")

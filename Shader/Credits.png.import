@@ -2,27 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://s7twrjt7hce8"
-path.s3tc="res://.godot/imported/Clues2.png-bd79b2116f0a62e78bfc16514422d3f9.s3tc.ctex"
+uid="uid://ddn00i5ia7g84"
+path="res://.godot/imported/Credits.png-92903336a1164534dfca65d82b583901.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Shader/Clues2.png"
-dest_files=["res://.godot/imported/Clues2.png-bd79b2116f0a62e78bfc16514422d3f9.s3tc.ctex"]
+source_file="res://Shader/Credits.png"
+dest_files=["res://.godot/imported/Credits.png-92903336a1164534dfca65d82b583901.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -32,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
