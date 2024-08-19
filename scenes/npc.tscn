@@ -1,5 +1,6 @@
-[gd_scene load_steps=23 format=4 uid="uid://dmxfw56dfqaba"]
+[gd_scene load_steps=24 format=4 uid="uid://dmxfw56dfqaba"]
 
+[ext_resource type="Script" path="res://scenes/npc.gd" id="1_fltja"]
 [ext_resource type="Texture2D" uid="uid://i4r35obq00f3" path="res://oi bruv_Cube.png" id="2_5udpr"]
 [ext_resource type="AudioStream" uid="uid://qss4r8ok5psi" path="res://Models/OhToALostSoul.mp3" id="2_oxya2"]
 [ext_resource type="Texture2D" uid="uid://csas1xbk16stx" path="res://oi bruv_Material.png" id="3_asaoy"]
@@ -239,6 +240,7 @@ blend_shape_mode = 0
 size = Vector3(1.5, 1.5, 1.5)
 
 [node name="NPC" type="Node3D"]
+script = ExtResource("1_fltja")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

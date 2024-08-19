@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+TransitionScreen="*res://scenes/transitionScreen.tscn"
+Npc="*res://scenes/npc.gd"
 
 [editor_plugins]
 
