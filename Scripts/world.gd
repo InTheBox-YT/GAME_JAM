@@ -1,11 +1,35 @@
 extends Node3D
 
+@onready var map = $Map
+@onready var MainMenu = $MenuCanvas/MainMenu
+@onready var music_player = $AudioStreamPlayer  # Reference to AudioStreamPlayer node for music
+var Player = preload("res://scenes/player.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	MainMenu.show()
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
+	# Play the background music
+	if music_player:
+		music_player.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	pass
+
+func _on_play_button_pressed():
+	MainMenu.hide()
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	# Stop the background music when the game starts
+	if music_player:
+		music_player.stop()
+
+	TransitionScreen.transition()
+	await TransitionScreen.on_transition_finished
+	var instance = Player.instantiate()
+	add_child(instance)
+
+func _on_button_pressed():
 	pass

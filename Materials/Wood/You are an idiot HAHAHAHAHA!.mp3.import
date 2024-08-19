@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://8hm01xp45s4k"
+path="res://.godot/imported/You are an idiot HAHAHAHAHA!.mp3-cd4989118777dd1874dc19abe50fa87e.mp3str"
+
+[deps]
+
+source_file="res://Materials/Wood/You are an idiot HAHAHAHAHA!.mp3"
+dest_files=["res://.godot/imported/You are an idiot HAHAHAHAHA!.mp3-cd4989118777dd1874dc19abe50fa87e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -7,18 +7,20 @@ extends CharacterBody3D
 @onready var raycast: RayCast3D = $CamRoot/CamYaw/CamPitch/FirstPersonCamera/RayCast3D
 @onready var magnifying_glass: Node3D = $CamRoot/CamYaw/CamPitch/FirstPersonCamera/Magnifying_Glass
 @onready var arm: MeshInstance3D = $CamRoot/CamYaw/CamPitch/FirstPersonCamera/Arm
+@onready var actionable_finder: Area3D = $Model/ActionableFinder
+
 
 # Speed Variables
 var direction
 var curspeed = WALK_SPEED
 var target_speed = WALK_SPEED
-var acceleration = 10.0
+var acceleration = 120
 const WALK_SPEED := 5.0
-const RUN_SPEED := 10.0
+const RUN_SPEED := 7.0
 const SPRINT_ACCELERATION := 15.0
 
-const JUMP_VELOCITY = 6 
-const GRAVITY = 9.8  
+const JUMP_VELOCITY = 5
+const GRAVITY = 9.8 
 
 # Zoom Variables
 var normal_fov = 70.0
@@ -40,6 +42,7 @@ var cam_rotation : float = 0
 var direct : Vector3
 
 var rotation_speed := 5.0 # Rotation speed in degrees per second
+var dialogueAvaliable = true
 
 func _ready():
 	# Set the camera's initial position and rotation
@@ -48,7 +51,9 @@ func _ready():
 	currentCamera.fov = normal_fov
 	
 	# Lock the mouse cursor
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	# Check Dialogue Ended
+	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 
 func _input(event):	
 	if event is InputEventMouseButton:
@@ -63,31 +68,57 @@ func _input(event):
 				var target_parent: Node = target.get_parent()
 				if target is Node3D and target_parent != get_node("/root/World/Map/UnsizeableObjects"):
 					set_target_scale(target)
-
+					
+	if Input.is_action_just_pressed("Interact") && dialogueAvaliable == true:
+		var actionables = actionable_finder.get_overlapping_areas()
+		if actionables.size() > 0:
+			actionables[0].action()
+			dialogueAvaliable = false
+			return
+				
 func _physics_process(delta: float):
-	if Input.is_action_pressed("Interact"):
-		DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "Test")
-		return
+	if dialogueAvaliable == true:
+		if not is_on_floor():
+			velocity.y -= GRAVITY * delta
+
+		if Input.is_action_just_pressed("Jump") and is_on_floor():
+			velocity.y = JUMP_VELOCITY
+
+		# Handle sprinting with smooth acceleration
+		if Input.is_action_pressed("Run") and is_on_floor():
+			target_speed = RUN_SPEED
+		else:
+			target_speed = WALK_SPEED
 		
-	if not is_on_floor():
-		velocity.y -= GRAVITY * delta
-
-	if Input.is_action_just_pressed("Jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Handle sprinting with smooth acceleration
-	if Input.is_action_pressed("Run") and is_on_floor():
-		target_speed = RUN_SPEED
+		curspeed = lerp(curspeed, target_speed, SPRINT_ACCELERATION * delta)
+		
+		var input_dir = Input.get_vector("Left", "Right", "Up", "Down")
+		direction = ($CamRoot/CamYaw.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		
+		if input_dir != Vector2(0,0):
+			$Model.rotation.y = lerp_angle($Model.rotation.y, atan2(-direction.x, -direction.z), delta * 7)
+			
+		if Input.is_action_pressed("Zoom"):
+			currentCamera = first_person_camera
+		else:
+			currentCamera = third_person_camera
 	else:
-		target_speed = WALK_SPEED
-	
-	curspeed = lerp(curspeed, target_speed, SPRINT_ACCELERATION * delta)
+		curspeed = 0.0
+		currentCamera = third_person_camera
+		
+	# Apply some control in the air
+	if direction:
+		velocity.x = move_toward(velocity.x, direction.x * curspeed, acceleration * delta)
+		velocity.z = move_toward(velocity.z, direction.z * curspeed, acceleration * delta)
+	else:
+		velocity.x = move_toward(velocity.x, 0, acceleration * delta)
+		velocity.z = move_toward(velocity.z, 0, acceleration * delta)
 
-	var input_dir = Input.get_vector("Left", "Right", "Up", "Down")
-	direction = ($CamRoot/CamYaw.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	
-	if input_dir != Vector2(0,0):
-		$Model.rotation_degrees.y = $CamRoot/CamYaw.rotation_degrees.y - rad_to_deg(input_dir.angle()) - 90
+	move_and_slide()
+
+	# Smoothly scale the target object
+	if current_target:
+		current_target.scale = current_target.scale.lerp(target_scale, resize_speed * delta)
 	
 	if currentCamera == third_person_camera:
 		third_person_camera.current = true
@@ -105,25 +136,6 @@ func _physics_process(delta: float):
 		arm.visible = true
 		$Model.visible = false
 
-	# Apply some control in the air
-	if direction:
-		velocity.x = move_toward(velocity.x, direction.x * curspeed, acceleration * delta)
-		velocity.z = move_toward(velocity.z, direction.z * curspeed, acceleration * delta)
-	else:
-		velocity.x = move_toward(velocity.x, 0, acceleration * delta)
-		velocity.z = move_toward(velocity.z, 0, acceleration * delta)
-
-	move_and_slide()
-
-	# Smoothly scale the target object
-	if current_target:
-		current_target.scale = current_target.scale.lerp(target_scale, resize_speed * delta)
-
-	if Input.is_action_pressed("Zoom"):
-		currentCamera = first_person_camera
-	else:
-		currentCamera = third_person_camera
-
 func set_target_scale(target: Node3D):
 	# Calculate new target scale
 	target_scale = target.scale + Vector3(resize_factor, resize_factor, resize_factor)
@@ -135,3 +147,6 @@ func set_target_scale(target: Node3D):
 	
 	current_target = target
 	print("Resizing object: ", target.name, " Target scale: ", target_scale)
+	
+func _on_dialogue_ended(_resource: DialogueResource):
+	dialogueAvaliable = true
