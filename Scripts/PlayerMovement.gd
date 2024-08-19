@@ -51,7 +51,6 @@ func _ready():
 	currentCamera.fov = normal_fov
 	
 	# Lock the mouse cursor
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	# Check Dialogue Ended
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
