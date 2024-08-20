@@ -21,6 +21,10 @@ DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 TransitionScreen="*res://scenes/transitionScreen.tscn"
 Npc="*res://Scripts/npc.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
