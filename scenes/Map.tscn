@@ -1,4 +1,4 @@
-[gd_scene load_steps=153 format=4 uid="uid://dvg2o6pb6ba56"]
+[gd_scene load_steps=154 format=4 uid="uid://dvg2o6pb6ba56"]
 
 [ext_resource type="Material" uid="uid://d1deego7mdsfe" path="res://Materials/GridFloor.tres" id="1_hnknw"]
 [ext_resource type="Texture2D" uid="uid://cfa6vikmtfx81" path="res://Materials/Plaster/Plaster_09-512x512.png" id="1_wos0x"]
@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://ce8c1avl35lwo" path="res://Materials/Metal/Metal_03-512x512.png" id="18_j6cun"]
 [ext_resource type="Texture2D" uid="uid://df6pvei5p0roy" path="res://Shader/gfhfghfg.png" id="19_l68q5"]
 [ext_resource type="Resource" uid="uid://cdidk5jexjl7w" path="res://dialogue/sign.dialogue" id="19_mthdm"]
+[ext_resource type="PackedScene" uid="uid://drie1rm0411oq" path="res://Scripts/rebar.glb" id="21_j1imn"]
 [ext_resource type="Texture2D" uid="uid://dwq4i8mv21m3i" path="res://Models/signs_lock in.png" id="27_q5h1i"]
 [ext_resource type="Texture2D" uid="uid://s7twrjt7hce8" path="res://Shader/Clues2.png" id="28_sa2eg"]
 [ext_resource type="Texture2D" uid="uid://bbw6o6ync4sh3" path="res://Shader/costusdsdme2.png" id="30_tkqbx"]
@@ -939,7 +940,7 @@ shadow_enabled = true
 omni_range = 8.86186
 
 [node name="Light7" type="OmniLight3D" parent="Lighs"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.13202, 9.13341, -14.4461)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.62614, 3.48661, -14.4461)
 light_color = Color(1, 1, 0, 1)
 shadow_enabled = true
 omni_range = 8.86186
@@ -1821,6 +1822,12 @@ transform = Transform3D(0.0867384, 0, 0.996231, 0, 1, 0, -0.996231, 0, 0.0867384
 
 [node name="fence36" parent="UnsizeableObjects" instance=ExtResource("17_tnw4q")]
 transform = Transform3D(0.0867384, 0, 0.996231, 0, 1, 0, -0.996231, 0, 0.0867384, -5.55754, 9.19526, -98.194)
+
+[node name="rebar" parent="UnsizeableObjects" instance=ExtResource("21_j1imn")]
+transform = Transform3D(-0.000296733, 1.68526, 0.0150539, -0.0199066, -0.0251209, 1.0099, 0.999598, 0, 0.0201163, -6.82762, 10.6827, -25.9461)
+
+[node name="rebar2" parent="UnsizeableObjects" instance=ExtResource("21_j1imn")]
+transform = Transform3D(-0.000296733, 1.68526, 0.0150539, -0.0199066, -0.0251209, 1.0099, 0.999598, 0, 0.0201163, 1.24801, 10.6827, -25.9461)
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7075, -0.61044, -17.8488)
