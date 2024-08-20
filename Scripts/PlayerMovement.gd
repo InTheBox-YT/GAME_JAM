@@ -69,12 +69,10 @@ func _input(event):
 			return
 				
 func _physics_process(delta: float):
-	if Input.is_action_pressed("Reset Character"):
-		self.global_position = Vector3(0,0,0)
-	
 	if dialogueAvaliable == true:
-		if not is_on_floor():
-			velocity.y -= GRAVITY * delta
+		
+		if Input.is_action_pressed("Reset Character"):
+			self.global_position = Vector3(0,0,0)
 
 		if Input.is_action_just_pressed("Jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
@@ -105,6 +103,9 @@ func _physics_process(delta: float):
 	else:
 		curspeed = 0.0
 		currentCamera = third_person_camera
+		
+	if not is_on_floor():
+		velocity.y -= GRAVITY * delta
 		
 	# Apply some control in the air
 	if direction:

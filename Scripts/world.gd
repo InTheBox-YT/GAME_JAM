@@ -2,6 +2,7 @@ extends Node3D
 
 @onready var map = $Map
 @onready var MainMenu = $"MenuCanvas/Main Menu"
+@onready var SettingsMenu = $MenuCanvas/SettingsMenu
 @onready var music_player = $AudioStreamPlayer  # Reference to AudioStreamPlayer node for music
 var Player = preload("res://scenes/player.tscn")
 @onready var ambience_player = $AudioStreamPlayer2
@@ -40,3 +41,11 @@ func _on_play_button_pressed():
 
 func _on_button_pressed():
 	pass
+
+
+func _on_settings_button_pressed():
+	SettingsMenu.show()
+
+
+func _on_back_pressed():
+	SettingsMenu.hide()
