@@ -1,4 +1,4 @@
-[gd_scene load_steps=164 format=4 uid="uid://dvg2o6pb6ba56"]
+[gd_scene load_steps=165 format=4 uid="uid://dvg2o6pb6ba56"]
 
 [ext_resource type="Material" uid="uid://d1deego7mdsfe" path="res://Materials/GridFloor.tres" id="1_hnknw"]
 [ext_resource type="Texture2D" uid="uid://cfa6vikmtfx81" path="res://Materials/Plaster/Plaster_09-512x512.png" id="1_wos0x"]
@@ -825,6 +825,14 @@ albedo_texture = ExtResource("41_rfiwx")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xenv6"]
 size = Vector3(1.5, 1.5, 2.21826)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dyh8u"]
+transparency = 1
+albedo_color = Color(0, 1, 1, 1)
+metallic = 1.0
+metallic_specular = 1.0
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
 
 [node name="Map" type="Node3D"]
 
@@ -2610,3 +2618,10 @@ transform = Transform3D(0.6389, -0.689722, -0.340719, 5.16897, 2.80942, 4.00547,
 [node name="CollisionShape3D" type="CollisionShape3D" parent="edvidene2/Interactable"]
 transform = Transform3D(0.866025, -1.77638e-14, -0.5, -1.42109e-14, 1, 0, 0.5, -5.68434e-14, 0.866025, -16.9676, 4.85671, 78.2261)
 shape = SubResource("BoxShape3D_xenv6")
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="."]
+transform = Transform3D(0.870975, 0, 0, 0, 26.5272, 0, 0, 0, -0.0475741, 2.10951, 6.45684, 8.62816)
+material_override = SubResource("StandardMaterial3D_adm2p")
+use_collision = true
+size = Vector3(7.0509, 0.276277, 24.6801)
+material = SubResource("StandardMaterial3D_dyh8u")
