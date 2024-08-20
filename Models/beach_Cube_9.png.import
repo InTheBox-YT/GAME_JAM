@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://dd781r1fqnbc3"
+path.s3tc="res://.godot/imported/beach_Cube_9.png-c8ecd5ecd3f77e7c8090d0abcc65f0c2.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "38e69cd79894e4c752a2fa7962db3fec"
+}
+
+[deps]
+
+source_file="res://Models/beach_Cube_9.png"
+dest_files=["res://.godot/imported/beach_Cube_9.png-c8ecd5ecd3f77e7c8090d0abcc65f0c2.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

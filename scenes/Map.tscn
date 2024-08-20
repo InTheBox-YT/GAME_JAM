@@ -1,4 +1,4 @@
-[gd_scene load_steps=156 format=4 uid="uid://dvg2o6pb6ba56"]
+[gd_scene load_steps=157 format=4 uid="uid://dvg2o6pb6ba56"]
 
 [ext_resource type="Material" uid="uid://d1deego7mdsfe" path="res://Materials/GridFloor.tres" id="1_hnknw"]
 [ext_resource type="Texture2D" uid="uid://cfa6vikmtfx81" path="res://Materials/Plaster/Plaster_09-512x512.png" id="1_wos0x"]
@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://df6pvei5p0roy" path="res://Shader/gfhfghfg.png" id="19_l68q5"]
 [ext_resource type="Resource" uid="uid://cdidk5jexjl7w" path="res://dialogue/sign.dialogue" id="19_mthdm"]
 [ext_resource type="PackedScene" uid="uid://drie1rm0411oq" path="res://Scripts/rebar.glb" id="21_j1imn"]
+[ext_resource type="PackedScene" uid="uid://blob5p65qd32w" path="res://Models/beach.tscn" id="23_vfshm"]
 [ext_resource type="Texture2D" uid="uid://dwq4i8mv21m3i" path="res://Models/signs_lock in.png" id="27_q5h1i"]
 [ext_resource type="Texture2D" uid="uid://s7twrjt7hce8" path="res://Shader/Clues2.png" id="28_sa2eg"]
 [ext_resource type="Texture2D" uid="uid://bbw6o6ync4sh3" path="res://Shader/costusdsdme2.png" id="30_tkqbx"]
@@ -1840,6 +1841,9 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.641
 material_override = SubResource("StandardMaterial3D_t6lk5")
 use_collision = true
 size = Vector3(6.81959, 6.9739, 0.583008)
+
+[node name="beach" parent="UnsizeableObjects" instance=ExtResource("23_vfshm")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -236.219, -56.819, 25.6142)
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7075, -0.61044, -17.8488)
