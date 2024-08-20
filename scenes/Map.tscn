@@ -2118,6 +2118,10 @@ texture = ExtResource("30_tkqbx")
 transform = Transform3D(0.541506, 0, 0, 0, 0.447081, 0, 0, 0, 1, 1.833, -0.6449, -9.23382)
 texture = ExtResource("31_plmsr")
 
+[node name="Sprite3D7" type="Sprite3D" parent="."]
+transform = Transform3D(0.541506, 0, 0, 0, 0.447081, 0, 0, 0, 1, -1.25418, 7.09912, -23.6838)
+texture = ExtResource("31_plmsr")
+
 [node name="tree" parent="." instance=ExtResource("32_x5s43")]
 transform = Transform3D(0.630405, 0, -0.776267, 0, 1, 0, 0.776267, 0, 0.630405, 50.2735, 31.1186, -26.0752)
 
