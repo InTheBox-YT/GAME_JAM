@@ -71,7 +71,8 @@ ambient_light_color = Color(0.118581, 0.118581, 0.118581, 1)
 ambient_light_sky_contribution = 0.0
 ambient_light_energy = 0.0
 glow_enabled = true
-glow_intensity = 1.85
+glow_intensity = 1.09
+glow_bloom = 0.15
 fog_enabled = true
 fog_light_color = Color(1, 1, 1, 1)
 fog_light_energy = 0.34
@@ -1843,7 +1844,7 @@ use_collision = true
 size = Vector3(6.81959, 6.9739, 0.583008)
 
 [node name="beach" parent="UnsizeableObjects" instance=ExtResource("23_vfshm")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -236.219, -56.819, 25.6142)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -9.7699, -56.819, 125.895)
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7075, -0.61044, -17.8488)
@@ -2263,6 +2264,7 @@ material = ExtResource("4_tyaf0")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.514874, 0.857266, 0, -0.857266, -0.514874, 25.9176, 18.9539, -60.8953)
+light_color = Color(1, 0.781655, 0.717366, 1)
 shadow_enabled = true
 
 [node name="Cool Sign" type="MeshInstance3D" parent="."]

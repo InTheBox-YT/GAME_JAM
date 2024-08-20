@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brruoo0qstebt"
+uid="uid://c8b0bpxpq5ar5"
 path.s3tc="res://.godot/imported/beach_armor Base Color.png-21912538c03c4c83bdb1abd06306c158.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "e66f520c83333ef83b72ba5d7ff5e943"
 }
 
 [deps]
