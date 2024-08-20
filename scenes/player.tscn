@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/PlayerMovement.gd" id="1_4yoea"]
 [ext_resource type="Texture2D" uid="uid://x7hwhqgs6mn2" path="res://mannetje beveled_Cube Base Color.png" id="3_b1ofm"]
 [ext_resource type="Texture2D" uid="uid://xb2fulcsi7uc" path="res://Shader/magni (not modi)_Material Base Color.png" id="3_npo2n"]
-[ext_resource type="Texture2D" uid="uid://bt6bqhha23u0m" path="res://Shader/BORDRER.png" id="4_pjraa"]
+[ext_resource type="Texture2D" uid="uid://3fnmbjy3ynfh" path="res://Materials/Dirt/BORDRER.png" id="4_sctti"]
 [ext_resource type="Texture2D" uid="uid://cgxiw2wxt2wa" path="res://mannetje beveled_Cube.png" id="4_v4no3"]
 [ext_resource type="Texture2D" uid="uid://cvlp7lfqn8l1v" path="res://mannetje beveled_Material.png" id="5_e4yvu"]
 [ext_resource type="Texture2D" uid="uid://bdku3tjfukxbj" path="res://mannetje beveled_Material_5.png" id="6_mjhbj"]
@@ -484,7 +484,7 @@ transform = Transform3D(3.2811, 2.15987, 0, -2.15273, 3.29196, 0, 0, 0, 1, 0.005
 shaded = true
 double_sided = false
 texture_filter = 2
-texture = ExtResource("4_pjraa")
+texture = ExtResource("4_sctti")
 
 [node name="Model" type="Node3D" parent="CharacterBody3D"]
 
