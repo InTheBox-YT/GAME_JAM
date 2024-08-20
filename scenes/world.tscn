@@ -1,13 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://2v3mk05sk4kq"]
+[gd_scene load_steps=12 format=3 uid="uid://2v3mk05sk4kq"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_5dfqd"]
 [ext_resource type="PackedScene" uid="uid://dvg2o6pb6ba56" path="res://scenes/Map.tscn" id="2_ina60"]
+[ext_resource type="Texture2D" uid="uid://dugamvls8kepv" path="res://image (2).png" id="3_u5nvo"]
 [ext_resource type="Texture2D" uid="uid://c7x23nyfn8apb" path="res://Sprites/DEtective mannen.png" id="4_47qo5"]
 [ext_resource type="Texture2D" uid="uid://b3fo8jowqhycc" path="res://Shader/Version.png" id="4_frqgx"]
 [ext_resource type="Texture2D" uid="uid://d26l5sq40ko58" path="res://Shader/costume3.png" id="5_hs6l6"]
+[ext_resource type="Texture2D" uid="uid://nuc8686qg1q3" path="res://Shader/23-ai-brush-removebg-v7uyt588.png" id="6_d4v7i"]
 [ext_resource type="Texture2D" uid="uid://c57sq1mnxgjbf" path="res://Shader/Playbuton.png" id="6_s1nqv"]
 [ext_resource type="AudioStream" uid="uid://qss4r8ok5psi" path="res://Models/OhToALostSoul.mp3" id="8_0icnj"]
-[ext_resource type="Texture2D" uid="uid://dcopfmpgbh6jr" path="res://Shader/ffffffffffffmage.png" id="9_g66em"]
 [ext_resource type="AudioStream" uid="uid://du8hx8ei0vehk" path="res://Models/Empty Room Ambient Noise Sound Effect (1).mp3" id="10_q8nr3"]
 
 [sub_resource type="Environment" id="Environment_xjj1u"]
@@ -22,64 +23,88 @@ environment = SubResource("Environment_xjj1u")
 
 [node name="MenuCanvas" type="CanvasLayer" parent="."]
 
-[node name="MainMenu" type="MarginContainer" parent="MenuCanvas"]
+[node name="Main Menu" type="Control" parent="MenuCanvas"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1.0
-offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
 
-[node name="Ffffffffffffmage" type="Sprite2D" parent="MenuCanvas/MainMenu"]
-z_index = -1
-position = Vector2(577, 325)
-scale = Vector2(1.01406, 1.03155)
-texture = ExtResource("9_g66em")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MenuCanvas/MainMenu"]
+[node name="PanelContainer" type="PanelContainer" parent="MenuCanvas/Main Menu"]
 layout_mode = 2
+offset_right = 1152.0
+offset_bottom = 648.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MenuCanvas/MainMenu/VBoxContainer"]
+[node name="MainMenu" type="MarginContainer" parent="MenuCanvas/Main Menu/PanelContainer"]
 layout_mode = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="Logo" type="TextureRect" parent="MenuCanvas/MainMenu/VBoxContainer/HBoxContainer"]
+[node name="BG Image" type="TextureRect" parent="MenuCanvas/Main Menu"]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 1145.0
+offset_bottom = 641.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_u5nvo")
+stretch_mode = 2
+
+[node name="Logo" type="TextureRect" parent="MenuCanvas/Main Menu"]
+layout_mode = 2
+offset_left = 397.0
+offset_top = 33.0
+offset_right = 806.0
+offset_bottom = 447.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("4_47qo5")
 stretch_mode = 3
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MenuCanvas/MainMenu/VBoxContainer"]
-layout_mode = 2
-
-[node name="PlayButton" type="TextureButton" parent="MenuCanvas/MainMenu/VBoxContainer/HBoxContainer2"]
+[node name="PlayButton" type="TextureButton" parent="MenuCanvas/Main Menu"]
 texture_filter = 1
 texture_repeat = 3
 layout_mode = 2
+offset_left = 258.0
+offset_top = 368.0
+offset_right = 451.0
+offset_bottom = 482.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource("6_s1nqv")
+texture_normal = ExtResource("6_d4v7i")
 texture_hover = ExtResource("6_s1nqv")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="MenuCanvas/MainMenu/VBoxContainer"]
-layout_mode = 2
-
-[node name="VersionNumber" type="TextureRect" parent="MenuCanvas/MainMenu/VBoxContainer/HBoxContainer3"]
-texture_filter = 1
-texture_repeat = 2
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 8
-size_flags_stretch_ratio = 0.0
-texture = ExtResource("5_hs6l6")
-
-[node name="Version" type="TextureRect" parent="MenuCanvas/MainMenu"]
+[node name="Version" type="TextureRect" parent="MenuCanvas/Main Menu"]
 texture_filter = 1
 layout_mode = 2
+offset_left = 34.0
+offset_top = 555.0
+offset_right = 208.0
+offset_bottom = 626.0
 size_flags_horizontal = 0
 size_flags_vertical = 8
 texture = ExtResource("4_frqgx")
+expand_mode = 1
+
+[node name="VersionNumber" type="TextureRect" parent="MenuCanvas/Main Menu"]
+texture_filter = 1
+texture_repeat = 2
+layout_mode = 2
+offset_left = 215.0
+offset_top = 571.0
+offset_right = 283.0
+offset_bottom = 621.0
+size_flags_horizontal = 10
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("5_hs6l6")
+expand_mode = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_0icnj")
@@ -92,4 +117,4 @@ volume_db = 4.0
 autoplay = true
 parameters/looping = true
 
-[connection signal="pressed" from="MenuCanvas/MainMenu/VBoxContainer/HBoxContainer2/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MenuCanvas/Main Menu/PlayButton" to="." method="_on_play_button_pressed"]
