@@ -8,6 +8,7 @@ extends CharacterBody3D
 @onready var magnifying_glass: Node3D = $CamRoot/CamYaw/CamPitch/FirstPersonCamera/magnifying_glass
 @onready var arm: MeshInstance3D = $CamRoot/CamYaw/CamPitch/FirstPersonCamera/Arm
 @onready var actionable_finder: Area3D = $Model/ActionableFinder
+@onready var interactable_finder: Area3D = $Model/InteractableFinder
 
 # Speed Variables
 var direction
@@ -63,11 +64,13 @@ func _input(event):
 					
 	if Input.is_action_just_pressed("Interact") and dialogueAvaliable == true:
 		var actionables = actionable_finder.get_overlapping_areas()
+		var interactables = interactable_finder.get_overlapping_areas()
 		if actionables.size() > 0:
 			actionables[0].action()
 			dialogueAvaliable = false
 			return
-		
+		elif interactables.size() > 0:
+			print("found interactable")
 		
 		
 func _physics_process(delta: float):
