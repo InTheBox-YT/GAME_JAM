@@ -235,7 +235,7 @@ _surfaces = [{
 blend_shape_mode = 0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m2xsq"]
-size = Vector3(1.5, 1.5, 1.5)
+size = Vector3(1.5, 1.5, 2.21826)
 
 [node name="NPC" type="Node3D"]
 
@@ -289,6 +289,7 @@ skin = SubResource("Skin_yg1u0")
 dialogue_resource = ExtResource("5_r1meh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/Actionable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.359131)
 shape = SubResource("BoxShape3D_m2xsq")
 
 [node name="InteractUI" type="Label3D" parent="."]
