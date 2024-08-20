@@ -44,26 +44,33 @@ layout_mode = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="BG Image" type="TextureRect" parent="MenuCanvas/Main Menu"]
-layout_mode = 2
-offset_left = 7.0
-offset_top = 7.0
-offset_right = 1145.0
-offset_bottom = 641.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("3_u5nvo")
 stretch_mode = 2
 
 [node name="Logo" type="TextureRect" parent="MenuCanvas/Main Menu"]
-layout_mode = 2
-offset_left = 397.0
-offset_top = 33.0
-offset_right = 806.0
-offset_bottom = 447.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = -78.0
+offset_right = 17.0
+offset_bottom = -78.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("4_47qo5")
 stretch_mode = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="PlayButton" type="TextureButton" parent="MenuCanvas/Main Menu"]
 texture_filter = 1
@@ -73,12 +80,15 @@ offset_left = 258.0
 offset_top = 368.0
 offset_right = 451.0
 offset_bottom = 482.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource("6_d4v7i")
 texture_hover = ExtResource("6_s1nqv")
 ignore_texture_size = true
 stretch_mode = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="Version" type="TextureRect" parent="MenuCanvas/Main Menu"]
 texture_filter = 1
@@ -91,6 +101,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 texture = ExtResource("4_frqgx")
 expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="VersionNumber" type="TextureRect" parent="MenuCanvas/Main Menu"]
 texture_filter = 1
@@ -105,6 +116,7 @@ size_flags_vertical = 4
 size_flags_stretch_ratio = 0.0
 texture = ExtResource("5_hs6l6")
 expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_0icnj")
