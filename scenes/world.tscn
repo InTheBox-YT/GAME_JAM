@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://2v3mk05sk4kq"]
+[gd_scene load_steps=16 format=3 uid="uid://2v3mk05sk4kq"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_5dfqd"]
 [ext_resource type="PackedScene" uid="uid://dvg2o6pb6ba56" path="res://scenes/Map.tscn" id="2_ina60"]
@@ -12,6 +12,8 @@
 [ext_resource type="AudioStream" uid="uid://qss4r8ok5psi" path="res://Models/OhToALostSoul.mp3" id="8_0icnj"]
 [ext_resource type="Texture2D" uid="uid://dw8px07uytiiy" path="res://Shader/logo_vertical_color_dark.png" id="9_jkpq8"]
 [ext_resource type="AudioStream" uid="uid://du8hx8ei0vehk" path="res://Models/Empty Room Ambient Noise Sound Effect (1).mp3" id="10_q8nr3"]
+[ext_resource type="Texture2D" uid="uid://c2nwax6vytrcb" path="res://Shader/set-removebg-preview.png" id="11_xh137"]
+[ext_resource type="Texture2D" uid="uid://bwc11fu40bt3q" path="res://Shader/settings.webp" id="12_jc0co"]
 
 [sub_resource type="Environment" id="Environment_xjj1u"]
 
@@ -135,6 +137,17 @@ size_flags_vertical = 4
 size_flags_stretch_ratio = 0.0
 texture = ExtResource("5_hs6l6")
 expand_mode = 1
+
+[node name="SettingsButton" type="TextureButton" parent="MenuCanvas/Main Menu"]
+layout_mode = 0
+offset_left = 678.0
+offset_top = 378.0
+offset_right = 928.0
+offset_bottom = 518.0
+texture_normal = ExtResource("11_xh137")
+texture_hover = ExtResource("12_jc0co")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_0icnj")
