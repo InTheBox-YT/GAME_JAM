@@ -1,7 +1,7 @@
 extends Node3D
 
 @onready var map = $Map
-@onready var MainMenu = $MenuCanvas/Control/MainMenu
+@onready var MainMenu = $"MenuCanvas/Main Menu"
 @onready var music_player = $AudioStreamPlayer  # Reference to AudioStreamPlayer node for music
 var Player = preload("res://scenes/player.tscn")
 @onready var ambience_player = $AudioStreamPlayer2
