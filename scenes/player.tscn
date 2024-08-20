@@ -470,6 +470,9 @@ shape = SubResource("BoxShape3D_w1l52")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_raerw")
-offset_right = 1153.0
-offset_bottom = 650.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = SubResource("CameraTexture_31pdm")
