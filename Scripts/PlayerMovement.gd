@@ -56,15 +56,10 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
 			resize_factor = 0.1
+			checkForObjects()
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			resize_factor = -0.1
-
-		if currentCamera == first_person_camera:
-			if raycast.is_colliding():
-				var target: Node = raycast.get_collider()
-				var target_parent: Node = target.get_parent()
-				if target is Node3D and target_parent != get_node("/root/World/Map/UnsizeableObjects"):
-					set_target_scale(target)
+			checkForObjects()
 					
 	if Input.is_action_just_pressed("Interact") and dialogueAvaliable == true:
 		var actionables = actionable_finder.get_overlapping_areas()
@@ -74,6 +69,9 @@ func _input(event):
 			return
 				
 func _physics_process(delta: float):
+	if Input.is_action_pressed("Reset Character"):
+		self.global_position = Vector3(0,0,0)
+	
 	if dialogueAvaliable == true:
 		if not is_on_floor():
 			velocity.y -= GRAVITY * delta
@@ -152,3 +150,11 @@ func set_target_scale(target: Node3D):
 	
 func _on_dialogue_ended(_resource: DialogueResource):
 	dialogueAvaliable = true
+
+func checkForObjects():
+	if currentCamera == first_person_camera:
+				if raycast.is_colliding():
+					var target: Node = raycast.get_collider()
+					var target_parent: Node = target.get_parent()
+					if target is Node3D and target_parent != get_node("/root/World/Map/UnsizeableObjects"):
+						set_target_scale(target)
