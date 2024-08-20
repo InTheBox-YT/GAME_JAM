@@ -9,7 +9,6 @@ extends CharacterBody3D
 @onready var arm: MeshInstance3D = $CamRoot/CamYaw/CamPitch/FirstPersonCamera/Arm
 @onready var actionable_finder: Area3D = $Model/ActionableFinder
 @onready var interactable_finder: Area3D = $Model/InteractableFinder
-@onready var area_3d = $WorldEnvironment2/Area3D
 
 
 # Speed Variables

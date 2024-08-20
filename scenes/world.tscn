@@ -208,7 +208,7 @@ parameters/looping = true
 
 [node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_1d6we")
-volume_db = -15.036
+volume_db = -20.0
 autoplay = true
 
 [node name="table an char" parent="." instance=ExtResource("21_h6ta1")]

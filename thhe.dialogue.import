@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://dxq36v6qjhcbl"
+path="res://.godot/imported/thhe.dialogue-8ec47f4db0902f7a13109425c1303da6.tres"
+
+[deps]
+
+source_file="res://thhe.dialogue"
+dest_files=["res://.godot/imported/thhe.dialogue-8ec47f4db0902f7a13109425c1303da6.tres"]
+
+[params]
+
+defaults=true

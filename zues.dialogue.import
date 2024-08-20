@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://efjkhsxf7j11"
+path="res://.godot/imported/zues.dialogue-acbacbe4ff2e23bec3726fc6e36d553e.tres"
+
+[deps]
+
+source_file="res://zues.dialogue"
+dest_files=["res://.godot/imported/zues.dialogue-acbacbe4ff2e23bec3726fc6e36d553e.tres"]
+
+[params]
+
+defaults=true
