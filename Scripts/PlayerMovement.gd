@@ -5,7 +5,7 @@ extends CharacterBody3D
 
 @onready var pivot: Node3D = $CamOrigin
 @onready var raycast: RayCast3D = $CamRoot/CamYaw/CamPitch/FirstPersonCamera/RayCast3D
-@onready var magnifying_glass: Node3D = $CamRoot/CamYaw/CamPitch/FirstPersonCamera/Magnifying_Glass
+@onready var magnifying_glass: Node3D = $CamRoot/CamYaw/CamPitch/FirstPersonCamera/magnifying_glass
 @onready var arm: MeshInstance3D = $CamRoot/CamYaw/CamPitch/FirstPersonCamera/Arm
 @onready var actionable_finder: Area3D = $Model/ActionableFinder
 
