@@ -235,12 +235,46 @@ transform = Transform3D(0.638901, 0.102043, -0.253671, -0.689722, 0.055462, -0.6
 material_override = SubResource("StandardMaterial3D_j537f")
 mesh = SubResource("BoxMesh_um42w")
 
+[node name="InteractUI3" type="Label3D" parent="CSGBox3D23"]
+transform = Transform3D(-0.840548, 0, -0.541737, 0, 1, 0, 0.541737, 0, -0.840548, -16.9978, 4.20371, 80.3063)
+visibility_range_begin = 4.0
+visibility_range_begin_margin = 2.0
+visibility_range_end = 10.0
+visibility_range_end_margin = 2.0
+billboard = 1
+text = "(E) To Pick up evidene 1 
+"
+
+[node name="edvidene2" type="MeshInstance3D" parent="CSGBox3D23"]
+transform = Transform3D(0.694937, 0.0837831, -0.401853, -0.689722, 0.055462, -0.607015, -0.203339, 0.098213, 0.6856, -50.837, 22.2942, 25.294)
+material_override = SubResource("StandardMaterial3D_j537f")
+mesh = SubResource("BoxMesh_um42w")
+
+[node name="InteractUI4" type="Label3D" parent="CSGBox3D23"]
+transform = Transform3D(-0.933324, 0, -0.359036, 0, 1, 0, 0.359036, 0, -0.933324, -50.7296, 21.9618, 25.9352)
+visibility_range_begin = 4.0
+visibility_range_begin_margin = 2.0
+visibility_range_end = 10.0
+visibility_range_end_margin = 2.0
+billboard = 1
+text = "(E) To Pick up evidene 2
+"
+
 [node name="table an char" parent="." instance=ExtResource("21_h6ta1")]
 transform = Transform3D(0.472188, 0, -0.217885, 0, 0.806054, 0, 0.255162, 0, 0.403204, 18.7653, 9.38043, -89.4979)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="table an char"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="table an char/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.091677, -0.234863, -0.0072937)
+shape = SubResource("BoxShape3D_wpxni")
+
+[node name="table an char2" parent="." instance=ExtResource("21_h6ta1")]
+transform = Transform3D(0.410265, 0, -0.295496, 0, 0.806054, 0, 0.346051, 0, 0.350328, 52.4211, 27.1386, -35.1284)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="table an char2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="table an char2/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.091677, -0.234863, -0.0072937)
 shape = SubResource("BoxShape3D_wpxni")
 
