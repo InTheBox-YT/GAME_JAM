@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://3at00qcw8mv8" path="res://Models/model.dae" id="2_hxynw"]
 [ext_resource type="Texture2D" uid="uid://cdgcw5xivc156" path="res://Materials/Metal/Metal_04-512x512.png" id="3_k7dia"]
 [ext_resource type="Material" uid="uid://dycdgi6o1h7jp" path="res://Materials/GridFloor2Move.tres" id="3_skmkj"]
-[ext_resource type="Material" uid="uid://cg3tadj2vlmw5" path="res://Materials/GridFloo222r.tres" id="3_t5cdo"]
-[ext_resource type="Material" uid="uid://cud00c2qusf04" path="res://dirt.tres" id="4_tyaf0"]
+[ext_resource type="Material" path="res://Materials/GridFloo222r.tres" id="3_t5cdo"]
+[ext_resource type="Material" path="res://dirt.tres" id="4_tyaf0"]
 [ext_resource type="Texture2D" uid="uid://dxiotuj6n3igt" path="res://Materials/Wood/Wood_20-512x512.png" id="5_eh3tv"]
 [ext_resource type="PackedScene" uid="uid://dmxfw56dfqaba" path="res://scenes/npc.tscn" id="5_hu4v8"]
 [ext_resource type="Texture2D" uid="uid://c6minqip2tsrl" path="res://Materials/Wood/dumdum.png" id="5_svpfs"]
@@ -971,7 +971,6 @@ volume_db = 6.095
 unit_size = 1.49
 pitch_scale = 0.47
 autoplay = true
-stream_paused = true
 max_distance = 10.0
 parameters/looping = true
 
