@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://2v3mk05sk4kq"]
+[gd_scene load_steps=19 format=3 uid="uid://2v3mk05sk4kq"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_5dfqd"]
 [ext_resource type="PackedScene" uid="uid://dvg2o6pb6ba56" path="res://scenes/Map.tscn" id="2_ina60"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bwc11fu40bt3q" path="res://Shader/settings.webp" id="12_jc0co"]
 [ext_resource type="Texture2D" uid="uid://doc7ve8lvioyd" path="res://Shader/download__3_-removebg-preview.png" id="13_6rr3a"]
 [ext_resource type="Texture2D" uid="uid://baihutduu3uv7" path="res://Shader/download__4_-removebg-preview.png" id="14_0xo5m"]
+[ext_resource type="AudioStream" uid="uid://cexi8vdntdymp" path="res://Shader/Pilot Specs.wav" id="17_1d6we"]
 
 [sub_resource type="Environment" id="Environment_xjj1u"]
 
@@ -152,6 +153,7 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="SettingsMenu" type="Control" parent="MenuCanvas"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -176,12 +178,14 @@ texture_normal = ExtResource("14_0xo5m")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MenuCanvas/SettingsMenu"]
+[node name="Word" type="RichTextLabel" parent="MenuCanvas/SettingsMenu"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 926.0
-offset_top = 240.0
-offset_right = 1456.0
-offset_bottom = 302.0
+offset_left = 402.0
+offset_top = 262.0
+offset_right = 932.0
+offset_bottom = 324.0
+theme_override_font_sizes/bold_italics_font_size = 5
 text = "SETTINGS OPTIONS COMING SOON
 "
 fit_content = true
@@ -197,6 +201,11 @@ stream = ExtResource("10_q8nr3")
 volume_db = 4.0
 autoplay = true
 parameters/looping = true
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_1d6we")
+volume_db = -15.036
+autoplay = true
 
 [connection signal="pressed" from="MenuCanvas/Main Menu/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MenuCanvas/Main Menu/SettingsButton" to="." method="_on_settings_button_pressed"]

@@ -6,6 +6,7 @@ extends Node3D
 @onready var music_player = $AudioStreamPlayer  # Reference to AudioStreamPlayer node for music
 var Player = preload("res://scenes/player.tscn")
 @onready var ambience_player = $AudioStreamPlayer2
+@onready var Music2 = $AudioStreamPlayer3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,6 +19,9 @@ func _ready():
 	
 	if ambience_player:
 		ambience_player.stop()
+	
+	if Music2:
+		Music2.stop()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -38,6 +42,9 @@ func _on_play_button_pressed():
 	
 	if ambience_player:
 		ambience_player.play()
+	
+	if Music2:
+		Music2.play()
 
 func _on_button_pressed():
 	pass
