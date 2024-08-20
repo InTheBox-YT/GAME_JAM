@@ -71,7 +71,8 @@ ambient_light_color = Color(0.118581, 0.118581, 0.118581, 1)
 ambient_light_sky_contribution = 0.0
 ambient_light_energy = 0.0
 glow_enabled = true
-glow_intensity = 1.85
+glow_intensity = 1.09
+glow_bloom = 0.15
 fog_enabled = true
 fog_light_color = Color(1, 1, 1, 1)
 fog_light_energy = 0.34
@@ -2263,6 +2264,7 @@ material = ExtResource("4_tyaf0")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.514874, 0.857266, 0, -0.857266, -0.514874, 25.9176, 18.9539, -60.8953)
+light_color = Color(1, 0.781655, 0.717366, 1)
 shadow_enabled = true
 
 [node name="Cool Sign" type="MeshInstance3D" parent="."]
