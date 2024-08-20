@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://c787recj65cw8"]
+[gd_scene load_steps=48 format=4 uid="uid://c787recj65cw8"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerMovement.gd" id="1_4yoea"]
 [ext_resource type="Texture2D" uid="uid://x7hwhqgs6mn2" path="res://mannetje beveled_Cube Base Color.png" id="3_b1ofm"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cw5v11mqt8xcr" path="res://mannetje beveled_Cube_3.png" id="10_b2s58"]
 [ext_resource type="Script" path="res://Scripts/camera_controller.gd" id="11_oe065"]
 [ext_resource type="Shader" path="res://Shader/LethalCompany.gdshader" id="12_vbepp"]
+[ext_resource type="PackedScene" uid="uid://cwkkb0xgsjfuw" path="res://Shader/mannetje anim.glb" id="14_0nr85"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_epvc8"]
 
@@ -558,3 +559,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("CameraTexture_31pdm")
+
+[node name="mannetje anim" parent="." instance=ExtResource("14_0nr85")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.07084, 3.9505)
