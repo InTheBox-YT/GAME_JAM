@@ -70,8 +70,8 @@ func _input(event):
 			dialogueAvaliable = false
 			return
 		elif interactables.size() > 0:
-			print("found interactable")
-		
+			interactables[0].action()
+			return
 		
 func _physics_process(delta: float):
 	if dialogueAvaliable == true:

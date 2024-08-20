@@ -1,4 +1,4 @@
-[gd_scene load_steps=157 format=4 uid="uid://dvg2o6pb6ba56"]
+[gd_scene load_steps=164 format=4 uid="uid://dvg2o6pb6ba56"]
 
 [ext_resource type="Material" uid="uid://d1deego7mdsfe" path="res://Materials/GridFloor.tres" id="1_hnknw"]
 [ext_resource type="Texture2D" uid="uid://cfa6vikmtfx81" path="res://Materials/Plaster/Plaster_09-512x512.png" id="1_wos0x"]
@@ -33,12 +33,15 @@
 [ext_resource type="Resource" uid="uid://cdidk5jexjl7w" path="res://dialogue/sign.dialogue" id="19_mthdm"]
 [ext_resource type="PackedScene" uid="uid://drie1rm0411oq" path="res://Scripts/rebar.glb" id="21_j1imn"]
 [ext_resource type="PackedScene" uid="uid://blob5p65qd32w" path="res://Models/beach.tscn" id="23_vfshm"]
+[ext_resource type="Script" path="res://scenes/remove.gd" id="25_y45q5"]
 [ext_resource type="Texture2D" uid="uid://dwq4i8mv21m3i" path="res://Models/signs_lock in.png" id="27_q5h1i"]
 [ext_resource type="Texture2D" uid="uid://s7twrjt7hce8" path="res://Shader/Clues2.png" id="28_sa2eg"]
 [ext_resource type="Texture2D" uid="uid://bbw6o6ync4sh3" path="res://Shader/costusdsdme2.png" id="30_tkqbx"]
 [ext_resource type="Texture2D" uid="uid://byircx6tk67pa" path="res://Shader/Shrinkeystructions.png" id="31_plmsr"]
 [ext_resource type="PackedScene" uid="uid://dbp5jyh7m4f8r" path="res://Shader/tree.glb" id="32_x5s43"]
 [ext_resource type="Texture2D" uid="uid://cmry258c4a58l" path="res://Models/signs_Cube.png" id="33_6r8gl"]
+[ext_resource type="Texture2D" uid="uid://bcyx37orcpktu" path="res://Sprites/logo-removebg-preview.png" id="41_rfiwx"]
+[ext_resource type="PackedScene" uid="uid://cc7qoypi2fqwq" path="res://scenes/Interactable.tscn" id="42_58qjk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t6lk5"]
 albedo_texture = ExtResource("1_wos0x")
@@ -315,6 +318,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_vi8dc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kxihd"]
+albedo_texture = ExtResource("18_j6cun")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_53exw"]
 albedo_texture = ExtResource("3_k7dia")
@@ -811,6 +817,14 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_5b4c2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ygrgf"]
+albedo_texture = ExtResource("41_rfiwx")
+
+[sub_resource type="BoxMesh" id="BoxMesh_f8tli"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xenv6"]
+size = Vector3(1.5, 1.5, 2.21826)
 
 [node name="Map" type="Node3D"]
 
@@ -1846,6 +1860,35 @@ size = Vector3(6.81959, 6.9739, 0.583008)
 [node name="beach" parent="UnsizeableObjects" instance=ExtResource("23_vfshm")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -9.7699, -56.819, 125.895)
 
+[node name="CSGBox3D45" type="CSGBox3D" parent="UnsizeableObjects"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.73768, 5.79453, -9.56103)
+material_override = SubResource("StandardMaterial3D_kxihd")
+use_collision = true
+size = Vector3(7.14762, 9.0754, 0.268377)
+material = ExtResource("3_t5cdo")
+script = ExtResource("25_y45q5")
+metadata/_edit_group_ = true
+
+[node name="InteractUI3" type="Label3D" parent="UnsizeableObjects/CSGBox3D45"]
+transform = Transform3D(-0.840548, 0, -0.541737, 0, 1, 0, 0.541737, 0, -0.840548, -16.9978, 4.20371, 80.3063)
+visibility_range_begin = 4.0
+visibility_range_begin_margin = 2.0
+visibility_range_end = 10.0
+visibility_range_end_margin = 2.0
+billboard = 1
+text = "(E) To Pick up evidene 1 
+"
+
+[node name="InteractUI4" type="Label3D" parent="UnsizeableObjects/CSGBox3D45"]
+transform = Transform3D(-0.933324, 0, -0.359036, 0, 1, 0, 0.359036, 0, -0.933324, -50.7296, 21.9618, 25.9352)
+visibility_range_begin = 4.0
+visibility_range_begin_margin = 2.0
+visibility_range_end = 10.0
+visibility_range_end_margin = 2.0
+billboard = 1
+text = "(E) To Pick up evidene 2
+"
+
 [node name="CSGBox3D10" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7075, -0.61044, -17.8488)
 material_override = SubResource("StandardMaterial3D_53exw")
@@ -2541,3 +2584,29 @@ material_override = SubResource("StandardMaterial3D_lctsl")
 use_collision = true
 size = Vector3(2.93343, 6.40132, 0.665194)
 material = ExtResource("4_tyaf0")
+
+[node name="edvidene" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.638901, -0.102043, 0.253671, -0.689722, 0.055462, -0.607015, 0.340719, -0.0790736, -0.753116, 18.9714, 10.3306, -89.2615)
+material_override = SubResource("StandardMaterial3D_ygrgf")
+mesh = SubResource("BoxMesh_f8tli")
+skeleton = NodePath("")
+
+[node name="Interactable" parent="edvidene" instance=ExtResource("42_58qjk")]
+transform = Transform3D(0.6389, -0.689722, -0.340719, 5.16897, 2.80942, 4.00547, -0.253671, -0.607015, 0.753116, 40.704, -235.957, -60.3363)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="edvidene/Interactable"]
+transform = Transform3D(0.866025, -1.77638e-14, -0.5, -1.42109e-14, 1, 0, 0.5, -5.68434e-14, 0.866025, -16.9676, 4.85671, 78.2261)
+shape = SubResource("BoxShape3D_xenv6")
+
+[node name="edvidene2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.694937, -0.0837831, 0.401853, -0.689722, 0.055462, -0.607015, 0.203339, -0.098213, -0.6856, 52.5747, 28.0887, -34.855)
+material_override = SubResource("StandardMaterial3D_ygrgf")
+mesh = SubResource("BoxMesh_f8tli")
+skeleton = NodePath("")
+
+[node name="Interactable" parent="edvidene2" instance=ExtResource("42_58qjk")]
+transform = Transform3D(0.6389, -0.689722, -0.340719, 5.16897, 2.80942, 4.00547, -0.253671, -0.607015, 0.753116, 40.704, -235.957, -60.3363)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="edvidene2/Interactable"]
+transform = Transform3D(0.866025, -1.77638e-14, -0.5, -1.42109e-14, 1, 0, 0.5, -5.68434e-14, 0.866025, -16.9676, 4.85671, 78.2261)
+shape = SubResource("BoxShape3D_xenv6")

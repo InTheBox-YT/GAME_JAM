@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://2v3mk05sk4kq"]
+[gd_scene load_steps=21 format=3 uid="uid://2v3mk05sk4kq"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_5dfqd"]
 [ext_resource type="PackedScene" uid="uid://dvg2o6pb6ba56" path="res://scenes/Map.tscn" id="2_ina60"]
@@ -17,27 +17,12 @@
 [ext_resource type="Texture2D" uid="uid://doc7ve8lvioyd" path="res://Shader/download__3_-removebg-preview.png" id="13_6rr3a"]
 [ext_resource type="Texture2D" uid="uid://baihutduu3uv7" path="res://Shader/download__4_-removebg-preview.png" id="14_0xo5m"]
 [ext_resource type="AudioStream" uid="uid://cexi8vdntdymp" path="res://Shader/Pilot Specs.wav" id="17_1d6we"]
-[ext_resource type="Texture2D" uid="uid://ce8c1avl35lwo" path="res://Materials/Metal/Metal_03-512x512.png" id="18_fenlm"]
-[ext_resource type="Material" uid="uid://cg3tadj2vlmw5" path="res://Materials/GridFloo222r.tres" id="19_ky0m6"]
-[ext_resource type="Texture2D" uid="uid://bcyx37orcpktu" path="res://Sprites/logo-removebg-preview.png" id="20_uthgs"]
 [ext_resource type="PackedScene" uid="uid://rxjh84rb2mrv" path="res://Materials/table an char.glb" id="21_h6ta1"]
-[ext_resource type="PackedScene" uid="uid://cc7qoypi2fqwq" path="res://scenes/Interactable.tscn" id="22_l2p1g"]
 
 [sub_resource type="Environment" id="Environment_xjj1u"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4uvpc"]
-albedo_texture = ExtResource("18_fenlm")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j537f"]
-albedo_texture = ExtResource("20_uthgs")
-
-[sub_resource type="BoxMesh" id="BoxMesh_um42w"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_wpxni"]
 size = Vector3(2.04565, 1.64551, 4.65594)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_p41io"]
-size = Vector3(1.5, 1.5, 2.21826)
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_5dfqd")
@@ -226,39 +211,6 @@ stream = ExtResource("17_1d6we")
 volume_db = -15.036
 autoplay = true
 
-[node name="CSGBox3D23" type="CSGBox3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.73768, 5.79453, -9.56103)
-material_override = SubResource("StandardMaterial3D_4uvpc")
-use_collision = true
-size = Vector3(7.14762, 9.0754, 0.268377)
-material = ExtResource("19_ky0m6")
-metadata/_edit_group_ = true
-
-[node name="InteractUI3" type="Label3D" parent="CSGBox3D23"]
-transform = Transform3D(-0.840548, 0, -0.541737, 0, 1, 0, 0.541737, 0, -0.840548, -16.9978, 4.20371, 80.3063)
-visibility_range_begin = 4.0
-visibility_range_begin_margin = 2.0
-visibility_range_end = 10.0
-visibility_range_end_margin = 2.0
-billboard = 1
-text = "(E) To Pick up evidene 1 
-"
-
-[node name="edvidene2" type="MeshInstance3D" parent="CSGBox3D23"]
-transform = Transform3D(0.694937, 0.0837831, -0.401853, -0.689722, 0.055462, -0.607015, -0.203339, 0.098213, 0.6856, -50.837, 22.2942, 25.294)
-material_override = SubResource("StandardMaterial3D_j537f")
-mesh = SubResource("BoxMesh_um42w")
-
-[node name="InteractUI4" type="Label3D" parent="CSGBox3D23"]
-transform = Transform3D(-0.933324, 0, -0.359036, 0, 1, 0, 0.359036, 0, -0.933324, -50.7296, 21.9618, 25.9352)
-visibility_range_begin = 4.0
-visibility_range_begin_margin = 2.0
-visibility_range_end = 10.0
-visibility_range_end_margin = 2.0
-billboard = 1
-text = "(E) To Pick up evidene 2
-"
-
 [node name="table an char" parent="." instance=ExtResource("21_h6ta1")]
 transform = Transform3D(0.472188, 0, -0.217885, 0, 0.806054, 0, 0.255162, 0, 0.403204, 18.7653, 9.38043, -89.4979)
 
@@ -276,19 +228,6 @@ transform = Transform3D(0.410265, 0, -0.295496, 0, 0.806054, 0, 0.346051, 0, 0.3
 [node name="CollisionShape3D" type="CollisionShape3D" parent="table an char2/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.091677, -0.234863, -0.0072937)
 shape = SubResource("BoxShape3D_wpxni")
-
-[node name="edvidene" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.638901, -0.102043, 0.253671, -0.689722, 0.055462, -0.607015, 0.340719, -0.0790736, -0.753116, 18.9714, 10.3306, -89.2615)
-material_override = SubResource("StandardMaterial3D_j537f")
-mesh = SubResource("BoxMesh_um42w")
-skeleton = NodePath("../CSGBox3D23")
-
-[node name="Interactable" parent="edvidene" instance=ExtResource("22_l2p1g")]
-transform = Transform3D(0.6389, -0.689722, -0.340719, 5.16897, 2.80942, 4.00547, -0.253671, -0.607015, 0.753116, 40.704, -235.957, -60.3363)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="edvidene/Interactable"]
-transform = Transform3D(0.866025, -1.77638e-14, -0.5, -1.42109e-14, 1, 0, 0.5, -5.68434e-14, 0.866025, -16.9676, 4.85671, 78.2261)
-shape = SubResource("BoxShape3D_p41io")
 
 [connection signal="pressed" from="MenuCanvas/Main Menu/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MenuCanvas/Main Menu/SettingsButton" to="." method="_on_settings_button_pressed"]
