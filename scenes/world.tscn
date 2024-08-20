@@ -21,7 +21,7 @@
 [ext_resource type="Material" uid="uid://cg3tadj2vlmw5" path="res://Materials/GridFloo222r.tres" id="19_ky0m6"]
 [ext_resource type="Texture2D" uid="uid://bcyx37orcpktu" path="res://Sprites/logo-removebg-preview.png" id="20_uthgs"]
 [ext_resource type="PackedScene" uid="uid://rxjh84rb2mrv" path="res://Materials/table an char.glb" id="21_h6ta1"]
-[ext_resource type="PackedScene" uid="uid://cc7qoypi2fqwq" path="res://scenes/interactable.tscn" id="22_l2p1g"]
+[ext_resource type="PackedScene" uid="uid://cc7qoypi2fqwq" path="res://scenes/Interactable.tscn" id="22_l2p1g"]
 
 [sub_resource type="Environment" id="Environment_xjj1u"]
 
