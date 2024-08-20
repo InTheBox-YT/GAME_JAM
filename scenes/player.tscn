@@ -1,8 +1,9 @@
-[gd_scene load_steps=46 format=4 uid="uid://c787recj65cw8"]
+[gd_scene load_steps=47 format=4 uid="uid://c787recj65cw8"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerMovement.gd" id="1_4yoea"]
 [ext_resource type="Texture2D" uid="uid://x7hwhqgs6mn2" path="res://mannetje beveled_Cube Base Color.png" id="3_b1ofm"]
 [ext_resource type="Texture2D" uid="uid://xb2fulcsi7uc" path="res://Shader/magni (not modi)_Material Base Color.png" id="3_npo2n"]
+[ext_resource type="Texture2D" uid="uid://cuc2n82hxr85e" path="res://Shader/Outline.png" id="4_at27i"]
 [ext_resource type="Texture2D" uid="uid://cgxiw2wxt2wa" path="res://mannetje beveled_Cube.png" id="4_v4no3"]
 [ext_resource type="Texture2D" uid="uid://cvlp7lfqn8l1v" path="res://mannetje beveled_Material.png" id="5_e4yvu"]
 [ext_resource type="Texture2D" uid="uid://bdku3tjfukxbj" path="res://mannetje beveled_Material_5.png" id="6_mjhbj"]
@@ -473,9 +474,16 @@ mesh = SubResource("CapsuleMesh_q7m34")
 surface_material_override/0 = SubResource("StandardMaterial3D_7wxux")
 
 [node name="magnifying_glass" type="MeshInstance3D" parent="CharacterBody3D/CamRoot/CamYaw/CamPitch/FirstPersonCamera"]
-transform = Transform3D(0.0674871, -0.0429864, 0, 0.0455172, 0.0637348, 0, 0, 0, 0.0436293, 0.365075, -0.489247, -0.538461)
+transform = Transform3D(0.0674871, -0.0429864, 0, 0.0455172, 0.0637348, 0, 0, 0, 0.0436293, 0.365075, -0.526074, -0.363644)
 mesh = SubResource("ArrayMesh_w14mt")
 skeleton = NodePath("")
+
+[node name="Sprite3D" type="Sprite3D" parent="CharacterBody3D/CamRoot/CamYaw/CamPitch/FirstPersonCamera/magnifying_glass"]
+transform = Transform3D(1.53478, 1.02817, 0, -1.00697, 1.56708, 0, 0, 0, 1, 0.130757, 8.83302, -0.329789)
+shaded = true
+double_sided = false
+texture_filter = 2
+texture = ExtResource("4_at27i")
 
 [node name="Model" type="Node3D" parent="CharacterBody3D"]
 

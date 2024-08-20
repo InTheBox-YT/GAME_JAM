@@ -298,5 +298,7 @@ visibility_range_begin = 4.0
 visibility_range_begin_margin = 2.0
 visibility_range_end = 10.0
 visibility_range_end_margin = 2.0
+visibility_range_fade_mode = 1
+billboard = 1
 text = "(E) To Interact
 "
