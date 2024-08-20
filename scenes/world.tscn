@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://2v3mk05sk4kq"]
+[gd_scene load_steps=28 format=3 uid="uid://2v3mk05sk4kq"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_5dfqd"]
 [ext_resource type="PackedScene" uid="uid://dvg2o6pb6ba56" path="res://scenes/Map.tscn" id="2_ina60"]
@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://cexi8vdntdymp" path="res://Shader/Pilot Specs.wav" id="17_1d6we"]
 [ext_resource type="Texture2D" uid="uid://ce8c1avl35lwo" path="res://Materials/Metal/Metal_03-512x512.png" id="18_fenlm"]
 [ext_resource type="Material" uid="uid://cg3tadj2vlmw5" path="res://Materials/GridFloo222r.tres" id="19_ky0m6"]
+[ext_resource type="Script" path="res://scenes/door.gd" id="20_r5ana"]
 [ext_resource type="Texture2D" uid="uid://bcyx37orcpktu" path="res://Sprites/logo-removebg-preview.png" id="20_uthgs"]
 [ext_resource type="PackedScene" uid="uid://rxjh84rb2mrv" path="res://Materials/table an char.glb" id="21_h6ta1"]
 
@@ -228,6 +229,7 @@ material_override = SubResource("StandardMaterial3D_4uvpc")
 use_collision = true
 size = Vector3(7.14762, 9.0754, 0.268377)
 material = ExtResource("19_ky0m6")
+script = ExtResource("20_r5ana")
 metadata/_edit_group_ = true
 
 [node name="edvidene" type="MeshInstance3D" parent="CSGBox3D23"]

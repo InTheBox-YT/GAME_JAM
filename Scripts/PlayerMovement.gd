@@ -31,7 +31,7 @@ var target_fov = normal_fov
 @export var resize_max: float = 5.0
 @export var resize_min: float = 0.1
 var resize_factor = 2.5
-var resize_speed = 30
+var resize_speed = 15
 
 var target_scale: Vector3 = Vector3.ONE
 var current_target: Node3D = null
@@ -67,7 +67,9 @@ func _input(event):
 			actionables[0].action()
 			dialogueAvaliable = false
 			return
-				
+		
+		
+		
 func _physics_process(delta: float):
 	if dialogueAvaliable == true:
 		
