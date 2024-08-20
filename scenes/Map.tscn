@@ -2357,24 +2357,24 @@ size = Vector3(4.47233, 6.40132, 0.754523)
 material = ExtResource("4_tyaf0")
 
 [node name="CSGBox3D86" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5196, 10.421, -76.0578)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.4393, 10.421, -76.0578)
 material_override = SubResource("StandardMaterial3D_lctsl")
 use_collision = true
-size = Vector3(4.47233, 6.40132, 0.754523)
+size = Vector3(2.63298, 6.40132, 0.754523)
 material = ExtResource("4_tyaf0")
 
 [node name="CSGBox3D81" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0979, 10.421, -73.9346)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0979, 10.421, -71.7359)
 material_override = SubResource("StandardMaterial3D_lctsl")
 use_collision = true
-size = Vector3(0.625651, 6.40132, 3.57157)
+size = Vector3(0.625651, 6.40132, 7.96889)
 material = ExtResource("4_tyaf0")
 
 [node name="CSGBox3D83" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5892, 10.421, -73.9346)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5892, 10.421, -74.2844)
 material_override = SubResource("StandardMaterial3D_lctsl")
 use_collision = true
-size = Vector3(0.625651, 6.40132, 3.57157)
+size = Vector3(0.625651, 6.40132, 4.27114)
 material = ExtResource("4_tyaf0")
 
 [node name="CSGBox3D84" type="CSGBox3D" parent="."]
@@ -2386,6 +2386,13 @@ material = ExtResource("4_tyaf0")
 
 [node name="CSGBox3D87" type="CSGBox3D" parent="."]
 transform = Transform3D(-1, 0, -0.000750454, 0, 1, 0, 0.000750454, 0, -1, 25.5305, 10.421, -79.5049)
+material_override = SubResource("StandardMaterial3D_lctsl")
+use_collision = true
+size = Vector3(4.47233, 6.40132, 0.754523)
+material = ExtResource("4_tyaf0")
+
+[node name="CSGBox3D105" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, -0.000750454, 0, 1, 0, 0.000750454, 0, -1, 23.651, 10.421, -93.0164)
 material_override = SubResource("StandardMaterial3D_lctsl")
 use_collision = true
 size = Vector3(4.47233, 6.40132, 0.754523)
@@ -2476,24 +2483,31 @@ size = Vector3(0.625651, 6.40132, 3.57157)
 material = ExtResource("4_tyaf0")
 
 [node name="CSGBox3D99" type="CSGBox3D" parent="."]
-transform = Transform3D(-0.994001, 0, 0.10937, 0, 1, 0, -0.10937, 0, -0.994001, 3.0274, 10.5688, -87.0435)
+transform = Transform3D(-0.994001, 0, 0.10937, 0, 1, 0, -0.10937, 0, -0.994001, 2.43088, 10.5688, -87.1091)
 material_override = SubResource("StandardMaterial3D_lctsl")
 use_collision = true
-size = Vector3(4.47233, 6.40132, 0.754523)
+size = Vector3(5.67257, 6.40132, 0.754523)
+material = ExtResource("4_tyaf0")
+
+[node name="CSGBox3D104" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.994001, 0, 0.10937, 0, 1, 0, -0.10937, 0, -0.994001, 1.70862, 10.5688, -93.1184)
+material_override = SubResource("StandardMaterial3D_lctsl")
+use_collision = true
+size = Vector3(7.12581, 6.40132, 0.754523)
 material = ExtResource("4_tyaf0")
 
 [node name="CSGBox3D100" type="CSGBox3D" parent="."]
-transform = Transform3D(-0.994001, 0, 0.10937, 0, 1, 0, -0.10937, 0, -0.994001, 4.73699, 10.5688, -84.8361)
+transform = Transform3D(-0.994001, 0, 0.10937, 0, 1, 0, -0.10937, 0, -0.994001, 5.18912, 10.5688, -88.9452)
 material_override = SubResource("StandardMaterial3D_lctsl")
 use_collision = true
-size = Vector3(0.625651, 6.40132, 3.57157)
+size = Vector3(0.625651, 6.40132, 11.8394)
 material = ExtResource("4_tyaf0")
 
 [node name="CSGBox3D101" type="CSGBox3D" parent="."]
-transform = Transform3D(0.00804596, 0, 0.999968, 0, 1, 0, -0.999968, 0, 0.00804596, 8.719, 10.421, -86.9645)
+transform = Transform3D(0.00804596, 0, 0.999968, 0, 1, 0, -0.999968, 0, 0.00804596, 8.74766, 10.421, -90.5259)
 material_override = SubResource("StandardMaterial3D_lctsl")
 use_collision = true
-size = Vector3(4.47233, 6.40132, 0.754523)
+size = Vector3(11.5954, 6.40132, 0.754523)
 material = ExtResource("4_tyaf0")
 
 [node name="CSGBox3D102" type="CSGBox3D" parent="."]
