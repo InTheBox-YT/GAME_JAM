@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bo2xc262nj0ht" path="res://Models/beach_Cube_2.png" id="3_ajgsl"]
 [ext_resource type="Texture2D" uid="uid://dr7ppls2ybodh" path="res://Models/beach_Cube_10.png" id="4_bngu4"]
 [ext_resource type="Texture2D" uid="uid://cmdtghy6jar65" path="res://Models/beach_Cube_11.png" id="5_fvd3w"]
-[ext_resource type="Texture2D" uid="uid://brruoo0qstebt" path="res://Models/beach_armor Base Color.png" id="6_2cidg"]
+[ext_resource type="Texture2D" uid="uid://c8b0bpxpq5ar5" path="res://Models/beach_armor Base Color.png" id="6_2cidg"]
 [ext_resource type="Texture2D" uid="uid://c6yyefdfyy5df" path="res://Models/beach_Cube_4.png" id="7_cg3e8"]
 [ext_resource type="Texture2D" uid="uid://cb5ja7fwt8wdp" path="res://Models/beach_cloth thing.png" id="8_gf6d1"]
 [ext_resource type="Texture2D" uid="uid://cf5trvddhagri" path="res://Models/beach_Cube_6.png" id="9_x2t0n"]
