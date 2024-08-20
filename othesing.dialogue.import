@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://ijxr0ekpntn7"
+path="res://.godot/imported/othesing.dialogue-4312a401d819653b46ba29a60435e8dd.tres"
+
+[deps]
+
+source_file="res://othesing.dialogue"
+dest_files=["res://.godot/imported/othesing.dialogue-4312a401d819653b46ba29a60435e8dd.tres"]
+
+[params]
+
+defaults=true

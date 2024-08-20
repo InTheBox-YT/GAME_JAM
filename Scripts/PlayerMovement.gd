@@ -9,6 +9,8 @@ extends CharacterBody3D
 @onready var arm: MeshInstance3D = $CamRoot/CamYaw/CamPitch/FirstPersonCamera/Arm
 @onready var actionable_finder: Area3D = $Model/ActionableFinder
 @onready var interactable_finder: Area3D = $Model/InteractableFinder
+@onready var area_3d = $WorldEnvironment2/Area3D
+
 
 # Speed Variables
 var direction
@@ -78,6 +80,8 @@ func _physics_process(delta: float):
 		
 		if Input.is_action_pressed("Reset Character"):
 			self.global_position = Vector3(0,0,0)
+			
+		
 
 		if Input.is_action_just_pressed("Jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY

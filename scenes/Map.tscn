@@ -1,4 +1,4 @@
-[gd_scene load_steps=166 format=4 uid="uid://dvg2o6pb6ba56"]
+[gd_scene load_steps=168 format=4 uid="uid://dvg2o6pb6ba56"]
 
 [ext_resource type="Material" uid="uid://d1deego7mdsfe" path="res://Materials/GridFloor.tres" id="1_hnknw"]
 [ext_resource type="Texture2D" uid="uid://cfa6vikmtfx81" path="res://Materials/Plaster/Plaster_09-512x512.png" id="1_wos0x"]
@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://df6pvei5p0roy" path="res://Shader/gfhfghfg.png" id="19_l68q5"]
 [ext_resource type="Resource" uid="uid://cdidk5jexjl7w" path="res://dialogue/sign.dialogue" id="19_mthdm"]
 [ext_resource type="PackedScene" uid="uid://drie1rm0411oq" path="res://Scripts/rebar.glb" id="21_j1imn"]
+[ext_resource type="Resource" uid="uid://ijxr0ekpntn7" path="res://othesing.dialogue" id="23_aqofr"]
 [ext_resource type="PackedScene" uid="uid://blob5p65qd32w" path="res://Models/beach.tscn" id="23_vfshm"]
 [ext_resource type="Script" path="res://scenes/remove.gd" id="25_y45q5"]
 [ext_resource type="Texture2D" uid="uid://dwq4i8mv21m3i" path="res://Models/signs_lock in.png" id="27_q5h1i"]
@@ -40,6 +41,7 @@
 [ext_resource type="Texture2D" uid="uid://byircx6tk67pa" path="res://Shader/Shrinkeystructions.png" id="31_plmsr"]
 [ext_resource type="PackedScene" uid="uid://dbp5jyh7m4f8r" path="res://Shader/tree.glb" id="32_x5s43"]
 [ext_resource type="Texture2D" uid="uid://cmry258c4a58l" path="res://Models/signs_Cube.png" id="33_6r8gl"]
+[ext_resource type="Resource" uid="uid://dqeswcdj81ar1" path="res://e.dialogue" id="39_i4yng"]
 [ext_resource type="Texture2D" uid="uid://bcyx37orcpktu" path="res://Sprites/logo-removebg-preview.png" id="41_rfiwx"]
 [ext_resource type="PackedScene" uid="uid://cc7qoypi2fqwq" path="res://scenes/Interactable.tscn" id="42_58qjk"]
 
@@ -319,6 +321,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_vi8dc")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_u5nig"]
+size = Vector3(2.1875, 1.5, 2.51721)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kxihd"]
 albedo_texture = ExtResource("18_j6cun")
 
@@ -551,9 +556,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_w6b5k")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_u5nig"]
-size = Vector3(1.5, 1.5, 1.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e1sqg"]
 resource_name = "Material.001"
@@ -1773,14 +1775,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0281, 1.15863, -30.9601)
 shape = SubResource("BoxShape3D_gnhvr")
 
 [node name="Cube_001" type="MeshInstance3D" parent="UnsizeableObjects/fence13/StaticBody3D/CollisionShape3D3"]
-transform = Transform3D(0.071303, 0, -0.643459, 0, 0.4, 0, 0.0965189, 0, 0.475353, 2.53946, -0.373173, 6.70057)
+transform = Transform3D(0.071303, 0, -0.643459, 0, 0.4, 0, 0.0965189, 0, 0.475353, 2.71876, -0.373174, 7.02542)
 mesh = SubResource("ArrayMesh_savf8")
 skeleton = NodePath("")
 
-[node name="Cube_011" type="MeshInstance3D" parent="UnsizeableObjects/fence13/StaticBody3D/CollisionShape3D3"]
-transform = Transform3D(0.177989, 0, -0.321729, 0, 0.4, 0, 0.240933, 0, 0.237676, 2.53946, 0.126827, 6.70057)
+[node name="Cube_011" type="MeshInstance3D" parent="UnsizeableObjects/fence13/StaticBody3D/CollisionShape3D3/Cube_001"]
+transform = Transform3D(2.49623, 0, -7.15256e-07, 0, 1, 0, -5.96046e-07, 0, 0.499999, -3.06525, 1.25, -0.0610046)
 mesh = SubResource("ArrayMesh_jkrs3")
 skeleton = NodePath("")
+
+[node name="Actionable" parent="UnsizeableObjects/fence13/StaticBody3D/CollisionShape3D3/Cube_001" instance=ExtResource("18_c2baj")]
+dialogue_resource = ExtResource("23_aqofr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="UnsizeableObjects/fence13/StaticBody3D/CollisionShape3D3/Cube_001/Actionable"]
+transform = Transform3D(10.0528, 0, 9.53674e-07, 0, 4.16761, 0, -2.98023e-07, 0, 1, -0.00012207, 0, 0.00723267)
+shape = SubResource("BoxShape3D_u5nig")
+
+[node name="InteractUI3" type="Label3D" parent="UnsizeableObjects/fence13/StaticBody3D/CollisionShape3D3/Cube_001"]
+transform = Transform3D(0.282361, 0, -0.959308, 0, 2.19886, 0, 0.959308, 0, 0.282358, 5.51453, 0.170778, 0.135117)
+visibility_range_begin = 4.0
+visibility_range_begin_margin = 2.0
+visibility_range_end = 10.0
+visibility_range_end_margin = 2.0
+billboard = 1
+text = "(E) To Interact
+"
 
 [node name="fence14" parent="UnsizeableObjects" instance=ExtResource("17_tnw4q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.6603, 9.19526, -70.7261)
@@ -1870,10 +1889,10 @@ use_collision = true
 size = Vector3(6.81959, 6.9739, 0.583008)
 
 [node name="beach" parent="UnsizeableObjects" instance=ExtResource("23_vfshm")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -9.7699, -56.819, 125.895)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -12.0621, -157.415, 16.9816)
 
 [node name="CSGBox3D45" type="CSGBox3D" parent="UnsizeableObjects"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.73768, 5.79453, -9.56103)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.73768, 5.79453, -10.2414)
 material_override = SubResource("StandardMaterial3D_kxihd")
 use_collision = true
 size = Vector3(7.14762, 9.0754, 0.268377)
@@ -2227,10 +2246,27 @@ transform = Transform3D(0.108168, 0, -0.346386, 0, 0.4, 0, 0.0519579, 0, 0.72112
 mesh = SubResource("ArrayMesh_6h0xl")
 skeleton = NodePath("")
 
-[node name="Cube_016" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.37303, 0, -0.179182, 0, 0.413833, 0, 0.179182, 0, 0.37303, -6.51098, 8.53509, -57.5454)
+[node name="Cube_016" type="MeshInstance3D" parent="Cube_015"]
+transform = Transform3D(3.44861, 0, 2.98023e-06, 0, 1.03458, 0, -1.04308e-06, 0, 0.517291, 6.10352e-05, 2.0188, 0.0289803)
 mesh = SubResource("ArrayMesh_hamjl")
 skeleton = NodePath("")
+
+[node name="Actionable" parent="Cube_015" instance=ExtResource("18_c2baj")]
+dialogue_resource = ExtResource("39_i4yng")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_015/Actionable"]
+transform = Transform3D(10.0528, 0, 9.53674e-07, 0, 4.16761, 0, -2.98023e-07, 0, 1, -0.00012207, 0, 0.00723267)
+shape = SubResource("BoxShape3D_u5nig")
+
+[node name="InteractUI5" type="Label3D" parent="Cube_015"]
+transform = Transform3D(0.282361, 0, -0.959308, 0, 2.19886, 0, 0.959308, 0, 0.282358, 5.51453, 0.170778, 0.135117)
+visibility_range_begin = 4.0
+visibility_range_begin_margin = 2.0
+visibility_range_end = 10.0
+visibility_range_end_margin = 2.0
+billboard = 1
+text = "(E) To Interact
+"
 
 [node name="Cube_017" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0775789, 0, -0.0372645, 0, 0.0860646, 0, 0.0372645, 0, 0.0775789, -6.42278, 7.67353, -57.4981)
@@ -2361,15 +2397,45 @@ dialogue_resource = ExtResource("19_mthdm")
 transform = Transform3D(1, 0, -9.53674e-07, 0, 1, 0, -8.9407e-08, 0, 1, 3.64832, -0.550896, 0.0343781)
 shape = SubResource("BoxShape3D_muses")
 
+[node name="Thee Sign" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0284758, 0, 0.289082, 0, 0.26473, 0, -0.0529672, 0, -0.155414, 3.7523, 3.93164, 1.77404)
+mesh = SubResource("ArrayMesh_kuq4i")
+skeleton = NodePath("")
+
+[node name="Actionable" parent="Thee Sign" instance=ExtResource("18_c2baj")]
+transform = Transform3D(3.47036, 0, -9.53674e-07, 0, 1, 0, -1.49012e-08, 0, -8.85499, 0, 0, 0)
+dialogue_resource = ExtResource("19_mthdm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Thee Sign/Actionable"]
+transform = Transform3D(1, 0, -9.53674e-07, 0, 1, 0, -8.9407e-08, 0, 1, 3.64832, -0.550896, 0.0343781)
+shape = SubResource("BoxShape3D_muses")
+
 [node name="Cube_013" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.0743603, 0, -0.62789, 0, 0.4, 0, 0.0941835, 0, -0.495736, 52.3907, 28.4928, -39.53)
 mesh = SubResource("ArrayMesh_xyoh2")
 skeleton = NodePath("")
 
-[node name="Cube_014" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.185621, 0, -0.313945, 0, 0.4, 0, 0.235104, 0, -0.247868, 52.3907, 28.9928, -39.53)
+[node name="Cube_014" type="MeshInstance3D" parent="Cube_013"]
+transform = Transform3D(2.49624, 0, -1.19209e-07, 0, 1, 0, 2.98023e-07, 0, 0.5, 0, 1.25, 0)
 mesh = SubResource("ArrayMesh_aah02")
 skeleton = NodePath("")
+
+[node name="Actionable" parent="Cube_013" instance=ExtResource("18_c2baj")]
+dialogue_resource = ExtResource("23_aqofr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_013/Actionable"]
+transform = Transform3D(10.0528, 0, -4.52995e-06, 0, 4.16763, 0, -3.8147e-06, 0, 1, 3.45544, 0, 0.202244)
+shape = SubResource("BoxShape3D_u5nig")
+
+[node name="InteractUI4" type="Label3D" parent="Cube_013"]
+transform = Transform3D(0.282361, 0, -0.959308, 0, 2.19887, 0, 0.959309, 0, 0.282358, 4.69562, 0.170776, -0.0204659)
+visibility_range_begin = 4.0
+visibility_range_begin_margin = 2.0
+visibility_range_end = 10.0
+visibility_range_end_margin = 2.0
+billboard = 1
+text = "(E) To Interact
+"
 
 [node name="Circle2" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.619669, 0, -0.784863, 0, 1, 0, 0.784863, 0, -0.619669, 52.7832, 28.5928, -39.2087)
@@ -2627,7 +2693,8 @@ shape = SubResource("BoxShape3D_xenv6")
 environment = SubResource("Environment_8ol60")
 
 [node name="CSGBox3D23" type="CSGBox3D" parent="WorldEnvironment2"]
-transform = Transform3D(0.870975, 0, 0, 0, 26.5272, 0, 0, 0, -0.0475741, 1.96372, 6.50439, 8.62007)
-use_collision = true
+transform = Transform3D(0.870975, 0, 0, 0, 26.5272, 0, 0, 0, -0.0475741, 1.96372, 6.50439, 11.8846)
+collision_layer = 128
+collision_mask = 128
 size = Vector3(7.0509, 0.276277, 24.6801)
 material = SubResource("StandardMaterial3D_dyh8u")
