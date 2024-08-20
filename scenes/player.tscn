@@ -537,7 +537,7 @@ skin = SubResource("Skin_pju0j")
 skeleton = NodePath("../../CamRoot/CamYaw/CamPitch/FirstPersonCamera")
 
 [node name="Cube_003" type="MeshInstance3D" parent="CharacterBody3D/Model"]
-transform = Transform3D(-0.479076, 0, 4.23418e-08, 0, 0.378926, 0, -4.18821e-08, 0, -0.484333, -0.0166507, 1.10652, 0.158413)
+transform = Transform3D(-0.479076, 0, 4.23418e-08, 0, 0.419162, 0, -4.18821e-08, 0, -0.484333, -0.0166507, 1.10652, 0.158413)
 mesh = SubResource("ArrayMesh_3a3r0")
 skin = SubResource("Skin_pju0j")
 skeleton = NodePath("../../CamRoot/CamYaw/CamPitch/FirstPersonCamera")
@@ -562,3 +562,4 @@ texture = SubResource("CameraTexture_31pdm")
 
 [node name="mannetje anim" parent="." instance=ExtResource("14_0nr85")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.07084, 3.9505)
+visible = false

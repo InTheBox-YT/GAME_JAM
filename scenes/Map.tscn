@@ -1570,10 +1570,10 @@ size = Vector3(13.2333, 8.29743, 11.7971)
 material = ExtResource("2_f7cnu")
 
 [node name="CSGBox3D35" type="CSGBox3D" parent="UnsizeableObjects"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 54.5758, 22.0978, -33.544)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 54.5758, 22.0978, -30.5949)
 material_override = SubResource("StandardMaterial3D_pd6oe")
 use_collision = true
-size = Vector3(16.2182, 8.33609, 40.5931)
+size = Vector3(16.2182, 8.33609, 46.4914)
 material = ExtResource("2_f7cnu")
 
 [node name="pipe (1)4" parent="UnsizeableObjects" instance=ExtResource("8_8kkhn")]
