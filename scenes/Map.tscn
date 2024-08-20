@@ -2090,7 +2090,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.104654, -3.3805, -0.768692
 shape = SubResource("CylinderShape3D_juafc")
 
 [node name="tree5" parent="." instance=ExtResource("32_x5s43")]
-transform = Transform3D(0.630405, 0, -0.776267, 0, 1, 0, 0.776267, 0, 0.630405, 12.5304, 13.9569, -79.3683)
+transform = Transform3D(0.630405, 0, -0.776267, 0, 1, 0, 0.776267, 0, 0.630405, 12.5304, 13.6942, -79.3683)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="tree5"]
 
