@@ -1645,7 +1645,7 @@ mesh = SubResource("ArrayMesh_ym45a")
 skeleton = NodePath("")
 
 [node name="right lower arm" type="MeshInstance3D" parent="Wife/body_001/right upper arm"]
-transform = Transform3D(0.243604, -0.211202, -1.0513, 0.190992, 0.953333, -0.161242, -0.740647, 0.176372, -0.387361, 0.356235, -0.0334297, -2.76675)
+transform = Transform3D(0.243604, -0.211202, -1.0513, 0.190992, 0.953333, -0.161242, -0.740647, 0.176372, -0.387361, 0.207546, 0.988243, -2.70212)
 mesh = SubResource("ArrayMesh_7pwc0")
 skeleton = NodePath("")
 
